@@ -14,7 +14,7 @@
           </div>
           <div class="carousel-caption  d-md-block pb-5">
             <h1 style=" text-shadow: black 0em 0em 0.1em " class="indexBannerText mb-3 ">
-              居家生活風格更加獨特
+              — 居家生活風格更加獨特 —
             </h1>
             <p style="text-shadow: black 0em 0em 0.1em" class="mb-4 fs-5 text">
               美好生活，創造你的生活美學
