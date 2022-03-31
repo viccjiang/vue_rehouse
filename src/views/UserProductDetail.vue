@@ -3,7 +3,41 @@
   <div class="container mt-3 mt-md-5">
     <div class="row align-items-center">
       <div class="col-md-7">
-        <div
+        <!-- 圖片開始 -->
+        <img
+          class="rounded-2 w-100"
+          :src="productImg"
+          :alt="product.title"
+        />
+        <div class="col-12 flex-nowrap py-1">
+          <div class="row flex-nowrap m-0">
+            <div
+              class="col-2 pe-1"
+              :src="product.imageUrl"
+            >
+              <img
+                class="w-100 p-0 rounded "
+                :src="product.imageUrl"
+                @click="changeImg(product.imageUrl)"
+              />
+            </div>
+            <div
+              class="col-2 pe-1"
+              v-for="(img, key) in product.imagesUrl"
+              :key="`附圖_${key}`"
+            >
+              <img
+                class="w-100 p-0 rounded "
+                :src="img"
+                :alt="`附圖_${key}`"
+                @click="changeImg(img)"
+              />
+            </div>
+          </div>
+        </div>
+        <!-- 圖片結束 -->
+        </div>
+        <!-- <div
           id="carouselExampleControls"
           class="carousel slide"
           data-ride="carousel"
@@ -18,7 +52,7 @@
           " alt="..." />
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
       <div class="col-md-5">
         <nav aria-label="breadcrumb">
@@ -136,7 +170,6 @@
         ></div>
       </swiper-slide>
    </swiper> -->
-  </div>
   </div>
   <div class="container">
     <div class="row mt-5 mb-5">
@@ -404,6 +437,7 @@ export default {
     return {
       product: {},
       products: [], // 取得所有產品資料 存起來
+      productImg: '',
       id: '',
       isLoading: false,
       randomProducts: [],
@@ -425,6 +459,7 @@ export default {
           console.log('單一產品資訊 :', res);
           this.isLoading = false;
           this.product = res.data.product; // 賦值
+          this.productImg = this.product.imageUrl;
           this.getProducts(); // 先取得單一產品資訊，再取得所有產品資訊
         })
         .catch((err) => {
@@ -532,6 +567,9 @@ export default {
         timer: 2000,
         iconColor: '#236F6B',
       });
+    },
+    changeImg(img) {
+      this.productImg = img;
     },
   },
   mounted() {
