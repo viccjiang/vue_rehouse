@@ -81,6 +81,18 @@ const router = createRouter({
   history: createWebHashHistory(),
   linkActiveClass: 'active',
   routes,
+  scrollBehavior() {
+    // console.log(to, from, savedPosition)
+    // 如果到達的頁面，路徑名稱符合特定字串的話
+    // if (to.fullPath.match('products')) {
+    //   return {
+    //     top: 500
+    //   }
+    // }
+    return {
+      top: 0,
+    };
+  },
 });
 
 export default router;
