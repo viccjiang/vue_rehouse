@@ -9,27 +9,37 @@
           :src="productImg"
           :alt="product.title"
         />
-        <div class="col-12 flex-nowrap py-1">
-          <div class="row flex-nowrap m-0">
+        <div class="col-12  mt-3 d-flex align-items-center justify-content-between flex-nowrap py-1">
+          <div class="row flex-nowrap m-0  d-flex align-items-center justify-content-between">
             <div
-              class="col-2 pe-1"
+              class="col-2 "
               :src="product.imageUrl"
             >
               <img
+              style="height: 100px;
+              background-size: cover;
+              background-position:center center;
+              object-fit: cover;
+              "
                 class="w-100 p-0 rounded "
                 :src="product.imageUrl"
                 @click="changeImg(product.imageUrl)"
               />
             </div>
             <div
-              class="col-2 pe-1"
+              class="col-2 "
               v-for="(img, key) in product.imagesUrl"
-              :key="`附圖_${key}`"
+              :key="`圖_${key}`"
             >
               <img
+              style="height: 100px;
+              background-size: cover;
+              background-position:center center;
+              object-fit: cover;
+              "
                 class="w-100 p-0 rounded "
                 :src="img"
-                :alt="`附圖_${key}`"
+                :alt="`圖_${key}`"
                 @click="changeImg(img)"
               />
             </div>
@@ -53,7 +63,6 @@
             </div>
           </div>
         </div> -->
-      </div>
       <div class="col-md-5">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb bg-white px-0 mb-0 py-3">
@@ -158,6 +167,8 @@
           </ul>
          <hr>
       </div>
+    </div>
+
     <!-- <swiper :slides-per-view="1" :space-between="50">
       <swiper-slide v-for="(item, key)  in product.imagesUrl" :key="item.id">
         <div
@@ -482,9 +493,11 @@ export default {
       this.$http(`${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/product/${id}`)
         .then((res) => {
           console.log('單一產品資訊 :', res);
-          this.isLoading = false;
+          // this.isLoading = false;
           this.product = res.data.product; // 賦值
           this.randomProducts = []; // 轉到新頁面要先清空原本的
+          this.productImg = this.product.imageUrl;
+          this.isLoading = false;
           this.getLookLike();
         })
         .catch((err) => {
@@ -570,6 +583,7 @@ export default {
     },
     changeImg(img) {
       this.productImg = img;
+      // console.log(this.productImg);
     },
   },
   mounted() {
