@@ -59,7 +59,7 @@
           </div>
           <div>
             <!-- <router-link class="nav-link fs-5 position-relative" to="/cart"> -->
-            <a href="#" class="nav-link fs-5 position-relative" data-bs-spy="scroll" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+            <a href="#" class="nav-link fs-5 position-relative" data-bs-scroll="true" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
               <i class="bi bi-bag text-secondary"></i>
               <div
                 class="
@@ -95,7 +95,7 @@
       </button> -->
     </div>
   </nav>
-  <div class="offcanvas offcanvas-end"  style="overflow: auto" tabindex="-1" id="offcanvasRight"  aria-labelledby="offcanvasRightLabel">
+  <div class="offcanvas offcanvas-end"  data-bs-scroll="true" data-bs-backdrop="false" ref="offcanvas" style="overflow: auto" tabindex="-1" id="offcanvasRight"  aria-labelledby="offcanvasRightLabel">
     <div class=" bg-soft offcanvas-header text-white">
       <h5 id="offcanvasRightLabel " class="text-center m-0">購物車</h5>
       <button type="button" class="btn-close btn-close-white text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -176,7 +176,7 @@
       </div>
       </div>
       <p class="text-center m-0 fs-6 text-danger mb-3">總計 $ {{cartData.final_total}} 元 </p>
-      <router-link class="nav-link p-0 d-grid " to="/cart"><button class=" btn btn-soft text-center m-0">結帳去</button></router-link>
+      <router-link class="btn btn-soft text-center m-0 nav-link text-white p-0 d-grid " to="/cart" >結帳去</router-link>
       <!-- {{ cartData.carts }} -->
     </div>
       </div>
@@ -185,7 +185,7 @@
       <p class="m-0 ">你的購物車沒有商品</p>
       <div class="d-flex align-items-center justify-content-center">
         <router-link to="/"><button type="button" class="btn btn-outline-secondary m-2">回首頁</button></router-link>
-        <router-link to="products"><button type="button" class="btn btn-outline-secondary">購物去</button></router-link>
+        <router-link to="/products"><button type="button" class="btn btn-outline-secondary">購物去</button></router-link>
       </div>
     </div>
     </div>
@@ -193,6 +193,7 @@
 </template>
 
 <script>
+import Offcanvas from 'bootstrap/js/dist/offcanvas';
 import emitter from '../methods/emitter';
 
 export default {
@@ -206,6 +207,7 @@ export default {
       },
       cartsLength: 0,
       favoriteNum: 0,
+      offcanvas: {},
     };
   },
   methods: {
@@ -290,6 +292,12 @@ export default {
       this.favoriteNum = arr ? arr.length : 0;
       console.log('目前我的最愛數量:', this.favoriteNum);
     },
+    showOffcanvas() {
+      this.offcanvas.show();
+    },
+    hideOffcanvas() {
+      this.offcanvas.hide();
+    },
   },
   mounted() {
     this.getCarts();
@@ -302,6 +310,7 @@ export default {
     emitter.on('update-favorite', () => {
       this.updateFavoriteNum();
     });
+    this.offcanvas = new Offcanvas(this.$refs.offcanvas);
   },
 };
 </script>

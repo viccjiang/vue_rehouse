@@ -5,23 +5,6 @@
 </Loading>
   <div class="container mt-5">
     <h2 class="mb-10 text-center text-soft">STEP.1 確認訂單</h2>
-    <!-- <div class="row p-3">
-      <ul class="steps row g-0 list-unstyled mb-4">
-        <li class="col-4 border">
-          <small class="ls-3">STEP1</small>
-          <span>確認訂單</span>
-        </li>
-        <li class="col-4 border">
-          <small class="ls-3">STEP2</small>
-          <span>建立訂單</span>
-        </li>
-        <li class="col-4 border">
-          <small class="ls-3">STEP3</small>
-          <span>完成訂單</span>
-        </li>
-      </ul>
-    </div> -->
-
     <div class="row justify-content-center">
       <div class="col">
         <div class="position-relative mb-5">
