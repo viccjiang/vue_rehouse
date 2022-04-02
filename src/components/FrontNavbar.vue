@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top ">
     <div class="container">
       <router-link class="navbar-brand brandlogo" to="/"><span class="brandlogos">re.</span>HOUSE </router-link>
       <button
@@ -58,7 +58,8 @@
             </router-link>
           </div>
           <div>
-            <router-link class="nav-link fs-5 position-relative" to="/cart">
+            <!-- <router-link class="nav-link fs-5 position-relative" to="/cart"> -->
+            <a href="#" class="nav-link fs-5 position-relative" data-bs-spy="scroll" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
               <i class="bi bi-bag text-secondary"></i>
               <div
                 class="
@@ -78,7 +79,8 @@
                 <!-- 購物車品項數量總數 (重複) -->
                 {{ cartsLength }}
               </div>
-            </router-link>
+              </a>
+            <!-- </router-link> -->
           </div>
           <div>
             <router-link class="nav-link fs-5 text-secondary" to="/dashboard/products">
@@ -93,6 +95,101 @@
       </button> -->
     </div>
   </nav>
+  <div class="offcanvas offcanvas-end"  style="overflow: auto" tabindex="-1" id="offcanvasRight"  aria-labelledby="offcanvasRightLabel">
+    <div class=" bg-soft offcanvas-header text-white">
+      <h5 id="offcanvasRightLabel " class="text-center m-0">購物車</h5>
+      <button type="button" class="btn-close btn-close-white text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div v-if="cartData.carts.length >0">
+    <div class="offcanvas-body d-flex flex-column justify-content-between">
+      <div class="container">
+      <div class="row  border-bottom mb-3 " v-for="item in cartData.carts" :key="item.id">
+        <div class="col-2 d-flex flex-column align-items-center justify-content-center" >
+          <p
+            type=""
+            class="btn btn-sm text-secondary  text-start m-0"
+            :disabled="loadingItem === item.id"
+            @click="removeCartItem(item.id)"
+          >
+            <i class="bi bi-trash3"></i>
+          </p>
+        </div>
+        <div
+        class="col-2 mb-2 "
+        style="
+          height: 50px;
+          width:50px;
+          background-size: cover;
+          background-position: center;
+        "
+        :style="{ backgroundImage: `url(${item.product.imageUrl})` }">
+          <!-- {{item.product.imageUrl}} -->
+        </div>
+        <div class="col d-flex flex-column fs-6 fw-bold align-items-start justify-content-center" >
+          {{item.product.title}}
+        </div>
+        <div class="border-top d-flex justify-content-center bg-light">
+        <div class="col d-flex flex-column ms-auto " >
+          <div
+            class="price d-flex justify-content-md-between flex-column flex-nowrap flex-md-row "
+          >
+            <!-- 數量 -->
+            <div
+              class="input-group product-num-group bg-light mt-1 mb-4 my-md-0"
+            >
+              <!-- 減 -->
+              <div class="">
+                <button
+                  :disabled="item.qty <= 1 || loadingItem === item.id"
+                  @click="updateCart(item, item.qty--)"
+                  class="btn border-0 bg-light"
+                  type="button"
+                >
+                  <i class="bi bi-dash-lg"></i>
+                </button>
+              </div>
+              <!-- 數量 -->
+              <input
+                type="text"
+                class="form-control border-0 text-center my-auto shadow-none bg-light border"
+                aria-describedby="button-addon1"
+                v-model.lazy="item.qty"
+              />
+              <!-- 加 -->
+              <div class="">
+                <button
+                  :disabled="loadingItem === item.id"
+                  @click="updateCart(item, item.qty++)"
+                  class="btn border-0"
+                  type="button"
+                >
+                  <i class="bi bi-plus-lg"></i>
+                </button>
+              </div>
+            </div>
+            </div>
+        </div>
+        <div class="col d-flex flex-column ms-auto text-end  fs-7 text-secondary align-items-end justify-content-center" >
+          ${{item.final_total}}
+        </div>
+        </div>
+      </div>
+      </div>
+      <p class="text-center m-0 fs-6 text-danger mb-3">總計 $ {{cartData.final_total}} 元 </p>
+      <router-link class="nav-link p-0 d-grid " to="/cart"><button class=" btn btn-soft text-center m-0">結帳去</button></router-link>
+      <!-- {{ cartData.carts }} -->
+    </div>
+      </div>
+    <div v-else class="offcanvas-body d-flex flex-column align-items-center justify-content-center">
+    <div  class="text-center d-flex flex-column align-items-center justify-content-center">
+      <p class="m-0 ">你的購物車沒有商品</p>
+      <div class="d-flex align-items-center justify-content-center">
+        <router-link to="/"><button type="button" class="btn btn-outline-secondary m-2">回首頁</button></router-link>
+        <router-link to="products"><button type="button" class="btn btn-outline-secondary">購物去</button></router-link>
+      </div>
+    </div>
+    </div>
+</div>
 </template>
 
 <script>
@@ -101,6 +198,9 @@ import emitter from '../methods/emitter';
 export default {
   data() {
     return {
+      products: [],
+      product: {},
+      loadingItem: '',
       cartData: {
         carts: [],
       },
@@ -128,6 +228,55 @@ export default {
           }
         });
     },
+    // 更新購物車
+    updateCart(item) {
+      const url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/cart/${item.id}`;
+      this.isLoading = true;
+      this.loadingItem = item.id;
+      const cart = {
+        product_id: item.product_id,
+        qty: item.qty,
+      };
+      this.$http.put(url, { data: cart }).then((res) => {
+        console.log(res);
+        this.loadingItem = '';
+        this.getCarts();
+        this.isLoading = false;
+        emitter.emit('update-cart'); // 更新購物車數量
+      });
+    },
+    getCarts() {
+      this.$http
+        .get(`${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/cart`)
+        .then((res) => {
+          console.log('購物車:', res);
+          this.cartData = res.data.data;
+        });
+    },
+    // 刪除購物車品項
+    removeCartItem(id) {
+      this.loadingItem = id;
+      const url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/cart/${id}`;
+      this.isLoading = true;
+      this.$http.delete(url).then((response) => {
+        this.$httpMessageState(response, '移除購物車品項');
+        this.loadingItem = '';
+        this.getCarts();
+        this.isLoading = false;
+        emitter.emit('update-cart'); // 更新購物車數量
+      });
+    },
+    // 刪除全部購物車品項
+    removeCart() {
+      const url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/carts`;
+      this.isLoading = true;
+      this.$http.delete(url).then((response) => {
+        this.$httpMessageState(response, '移除全部購物車品項');
+        this.getCarts();
+        this.isLoading = false;
+        emitter.emit('update-cart'); // 更新購物車數量
+      });
+    },
     // getCart() {
     //   this.$http
     //     .get(`${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/cart`)
@@ -143,13 +292,11 @@ export default {
     },
   },
   mounted() {
-    // this.getCart();
-    // emitter.on('update-cart', () => {
-    //   this.getCart();
-    // });
+    this.getCarts();
     this.updateCartNum();
     emitter.on('update-cart', () => {
       this.updateCartNum();
+      this.getCarts();
     });
     this.updateFavoriteNum();
     emitter.on('update-favorite', () => {
