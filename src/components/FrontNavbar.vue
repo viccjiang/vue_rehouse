@@ -103,79 +103,89 @@
     <div v-if="cartData.carts.length >0">
     <div class="offcanvas-body d-flex flex-column justify-content-between">
       <div class="container">
-      <div class="row  border-bottom mb-3 " v-for="item in cartData.carts" :key="item.id">
-        <div class="col-2 d-flex flex-column align-items-center justify-content-center" >
-          <p
-            type=""
-            class="btn btn-sm text-secondary  text-start m-0"
-            :disabled="loadingItem === item.id"
-            @click="removeCartItem(item.id)"
-          >
-            <i class="bi bi-trash3"></i>
-          </p>
-        </div>
-        <div
-        class="col-2 mb-2 "
-        style="
-          height: 50px;
-          width:50px;
-          background-size: cover;
-          background-position: center;
-        "
-        :style="{ backgroundImage: `url(${item.product.imageUrl})` }">
-          <!-- {{item.product.imageUrl}} -->
-        </div>
-        <div class="col d-flex flex-column fs-6 fw-bold align-items-start justify-content-center" >
-          {{item.product.title}}
+      <div class="row  border-bottom mb-3 d-flex " v-for="item in cartData.carts" :key="item.id">
+        <div class="d-flex ">
+          <!-- offcanvas 刪除單一品項 -->
+          <div class="col-2 d-flex align-items-center justify-content-center" >
+            <p
+              type=""
+              class="btn btn-sm text-secondary  text-start m-0"
+              :disabled="loadingItem === item.id"
+              @click="removeCartItem(item.id)"
+            >
+              <i class="bi bi-trash3"></i>
+            </p>
+          </div>
+          <!-- 連到細節頁面 -->
+          <a href="#"
+            @click.prevent="getProduct(item.product_id)"
+            class="d-flex align-items-center justify-content-center link-soft">
+            <div
+              class="col-2 mb-2 "
+              style="
+                height: 50px;
+                width:50px;
+                background-size: cover;
+                background-position: center;
+              "
+              :style="{ backgroundImage: `url(${item.product.imageUrl})` }">
+                <!-- {{item.product.imageUrl}} -->
+            </div>
+            <div class="col fs-6 fw-bold ">
+              <!-- <router-link :to="`/product/${item.product_id}`">GO</router-link> -->
+              <!-- <a href="#" @click.prevent="getProduct(item.product_id)">GO</a> -->
+              {{item.product.title}}
+            </div>
+          </a>
         </div>
         <div class="border-top d-flex justify-content-center bg-light">
-        <div class="col d-flex flex-column ms-auto " >
-          <div
-            class="price d-flex justify-content-md-between flex-column flex-nowrap flex-md-row "
-          >
-            <!-- 數量 -->
+          <div class="col d-flex flex-column ms-auto " >
             <div
-              class="input-group product-num-group bg-light mt-1 mb-4 my-md-0"
+              class="price d-flex justify-content-md-between flex-column flex-nowrap flex-md-row "
             >
-              <!-- 減 -->
-              <div class="">
-                <button
-                  :disabled="item.qty <= 1 || loadingItem === item.id"
-                  @click="updateCart(item, item.qty--)"
-                  class="btn border-0 bg-light"
-                  type="button"
-                >
-                  <i class="bi bi-dash-lg"></i>
-                </button>
-              </div>
               <!-- 數量 -->
-              <input
-                type="text"
-                class="form-control border-0 text-center my-auto shadow-none bg-light border"
-                aria-describedby="button-addon1"
-                v-model.lazy="item.qty"
-              />
-              <!-- 加 -->
-              <div class="">
-                <button
-                  :disabled="loadingItem === item.id"
-                  @click="updateCart(item, item.qty++)"
-                  class="btn border-0"
-                  type="button"
-                >
-                  <i class="bi bi-plus-lg"></i>
-                </button>
+              <div
+                class="input-group product-num-group bg-light mt-1 mb-4 my-md-0"
+              >
+                <!-- 減 -->
+                <div class="">
+                  <button
+                    :disabled="item.qty <= 1 || loadingItem === item.id"
+                    @click="updateCart(item, item.qty--)"
+                    class="btn border-0 bg-light"
+                    type="button"
+                  >
+                    <i class="bi bi-dash-lg"></i>
+                  </button>
+                </div>
+                <!-- 數量 -->
+                <input
+                  type="text"
+                  class="form-control border-0 text-center my-auto shadow-none bg-light border"
+                  aria-describedby="button-addon1"
+                  v-model.lazy="item.qty"
+                />
+                <!-- 加 -->
+                <div class="">
+                  <button
+                    :disabled="loadingItem === item.id"
+                    @click="updateCart(item, item.qty++)"
+                    class="btn border-0"
+                    type="button"
+                  >
+                    <i class="bi bi-plus-lg"></i>
+                  </button>
+                </div>
               </div>
-            </div>
-            </div>
-        </div>
+              </div>
+          </div>
         <div class="col d-flex flex-column ms-auto text-end  fs-7 text-secondary align-items-end justify-content-center" >
-          ${{item.final_total}}
+          ${{$filters.currency(item.final_total)}}
         </div>
         </div>
       </div>
       </div>
-      <p class="text-center m-0 fs-6 text-danger mb-3">總計 $ {{cartData.final_total}} 元 </p>
+      <p class="text-center m-0 fs-6 text-danger mb-3">總計 $ {{ $filters.currency(cartData.final_total)}} 元 </p>
       <router-link class="btn btn-soft text-center m-0 nav-link text-white p-0 d-grid " to="/cart" >結帳去</router-link>
       <!-- {{ cartData.carts }} -->
     </div>
@@ -210,7 +220,19 @@ export default {
       offcanvas: {},
     };
   },
+  // 監聽 $router (連到細節頁面)
+  // 使用 vue中的$this.router.push()方法，如果只是傳入的參數不同，url地址會發生變化，但是頁面不會重新請求數據，需要刷新頁面才能加載新數據。
+  // 解決辦法是 監聽 $router
+  watch: {
+    $route() {
+      this.$router.go(0); // 其中 this.$router.go(0) 为刷新页面
+    },
+  },
   methods: {
+    getProduct(id) {
+      console.log(id);
+      this.$router.push(`/product/${id}`);
+    },
     updateCartNum() {
       const url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/cart`;
       this.$http
@@ -329,6 +351,9 @@ export default {
   font-weight: 400;
   font-size: 30px;
   font-style: italic;
+}
+a:link {
+  text-decoration: none;
 }
 
 </style>
