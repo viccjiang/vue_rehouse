@@ -83,7 +83,7 @@
                       {{ item.description }}
                     </h6> -->
                     </div>
-                    <div class="mb-3 d-flex flex-column justify-content-end align-items-end">
+                    <div class="mb-3 d-flex flex-column justify-content-end align-items-start">
                       <div class="h5 list-inline-item" v-if="!item.price">
                         {{ item.origin_price }} 元
                       </div>
@@ -93,7 +93,7 @@
                         >原價 NT$
                         {{ $filters.currency(item.origin_price) }} 元</del
                       >
-                      <div class="fs-4 text-danger" v-if="item.price">
+                      <div class="fs-6 text-danger fw-bold" v-if="item.price">
                         NT$ {{ $filters.currency(item.price) }} 元
                       </div>
                     </div>
@@ -180,6 +180,7 @@ export default {
         // emitter.emit('update-favorite'); // 更新最愛數量
       } else {
         this.myFavorite.push(item.id); // 否則沒有此品項 就把品項加入
+        this.favShowAlert();
         // emitter.emit('update-favorite'); // 更新最愛數量
       }
       console.log('myFavorite 我的最愛數量', this.myFavorite.length);
@@ -235,6 +236,17 @@ export default {
         position: 'center',
         icon: 'success',
         title: '已加入購物車',
+        showConfirmButton: false,
+        timer: 2000,
+        iconColor: '#236F6B',
+      });
+    },
+    favShowAlert() {
+      // Use sweetalert2
+      this.$swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: '已加入收藏',
         showConfirmButton: false,
         timer: 2000,
         iconColor: '#236F6B',
