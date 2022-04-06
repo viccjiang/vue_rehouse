@@ -129,18 +129,17 @@
           </div> -->
           <div>
             <div class="input-group mb-3">
-              <input
+              <!-- <input
                 type="number"
                 class="form-control"
                 min="1"
                 v-model.number="qty"
-              />
-              <!-- <select id="" class="form-select" v-model.number="product.qty"
-                    @change="updateCartItem(product)">
+              /> -->
+              <select id="" class="form-select" v-model.number="qty">
                       <option :value="num" v-for="num in 20" :key="`${num}${product.id}`">
                           {{num}}
                       </option>
-                    </select> -->
+                    </select>
               <button
                 type="button"
                 class="btn btn-soft border-0"
@@ -407,16 +406,16 @@
     </div>
   </div>
   <div class="container mb-5">
-    <p class="fs-3 fw-bold bg-soft py-2 text-white text-center rounded">你可能也會喜歡</p>
-    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
-      <div v-for="item in randomProducts" :key="item" class="col">
-        <div class="card h-100">
+    <p class="fs-3 fw-bold py-2 text-dark text-start border-bottom ">你可能也會喜歡</p>
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 ">
+      <div v-for="item in randomProducts" :key="item" class="col ">
+        <div class="card h-100 rounded-0 ">
           <img style="
-                        height: 200px;
-                        background-size: cover;
-                        background-position: center;
-                        object-fit:cover;
-                      " :src="item.imageUrl" class="card-img-top" alt="">
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            object-fit:cover;
+          " :src="item.imageUrl" class="card-img-top border-0 rounded-0" alt="">
           <div class="card-body d-flex flex-column justify-content-between">
             <h5 class="card-title">{{ item.title }}</h5>
             <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
