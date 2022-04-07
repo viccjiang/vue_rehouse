@@ -1,6 +1,6 @@
 <template>
   <footer class="bg-dark py-2 py-md-3 text-light ">
- <div class="container row g-0 mx-auto fs-7 ls-2
+ <div class="container row g-0 mx-auto fs-6 ls-2
         text-secondary text-center">
         <nav class="nav-item mb-4 d-none d-md-inline-block">
           <ul class="row justify-content-between list-unstyled m-0">

@@ -1,8 +1,8 @@
 <template>
-  <nav aria-label="Page navigation example">
+  <nav aria-label="Page navigation example" v-if="pages.total_pages > 1">
     <ul class="pagination justify-content-center">
       <!-- 前一頁 -->
-      <li class="page-item" :class="{disabled:!pages.has_pre}">
+      <li class="page-item" v-if="pages.has_pre" :class="{disabled:!pages.has_pre}" >
         <a class="page-link" href="#" aria-label="Previous"
         @click.prevent="updatePage(pages.current_page - 1)">
           <span aria-hidden="true">&laquo;</span>
@@ -16,7 +16,7 @@
         </a>
       </li>
       <!-- 下一頁 -->
-      <li class="page-item" :class="{ disabled: !pages.has_next }">
+      <li class="page-item" v-if="pages.has_next" :class="{ disabled: !pages.has_next }">
         <a class="page-link" href="#" aria-label="Next"
         @click.prevent="updatePage(pages.current_page + 1)">
           <span aria-hidden="true">&raquo;</span>
@@ -33,6 +33,7 @@ export default {
   props: ['pages'], // 由外層取得的 pagination，用 pages 接收
   methods: {
     updatePage(page) {
+      if (this.pages.current_page === page) return;
       this.$emit('emit-pages', page); // 對外發送事件
     },
   },

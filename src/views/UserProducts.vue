@@ -26,8 +26,8 @@
            <a
             href="#"
             class="list-group-item list-group-item-action rounded-0"
-            @click.prevent="selectCategory = ''"
-            >全部</a
+            @click.prevent="selectCategory = ''; this.$route.params.selectCategory = ''"
+            ><i class="bi bi-arrow-right-circle"></i> 全部商品</a
           >
           <a
             href="#"
@@ -35,7 +35,7 @@
             :key="item"
             class="list-group-item list-group-item-action rounded-0"
             @click.prevent="selectCategory = item"
-            >{{ item }}</a
+            ><i class="bi bi-arrow-right-circle"></i> {{ item }}</a
           >
         </div>
       </div>
@@ -187,20 +187,68 @@ export default {
       // storageMethods.save(this.myFavorite); // 儲存狀態
       // emitter.emit('update-favorite'); // 更新最愛數量
     },
+    // getProducts(page = 1) {
+    //   const url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/products/?page=${page}`;
+    //   this.isLoading = true;
+    //   this.$http.get(url).then((response) => {
+    //     console.log('取得 response：', response);
+    //     this.products = response.data.products;
+    //     this.isLoading = false;
+    //     if (response.data.success) {
+    //       console.log('取得所有產品：', response.data);
+    //       this.products = response.data.products;
+    //       this.pagination = response.data.pagination;
+    //       this.getCategories();
+    //     }
+    //   });
+    // },
     getProducts(page = 1) {
-      const url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/products/?page=${page}`;
       this.isLoading = true;
-      this.$http.get(url).then((response) => {
-        console.log('取得 response：', response);
-        this.products = response.data.products;
-        this.isLoading = false;
-        if (response.data.success) {
-          console.log('取得所有產品：', response.data);
+      const url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/products/all`;
+      this.$http.get(url)
+        .then((response) => {
+          if (!response.data.success) {
+            this.isLoading = false;
+            return;
+          }
           this.products = response.data.products;
-          this.pagination = response.data.pagination;
+          console.log('取得全部', this.products);
           this.getCategories();
-        }
-      });
+          console.log('取得分類', this.selectCategory);
+          const { selectCategory } = this.$route.params;
+          if (selectCategory) {
+            this.selectCategory = selectCategory;
+          }
+          if (this.selectCategory !== '') {
+            this.pagination = {};
+          } else {
+            this.setPagination(page);
+          }
+          this.isLoading = false;
+        })
+        .catch((error) => {
+          this.$httpMessageState(error, '連線錯誤');
+          this.isLoading = false;
+        });
+    },
+    setPagination(page = 1) {
+      const perPage = 12;
+      this.pagination = {
+        total_pages: Math.ceil(this.products.length / perPage),
+        current_page: page,
+        has_pre: page !== 1,
+        has_next: false,
+        category: null,
+      };
+      if (this.pagination.current_page >= this.pagination.total_pages) {
+        this.pagination.current_page = this.pagination.total_pages;
+        this.pagination.has_next = false;
+      } else {
+        this.pagination.has_next = true;
+      }
+      const minPage = (this.pagination.current_page * perPage) - perPage;
+      const maxPage = (this.pagination.current_page * perPage);
+      this.products = this.products.slice(minPage, maxPage);
     },
     getCategories() {
       // Vue 3 雙向綁定 Proxy(new Proxy 物件)
@@ -261,6 +309,11 @@ export default {
         emitter.emit('update-favorite'); // 更新最愛數量
       },
       deep: true,
+    },
+    selectCategory(newValue, preValue) {
+      if (newValue === '' || preValue === '') {
+        this.getProducts();
+      }
     },
   },
   computed: { // 產生新的資料集 (裡面的值產生變化之後，資料重新運算)
