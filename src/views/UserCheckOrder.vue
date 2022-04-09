@@ -1,50 +1,136 @@
 <template>
-  <Loading :active="isLoading"></Loading>
-    <div class="container mt-5">
-    <h2 v-if="!order.is_paid" class="mb-10 text-center text-soft">STEP.2 建立訂單</h2>
-    <h2 v-else class="mb-10 text-center text-soft">STEP.3 完成訂單</h2>
-
-    <!-- <div class="row p-3">
-      <ul class="steps row g-0 list-unstyled mb-4">
-        <li class="col-4 border">
-          <small class="ls-3">STEP1</small>
-          <span>確認訂單</span>
-        </li>
-        <li class="col-4 border">
-          <small class="ls-3">STEP2</small>
-          <span>建立訂單</span>
-        </li>
-        <li class="col-4 border">
-          <small class="ls-3">STEP3</small>
-          <span>完成訂單</span>
-        </li>
-      </ul>
-    </div> -->
-
-    <div class="row justify-content-center">
+<Loading :active="isLoading"
+  loader="bars"
+  color="#236F6B">
+</Loading>
+  <!-- 購物車進度 -->
+  <div class="container mt-5 p-0">
+    <h2 class="text-center mb-5 fw-bold">購物車</h2>
+    <div class="check-step row g-0 align-items-center text-center">
       <div class="col">
-        <div class="position-relative mb-5">
-        <div class="progress" style="height: 1px;">
-          <!-- <div class="progress-bar" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div> -->
-        </div>
-        <button type="button" class="ms-5 position-absolute top-0 start-0 translate-middle btn btn-sm btn-soft rounded-pill"
-        style="width: 3rem; height:3rem;">
-        step 1</button>
-        <button type="button" class="position-absolute top-0 start-50 translate-middle btn btn-sm btn-soft rounded-pill"
-        style="width: 3rem; height:3rem;">
-        step 2</button>
-        <button type="button" v-if="!order.is_paid" class="ms-n5 position-absolute top-0 start-100 translate-middle btn btn-sm btn-secondary disabled rounded-pill"
-        style="width: 3rem; height:3rem;">
-        step 3</button>
-        <button type="button" v-else class="ms-n5 position-absolute top-0 start-100 translate-middle btn btn-sm btn-soft  rounded-pill"
-        style="width: 3rem; height:3rem;">
-        step 3</button>
-    </div>
-    <!-- {{ cartData.carts }} -->
+        <span class="fs-7">1</span>
+        <p class="m-3 text-soft">確認訂單</p>
+        <div class="step-bar-none"></div>
+      </div>
+      <div class="col">
+        <span class="fs-7">2</span>
+        <p class="m-3 text-soft">建立訂單</p>
+        <div v-if="!order.is_paid" class="step-bar "></div>
+        <div v-else class="step-bar-none"></div>
+      </div>
+      <div class="col">
+        <span class="fs-7">3</span>
+        <p class="m-3 text-soft">完成訂單</p>
+        <div v-if="!order.is_paid" class="step-bar-none"></div>
+        <div v-else class="step-bar"></div>
       </div>
     </div>
   </div>
-  <div class="container mt-5">
+  <!-- 已付款，完成訂單 -->
+  <div v-if="order.is_paid" class="container text-center mt-5 mb-5">
+    <div class="card text-center">
+    <div class="card-header bg-soft text-white">
+        完成訂單，感謝您的購買與支持
+    </div>
+    <div class="card-body">
+        <!-- <h5 class="card-title">購買日期 {{ $filters.date(order.create_at)}}</h5>
+        <p class="card-text">感謝您的購買與支持</p> -->
+        <dl class="row d-flex justify-content-start align-items-start text-start px-0 px-md-10 m-0">
+            <dt class="col-sm-3 ">購買日期</dt>
+            <dd class="col-sm-9 ">{{ $filters.date(order.create_at)}}</dd>
+            <dt class="col-sm-3">訂單編號</dt>
+            <dd class="col-sm-9">
+                <p class="m-0">{{order.id}}</p>
+            </dd>
+            <dt class="col-sm-3 ">Email</dt>
+            <dd class="col-sm-9">{{ order.user.email }}</dd>
+            <dt class="col-sm-3 ">收件人姓名</dt>
+            <dd class="col-sm-9">{{ order.user.name }}</dd>
+            <dt class="col-sm-3 ">收件人電話</dt>
+            <dd class="col-sm-9">{{ order.user.tel }}</dd>
+            <dt class="col-sm-3 ">收件人地址</dt>
+            <dd class="col-sm-9">{{ order.user.address }}</dd>
+            <dt class="col-sm-3">購買項目</dt>
+            <dd class="col-sm-9">
+              <div v-for="item in order.products" :key="item.id">
+                <span> {{ item.product.title }} </span>
+                <span> {{ item.qty }}{{ item.product.unit }} </span>
+                <span> NT$ {{ $filters.currency(item.final_total) }}</span>
+              </div>
+            </dd>
+            <dt class="col-sm-3 ">總金額</dt>
+            <dd class="col-sm-9">NT$ {{ $filters.currency(order.total) }}</dd>
+            <dt class="col-sm-3">付款狀態</dt>
+            <dd class="col-sm-9">
+                <span v-if="!order.is_paid" class="text-danger">尚未付款</span>
+                <span v-else class="text-success">付款完成</span>
+            </dd>
+        </dl>
+        <div class="d-flex align-items-end justify-content-between mt-5">
+         <router-link class="btn btn-outline-soft " to="/products"
+            >回首頁</router-link
+          >
+        <router-link class="btn btn-soft " to="/products"
+            >繼續購物</router-link
+          >
+        </div>
+    </div>
+    </div>
+  </div>
+  <!-- 未付款 -->
+  <div v-else class="container text-center mt-5 mb-5">
+    <div class="card text-center">
+    <div class="card-header bg-soft text-white">
+        已建立訂單：{{order.id}}
+    </div>
+    <div class="card-body">
+        <!-- <h5 class="card-title">購買日期 {{ $filters.date(order.create_at)}}</h5>
+        <p class="card-text">感謝您的購買與支持</p> -->
+        <dl class="row d-flex justify-content-start align-items-start text-start px-0 px-md-10 m-0">
+            <dt class="col-sm-3 ">購買日期</dt>
+            <dd class="col-sm-9 ">{{ $filters.date(order.create_at)}}</dd>
+            <dt class="col-sm-3">訂單編號</dt>
+            <dd class="col-sm-9">
+                <p class="m-0">{{order.id}}</p>
+            </dd>
+            <dt class="col-sm-3 ">Email</dt>
+            <dd class="col-sm-9">{{ order.user.email }}</dd>
+            <dt class="col-sm-3 ">收件人姓名</dt>
+            <dd class="col-sm-9">{{ order.user.name }}</dd>
+            <dt class="col-sm-3 ">收件人電話</dt>
+            <dd class="col-sm-9">{{ order.user.tel }}</dd>
+            <dt class="col-sm-3 ">收件人地址</dt>
+            <dd class="col-sm-9">{{ order.user.address }}</dd>
+            <dt class="col-sm-3">購買項目</dt>
+            <dd class="col-sm-9">
+              <div v-for="item in order.products" :key="item.id">
+                <span> {{ item.product.title }} </span>
+                <span> {{ item.qty }}{{ item.product.unit }} </span>
+                <span> NT$ {{ $filters.currency(item.final_total) }}</span>
+              </div>
+            </dd>
+            <dt class="col-sm-3 ">總金額</dt>
+            <dd class="col-sm-9">NT$ {{ $filters.currency(order.total) }}</dd>
+            <dt class="col-sm-3">付款狀態</dt>
+            <dd class="col-sm-9">
+                <span v-if="!order.is_paid" class="text-danger">尚未付款</span>
+                <span v-else class="text-success">付款完成</span>
+            </dd>
+        </dl>
+         <div class="d-flex align-items-end justify-content-between mt-5">
+         <router-link class="btn btn-outline-soft " to="/products"
+            >繼續購物</router-link
+          >
+          <div v-if="order.is_paid === false">
+            <button class="btn btn-soft" @click="payOrder">確認付款去</button>
+            <!-- 再做一個完成訂購頁面 -->
+          </div>
+        </div>
+    </div>
+    </div>
+  </div>
+  <!-- 購物車訂單資訊 -->
+  <!-- <div class="container mt-5">
     <div class="mb-5 row flex-column flex-md-row justify-content-center">
       <div class="col-12 col-md-6">
         <form class="col" @submit.prevent="payOrder">
@@ -104,12 +190,11 @@
           >
           <div v-if="order.is_paid === false">
             <button class="btn btn-soft" @click="payOrder">確認付款去</button>
-            <!-- 再做一個完成訂購頁面 -->
-          </div>
+           </div>
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 </template>
 
 <script>
@@ -166,3 +251,26 @@ export default {
   },
 };
 </script>
+
+<style lang="scss">
+.check-step span {
+  width: 20px;
+  height: 20px;
+  padding: 6px 10px;
+  justify-content: center;
+  background: #236f6b;
+  color: #fff;
+  border-radius: 50%;
+  margin-bottom: 5px;
+}
+.step-bar {
+  width: 100%;
+  height: 5px;
+  background: #236f6b;
+}
+.step-bar-none {
+  width: 100%;
+  height: 5px;
+  background: rgba(35, 111, 107, 0.2);
+}
+</style>
