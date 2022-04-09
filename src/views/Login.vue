@@ -133,7 +133,7 @@ export default {
 <style lang="scss" scoped>
   .bg-image {
     height: 100vh;
-    background-image: url('https://images.unsplash.com/photo-1519710164239-da123dc03ef4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80');
+    background-image: url('https://storage.googleapis.com/vue-course-api.appspot.com/jiangs2022vue3/1649505316342.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=hchz%2B27UeQFAv7YuYmuv2Jqa%2FcpkxtGJCZwPb4c04l8lhAQSaTiOgClkH4iMwhdHQgho%2FcEuOs0Ihpr3HGyuyF2ja5aIWc%2BTAz57XAJub%2Fy7smDhSitvMe%2FBq2L%2Bsn49vbZ8Kqeyl3LI%2Fom0kiRVSG1eWii%2BBoepRmNI06CjgmW6%2FMjKug2OsuE8fpmfTmuMJ5ZVYxASkE6wRTa%2BlJiVh69aXwEsNaSTdfGOvZlKouQFURkbYU2jQGcerUKukPYYSZSGONVDacm8Fx%2FrxG3eGs1YFxBwVBPzNWD40Kbil%2F6wszoQD3PDRkPtBwnpM4erinZEkU5jrgJ3iQ9LyEldIQ%3D%3D');
     background-size: cover;
     background-position: center center;
 }
