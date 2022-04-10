@@ -36,6 +36,7 @@
               編輯
             </button>
             <button
+              type="button"
               class="btn btn-outline-danger btn-sm"
               @click="openDelProductModal(item)"
             >
@@ -113,7 +114,7 @@ export default {
       productComponent.showModal(); // 再打開內層的 modal
     },
     updateProduct(item) {
-      this.tempProduct = item;
+      // this.tempProduct = item;
       // 新增
       let api = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/admin/product`;
       let httpMethod = 'post';

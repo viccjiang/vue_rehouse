@@ -1,9 +1,6 @@
 <template>
-  <Loading :active="isLoading"
-  loader="bars"
-  color="#236F6B">
-  </Loading>
-      <div class="card border-0 rounded-0 bg-dark text-white">
+  <Loading :active="isLoading" loader="bars" color="#236F6B"></Loading>
+  <div class="card border-0 rounded-0 bg-dark text-white">
     <img
       class="filters"
       style="
@@ -15,7 +12,7 @@
       "
     />
     <div class="card-img-overlay d-flex flex-column justify-content-center align-item-center">
-      <h1 class="card-title  text-center fw-bold" >產品列表</h1>
+      <h1 class="card-title text-center fw-bold">產品列表</h1>
     </div>
   </div>
   <div class="container mt-0 mt-md-3">
@@ -47,7 +44,8 @@
               <div class="col" v-for="item in filterProducts" :key="item.id">
                 <div class="card h-100 rounded-0 position-relative">
                   <a
-                    @click="addMyFavorite(item)"
+                    href="#"
+                    @click.prevent="addMyFavorite(item)"
                     :class="{ active: myFavorite.includes(item.id) }"
                     class="
                     link-secondary
@@ -125,8 +123,6 @@
       </div>
     </div>
   </div>
-  <!-- 我的最愛 -->
-  <!-- {{ myFavorite.length }} -->
 </template>
 
 <script>

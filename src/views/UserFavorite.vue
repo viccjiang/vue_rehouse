@@ -38,7 +38,8 @@
       <div class="col" v-for="item in favorites" :key="item.id">
         <div class="card h-100 rounded-0 position-relative">
           <a
-            @click="addMyFavorite(item)"
+            href="#"
+            @click.prevent="addMyFavorite(item)"
             :class="{ active: myFavorite.includes(item.id) }"
             class="link-secondary d-block rounded-0"
           >
