@@ -7,7 +7,7 @@
     <swiper
     class="swiper-container"
     :loop="true"
-    :autoplay="{autoplay: true}"
+    :autoplay="autoplay"
     :breakpoints="breakpoints"
     :navigation="{
         nextEl: '.swiper-button-next',
@@ -42,7 +42,7 @@
 
 <script>
 import { Swiper, SwiperSlide } from 'swiper/vue/swiper-vue';
-import { Navigation } from 'swiper';
+import { Autoplay, Navigation } from 'swiper';
 
 import 'swiper/swiper.scss'; // core Swiper
 import 'swiper/modules/navigation/navigation.min.css';
@@ -74,7 +74,11 @@ export default {
           spaceBetween: 30,
         },
       },
-      modules: [Navigation],
+      autoplay: {
+        disableOnInteraction: false, // 使用者操作swiper之後，是否禁止autoplay
+        delay: 3000, // 自動切換的時間間隔（單位ms）
+      },
+      modules: [Autoplay, Navigation],
     };
   },
   components: {
