@@ -1,4 +1,5 @@
 import { createApp } from 'vue';
+import 'bootstrap';
 import AOS from 'aos';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import $ from 'jquery';
