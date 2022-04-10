@@ -1,8 +1,8 @@
 <template>
-  <FrontNavbar></FrontNavbar>
-  <ToastMessages></ToastMessages>
-  <router-view></router-view>
-  <FrontFooter></FrontFooter>
+  <FrontNavbar/>
+  <ToastMessages/>
+  <router-view/>
+  <FrontFooter/>
 </template>
 
 <script>
