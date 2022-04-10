@@ -14,7 +14,7 @@
           </div>
           <div class="carousel-caption  d-md-block pb-5">
             <h1 style=" text-shadow: black 0em 0em 0.1em " class="indexBannerText mb-3 ">
-              — 居家生活風格更加獨特 —
+              讓你居家生活風格更加獨特
             </h1>
             <p style="text-shadow: black 0em 0em 0.1em" class="mb-4 fs-5 text">
               美好生活，創造你的生活美學
@@ -242,19 +242,16 @@
   <div id="popUp">
     <div id="close" class="btn-close float-end mt-2 me-2"></div>
     <div id="new"><span>新品上市</span></div>
-    <h2>WFH居家必備，年度鉅獻</h2>
-    <p class="m-0 text-center">結帳不限金額，立即享五折</p>
+    <h2>WFH 居家必備，年度鉅獻</h2>
+    <p class="m-0 text-center">結帳不限金額，立即享 5 折</p>
     <br />
-    <!-- <a href="#" target="_blank" class="nav-link link-light newbtn">大家都在買</a> -->
-    <!-- <div class="toast-body"> -->
     <div class="d-flex justify-content-center d-flex align-items-center">
       <img src="https://pic.sopili.net/pub/emoji/noto-emoji/png/128/emoji_u1f449.png" width=20 height=20>
       <span class="ms-2" id="content"> 2022</span>
       <button @click="copyCouponCode" class="btn btn-outline-soft ms-3 btn-sm" id="copyBT">複製優惠碼</button>
     </div>
-    <!-- </div> -->
   </div>
-  <div class="" id="plus"><span >新品上市</span></div>
+  <div class="" id="plus"><span >領優惠碼</span></div>
 </div>
 <!-- GoTop -->
 <div class="footer">

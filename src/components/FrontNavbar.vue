@@ -27,8 +27,11 @@
           <li class="nav-item">
             <router-link class="nav-link" to="/faq">常見問題</router-link>
           </li>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <router-link class="nav-link" to="/cart">購物車</router-link>
+          </li> -->
+          <li class="nav-item">
+            <router-link class="nav-link" to="/contact">聯絡我們</router-link>
           </li>
         </ul>
         <ul class="navbar-nav d-flex align-items-center flex-column flex-lg-row">

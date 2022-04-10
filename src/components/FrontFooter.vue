@@ -15,7 +15,11 @@
                 <router-link to="/products" href="#" class="nav-link px-2 text-secondary"> 線上商城 </router-link>
               </li>
               <li class="navhover col-md-2 p-1 col-lg-2">
-                <router-link to="/cart" href="#" class="nav-link px-2 text-secondary"> 購物車 </router-link></li>
+                <router-link to="/cart" href="#" class="nav-link px-2 text-secondary"> 購物車 </router-link>
+              </li>
+              <li class="navhover col-md-2 p-1 col-lg-2">
+                <router-link to="/contact" href="#" class="nav-link px-2 text-secondary"> 聯絡我們 </router-link>
+              </li>
           </ul>
         </nav>
         <div class="pt-3 pt-md-0">

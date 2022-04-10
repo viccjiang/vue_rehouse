@@ -213,7 +213,7 @@
         </div>
       </div>
     </div>
-    <div class="row" v-if="cartData.carts.length !== 0">
+    <div class="row mb-0 mb-md-5" v-if="cartData.carts.length !== 0">
       <div class="col-12 col-md-6">
         <p class="bg-soft m-0 p-3 text-white">顧客資訊</p>
         <div class="col p-5 bg-light">
@@ -320,7 +320,7 @@
             <div class="col fw-bold">運費：</div>
             <div class="col fw-bold text-end">NT$ 1,000</div>
           </div>
-          <div class="d-flex">
+          <div class="d-flex mb-3">
             <div class="col fw-bold text-soft opacity-50">優惠促銷：</div>
             <div class="col fw-bold text-end text-soft opacity-50">
               - NT$ 1,000
@@ -361,9 +361,12 @@
               border-top border-bottom
               text-secondary
               py-2
+              text-danger
+              fs-5
+              fw-bold
             "
           >
-            總計 NT$ {{ $filters.currency(cartData.final_total) }}
+            結帳總金額 NT$ {{ $filters.currency(cartData.final_total) }}
           </div>
         </Form>
         <div class="text-end my-4 d-grid">
