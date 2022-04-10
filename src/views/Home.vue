@@ -59,7 +59,7 @@
     <h4 class="text-center mb-4 border-bottom pb-3">精選商品</h4>
       <div class="row mt-0 mt-md-5">
         <div class="col-md-4 mt-4 mt-md-0">
-          <div class="card border-0 mb-4 mt-md-0">
+          <div class="card card-hover border-0 mb-4 mt-md-0">
             <img
               src="https://storage.googleapis.com/vue-course-api.appspot.com/jiangs2022vue3/1648450996072.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=a5RN38O%2BM6xtWXP5VJYOxxDxmwdYVRObbvPrMBHom6Cne76kuPNHRnpizZvLHRlL%2FwLPfza7nG3CkgGTpJL2ojghemgQ6blYewbwOv0ZKg%2BbSVVULiYW8iFvFnS8c8934rKKqcKt63Cyp1J1XYMUBbdFncFrtH5HrU8pcOxWPOa8BqzQkSFTW8pgx9HsYo1WxwILmzO0b0t%2B%2Fhd6qxcNn2fynMc6YQaNW%2Bsmj4HFCULz4%2BsBnV8lZg5pFW5X7Lc%2BOGDvsquG29Vo2Uq%2BBL5sfDYf5jVleFaYt5UsR7HnAkwzdbI6STvlWTsafcayKhRuOmh5v3t93kdTYY0yVOk3ow%3D%3D"
               class="card-img-top rounded-0"
@@ -80,7 +80,7 @@
           </div>
         </div>
         <div class="col-md-4 mt-4 mt-md-0">
-          <div class="card border-0 mb-4 mb-4 mt-md-0">
+          <div class="card card-hover border-0 mb-4 mb-4 mt-md-0">
             <img
               src="https://storage.googleapis.com/vue-course-api.appspot.com/jiangs2022vue3/1648451331482.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=pyCZnoR%2BoYYSGNC%2BWxRzMhSvTJJk%2FHDJo0S0DvvQVE3%2BZGO1ylj37GXAW%2B7NGZAQhpH%2BthQPYmb930gwFU%2BO7xK3efPq0mjtb1BgGi3WHoI4M7l6FZyR8PsN5M5nSsW7a%2FQTqVAruIO0iVtk9oTRPVKwvPujtDsRDmyB7vbfUR5zo%2BFkVQpDBw4d6KwU4WVfX57hnBuJU2Kj5Z4lXTzB8yJZpOfiddE9DzXEaNHen8NWVgsb%2Bvlb8t8FAQzGUaeT7SPz7kjafqU5L%2BV7QfsQW7t475%2BoB0Gcp1s0s6xCGIX1N8mbUvgzJytoxK3xUhBNT6d%2FYP6XFsuW9gzYoiCVVw%3D%3D"
               class="card-img-top rounded-0"
@@ -103,7 +103,7 @@
           </div>
         </div>
         <div class="col-md-4 mt-4 mt-md-0">
-          <div class="card border-0 mb-4 mb-4 mt-md-0">
+          <div class="card card-hover border-0 mb-4 mb-4 mt-md-0">
             <img
               src="https://storage.googleapis.com/vue-course-api.appspot.com/jiangs2022vue3/1648451466363.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=GAZuJ6Tcx%2FpUpzJ3cdAJkSS%2FOnRxL4uS6ywGFAYdlA84tF1BizZeJgJ0LBIQmWCd6otFRxUxrYWOt320se28bo4bT2UmHEWjyRd9E5MHkbTwIgLkNG3fi2y1PdhibA%2FCKLjKE1KbFrM7pZbP3pCp8%2BLQaMCE0TcoDGzCbjycUw1ExDvjN0EhCRBLI%2BQ8VUjuGukXgIb2E7l%2BUZajbJSv6UVaFuzujcRndFKp4Vv6Z3F5kvFudXtuliY%2BmbTFXR%2BQqs%2BJLrk%2F0zEd2GC2jai9fvScg8Bz2HyEz%2B2kBuwjC8Op%2Bwg3ALsb2I%2FMknJYM9WqHA2ipS%2F6PWOqPcMOY1YEMg%3D%3D"
               class="card-img-top rounded-0"
@@ -157,7 +157,7 @@
         <div class="col-md-4 m-auto text-center">
           <h4 class="mt-4">防疫樂活</h4>
           <p class="text-secondary">
-            WFH 盛行，選擇最適合你風格的工作環境，<br />
+            WFH 盛行，選擇適合你風格的工作環境，<br />
             搭配家中擺設與家俱風格，增添生活樂趣。
           </p>
         </div>
@@ -371,6 +371,7 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Expletus+Sans:ital,wght@0,400;0,600;0,700;1,500;1,600&display=swap');
 
 .footer .gotop {
+  z-index:1000;
   text-align: center;
   position: fixed;
   right: 30px;
@@ -534,5 +535,12 @@ a {
   #plus {
     margin-left: 0px;
   }
+}
+.card-hover{
+  overflow: hidden;
+}
+.card-hover:hover img{
+  transform: scale(0.9);
+  transition: .5s;
 }
 </style>

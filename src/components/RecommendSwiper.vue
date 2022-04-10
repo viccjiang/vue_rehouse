@@ -4,18 +4,27 @@
   <div class="container mb-5">
     <h3 class="text-center">WE RECOMMEND</h3>
     <h4 class="text-center mb-5 border-bottom pb-3">推薦商品</h4>
-    <swiper  :breakpoints="breakpoints">
+    <swiper
+    class="swiper-container"
+    :loop="true"
+    :autoplay="{autoplay: true}"
+    :breakpoints="breakpoints"
+    :navigation="{
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    }"
+    :modules="modules">
       <swiper-slide class="card border-0" v-for="item in randomSelects" :key="item.id">
         <div
-          class="position-relative"
+          class="position-relative "
           style="
             height: 300px;
             background-position: center center;
             background-size: cover;
           "
           :style="{ backgroundImage: `url(${item.imageUrl})` }"
-        >              <div class="box bg-danger text-white position-absolute ">
-                <p class="m-0"> 推薦 </p>
+        > <div class="box bg-danger text-white position-absolute ">
+            <p class="m-0"> 推薦 </p>
           </div>
           </div>
           <div class="card-body ">
@@ -25,13 +34,19 @@
                         @click="getProduct(item.id)">查看更多</button> -->
           </div>
       </swiper-slide>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
     </swiper>
   </div>
 </template>
 
 <script>
 import { Swiper, SwiperSlide } from 'swiper/vue/swiper-vue';
+import { Navigation } from 'swiper';
+
 import 'swiper/swiper.scss'; // core Swiper
+import 'swiper/modules/navigation/navigation.min.css';
+
 import emitter from '../methods/emitter';
 
 // 相同產品取得隨機數
@@ -59,6 +74,7 @@ export default {
           spaceBetween: 30,
         },
       },
+      modules: [Navigation],
     };
   },
   components: {
@@ -182,7 +198,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" >
   .box{
 /*   border:1px solid #000; */
   font-size: 16px;
@@ -193,5 +209,13 @@ export default {
   justify-content: center;
   text-align:center;
   padding:10px;
+}
+.swiper-container {
+  --swiper-navigation-color: #fff;
+  --swiper-navigation-size: 40px;/* 设置按钮大小 */
+}
+.hover-box:hover img{
+  transform: scale(1.2);
+  transition: .5s;
 }
 </style>
