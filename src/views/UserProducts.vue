@@ -12,7 +12,7 @@
       "
     />
       <div class="card-img-overlay d-flex flex-column justify-content-center align-item-center">
-        <h1 class="card-title text-center fw-bold">常見問題</h1>
+        <h1 class="card-title text-center fw-bold">產品列表</h1>
       </div>
   </div>
   <div class="container mt-0 mt-md-3">
