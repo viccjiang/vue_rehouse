@@ -250,21 +250,22 @@ import $ from 'jquery';
 import RecommendSwiper from '@/components/RecommendSwiper.vue';
 // import '../../node_modules/aos/dist/aos.css';
 import 'aos/dist/aos.css';
+import storageMethods from '../methods/storageMethods';
 
-const storageMethods = {
-  // 存檔
-  save(favorite) {
-    // 丟進來的東西先做轉型 JSON.stringify
-    const favoriteString = JSON.stringify(favorite);
-    // hexFavorite 再做寫入，也就是把東西存進去
-    localStorage.setItem('hexFavorite', favoriteString);
-  },
-  // 取出
-  get() {
-    // 把 hexFavorite 欄位從 localStorage 取出時會是字串，所以要再用 JSON.parse 轉為物件
-    return JSON.parse(localStorage.getItem('hexFavorite'));
-  },
-};
+// const storageMethods = {
+//   // 存檔
+//   save(favorite) {
+//     // 丟進來的東西先做轉型 JSON.stringify
+//     const favoriteString = JSON.stringify(favorite);
+//     // hexFavorite 再做寫入，也就是把東西存進去
+//     localStorage.setItem('hexFavorite', favoriteString);
+//   },
+//   // 取出
+//   get() {
+//     // 把 hexFavorite 欄位從 localStorage 取出時會是字串，所以要再用 JSON.parse 轉為物件
+//     return JSON.parse(localStorage.getItem('hexFavorite'));
+//   },
+// };
 
 export default {
   name: 'Home',
