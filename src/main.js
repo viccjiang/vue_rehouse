@@ -2,7 +2,7 @@ import { createApp } from 'vue';
 import 'bootstrap';
 import AOS from 'aos';
 import 'bootstrap-icons/font/bootstrap-icons.css';
-import $ from 'jquery';
+// import $ from 'jquery';
 import axios from 'axios';
 import VueAxios from 'vue-axios';
 import VueLoading from 'vue-loading-overlay';
@@ -22,7 +22,7 @@ import { currency, date } from './methods/filters';
 import $httpMessageState from './methods/pushMessageState';
 import 'aos/dist/aos.css';
 
-window.$ = $;
+// window.$ = $;
 
 const app = createApp(App);
 app.config.globalProperties.$filters = {

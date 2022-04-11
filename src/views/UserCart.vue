@@ -194,7 +194,7 @@
               </p>
             </div>
           </div>
-          <div class="text-end"> 定價 {{$filters.currency (item.product.price)}} </div>
+          <div class="text-end"> 定價 {{ $filters.currency (item.product.price) }} </div>
           <!-- <small v-if="cartData.final_total !== cartData.total" class="text-success text-end"
             >折扣價：{{ $filters.currency(item.final_total) }}
           </small> -->
@@ -720,11 +720,17 @@ export default {
         code: this.coupon_code,
       };
       this.isLoading = true;
-      this.$http.post(url, { data: coupon }).then((response) => {
-        this.$httpMessageState(response, '加入優惠券');
-        this.getCarts();
-        this.isLoading = false;
-      });
+      this.$http.post(url, { data: coupon })
+        .then((response) => {
+          this.$httpMessageState(response, '加入優惠券');
+          this.getCarts();
+          this.isLoading = false;
+        })
+        .catch((error) => {
+          this.isLoading = false;
+          this.$httpMessageState(error.response, '加入優惠券');
+          // console.dir(error.response.data.message);
+        });
     },
     // 訂單成立，送出表單
     createOrder() {

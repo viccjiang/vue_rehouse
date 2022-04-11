@@ -81,17 +81,17 @@
   <div v-else class="container text-center mt-5 mb-5">
     <div class="card text-center">
     <div class="card-header bg-soft text-white">
-        已建立訂單：{{order.id}}
+        已建立訂單：{{ order.id }}
     </div>
     <div class="card-body">
         <!-- <h5 class="card-title">購買日期 {{ $filters.date(order.create_at)}}</h5>
         <p class="card-text">感謝您的購買與支持</p> -->
         <dl class="row d-flex justify-content-start align-items-start text-start px-0 px-md-10 m-0">
             <dt class="col-sm-3 ">購買日期</dt>
-            <dd class="col-sm-9 ">{{ $filters.date(order.create_at)}}</dd>
+            <dd class="col-sm-9 ">{{ $filters.date(order.create_at) }}</dd>
             <dt class="col-sm-3">訂單編號</dt>
             <dd class="col-sm-9">
-                <p class="m-0">{{order.id}}</p>
+                <p class="m-0">{{ order.id }}</p>
             </dd>
             <dt class="col-sm-3 ">Email</dt>
             <dd class="col-sm-9">{{ order.user.email }}</dd>

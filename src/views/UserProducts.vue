@@ -1,7 +1,7 @@
 <template>
   <Loading :active="isLoading" loader="bars" color="#236F6B"></Loading>
-  <div class="card border-0 rounded-0 bg-dark text-white">
-    <img
+  <div class="card border-0 rounded-0 bg-dark text-white mb-5">
+    <div
       class="filters"
       style="
         height: 200px;
@@ -11,9 +11,9 @@
         background-attachment: fixed;
       "
     />
-    <div class="card-img-overlay d-flex flex-column justify-content-center align-item-center">
-      <h1 class="card-title text-center fw-bold">產品列表</h1>
-    </div>
+      <div class="card-img-overlay d-flex flex-column justify-content-center align-item-center">
+        <h1 class="card-title text-center fw-bold">常見問題</h1>
+      </div>
   </div>
   <div class="container mt-0 mt-md-3">
     <div class="row flex-column flex-md-row ">
@@ -32,7 +32,7 @@
             :key="item"
             class="list-group-item list-group-item-action rounded-0"
             @click.prevent="selectCategory = item"
-            ><i class="bi bi-arrow-right-circle"></i> {{ item }}</a
+            ><i class="bi bi-arrow-right-circle"></i>{{ item }}</a
           >
         </div>
       </div>
@@ -70,7 +70,6 @@
                       :style="{ backgroundImage: `url(${item.imageUrl})` }"
                     ></div>
                   </a>
-                  <!-- <img :src="item.imageUrl" class="card-img-top" alt="..." /> -->
                   <div class="card-body ">
                     <div class="d-flex mb-4">
                       <p class="badge bg-soft text-center text-light">{{

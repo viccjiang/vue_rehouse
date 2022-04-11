@@ -1,7 +1,7 @@
 <template>
   <section>
     <div class="card border-0 rounded-0 bg-dark text-white mb-5">
-    <img
+    <div
       class="filters"
       style="
         height: 200px;

@@ -1,21 +1,20 @@
 <template>
   <section>
     <div class="card border-0 rounded-0 bg-dark text-white mb-5">
-    <img
-      class="filters"
-      style="
-        height: 200px;
-        background-image: url(https://storage.googleapis.com/vue-course-api.appspot.com/jiangs2022vue3/1648375826670.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=Z8Sswky5%2B5Qs9zBOk353l6grws4lbOlVcclGQujb%2FluG%2FtdJ5cA03bSLskiSdsqQ9y4u9EzL%2FVzcf91ZsdrvCBzRP3Xtd6lQPRgkVuINBQh5%2BPhgtwAKIoMrZx46WcWsr8rmE7gScKmrnk5hGO8XwgJJyQXUHWrQv890wZje8wJkW%2BcrMkRkELlxnkvA1NYep0M0lPNGLjw9Nr%2B%2BaDLucpaaAR0wHg8FdtJaOesdeK%2F8et%2FIUWgkjNWNj2MQGX8u5Q0nh%2F2DvzIe7Evx0CR%2FedaCS%2BCNMPXgM5Y8ucCeMB110cYlO1eEkrl6MASJANN%2B3CVwiieirvmFPa4k3iVEUA%3D%3D);
-        background-size: cover;
-        background-position: center center;
-        background-attachment: fixed;
-        object-fit: cover;
-      "
-    />
-    <div class="card-img-overlay d-flex flex-column justify-content-center align-item-center">
-      <h1 class="card-title  text-center fw-bold" >關於 <span class="brandlogos">re.</span><span class="brandlogo">HOUSE </span> </h1>
+      <div
+        class="filters"
+        style="
+          height: 200px;
+          background-image: url(https://storage.googleapis.com/vue-course-api.appspot.com/jiangs2022vue3/1648375826670.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=Z8Sswky5%2B5Qs9zBOk353l6grws4lbOlVcclGQujb%2FluG%2FtdJ5cA03bSLskiSdsqQ9y4u9EzL%2FVzcf91ZsdrvCBzRP3Xtd6lQPRgkVuINBQh5%2BPhgtwAKIoMrZx46WcWsr8rmE7gScKmrnk5hGO8XwgJJyQXUHWrQv890wZje8wJkW%2BcrMkRkELlxnkvA1NYep0M0lPNGLjw9Nr%2B%2BaDLucpaaAR0wHg8FdtJaOesdeK%2F8et%2FIUWgkjNWNj2MQGX8u5Q0nh%2F2DvzIe7Evx0CR%2FedaCS%2BCNMPXgM5Y8ucCeMB110cYlO1eEkrl6MASJANN%2B3CVwiieirvmFPa4k3iVEUA%3D%3D);
+          background-size: cover;
+          background-position: center center;
+          background-attachment: fixed;
+        "
+      />
+      <div class="card-img-overlay d-flex flex-column justify-content-center align-item-center">
+        <h1 class="card-title  text-center fw-bold" >關於 <span class="brandlogos">re.</span><span class="brandlogo">HOUSE </span> </h1>
+      </div>
     </div>
-  </div>
     <div class="about container">
       <div class="contentText text-center my-5">
         <p>
@@ -108,16 +107,16 @@
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-}
-.darker {
-    filter: brightness(0.8);
-}
-.reservation__item {
-      min-height: 132px;
+  }
+  .darker {
       filter: brightness(0.8);
-}
-.reservation__item:hover {
-      min-height: 132px;
-      filter: brightness(1);
-}
+  }
+  .reservation__item {
+        min-height: 132px;
+        filter: brightness(0.8);
+  }
+  .reservation__item:hover {
+        min-height: 132px;
+        filter: brightness(1);
+  }
 </style>

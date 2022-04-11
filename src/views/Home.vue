@@ -59,11 +59,11 @@
     <h4 class="text-center mb-4 border-bottom pb-3">精選商品</h4>
       <div class="row mt-0 mt-md-5">
         <div class="col-md-4 mt-4 mt-md-0">
-          <div class="card card-hover border-0 mb-4 mt-md-0">
+          <div class="card card-hover border-0 mb-4 mt-md-0 rounded-0">
             <img
               src="https://storage.googleapis.com/vue-course-api.appspot.com/jiangs2022vue3/1648450996072.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=a5RN38O%2BM6xtWXP5VJYOxxDxmwdYVRObbvPrMBHom6Cne76kuPNHRnpizZvLHRlL%2FwLPfza7nG3CkgGTpJL2ojghemgQ6blYewbwOv0ZKg%2BbSVVULiYW8iFvFnS8c8934rKKqcKt63Cyp1J1XYMUBbdFncFrtH5HrU8pcOxWPOa8BqzQkSFTW8pgx9HsYo1WxwILmzO0b0t%2B%2Fhd6qxcNn2fynMc6YQaNW%2Bsmj4HFCULz4%2BsBnV8lZg5pFW5X7Lc%2BOGDvsquG29Vo2Uq%2BBL5sfDYf5jVleFaYt5UsR7HnAkwzdbI6STvlWTsafcayKhRuOmh5v3t93kdTYY0yVOk3ow%3D%3D"
               class="card-img-top rounded-0"
-              alt="..."
+              alt="精選商品"
               style="height:200px;object-fit: cover ;"
             />
             <div class="card-body text-center">
@@ -80,12 +80,12 @@
           </div>
         </div>
         <div class="col-md-4 mt-4 mt-md-0">
-          <div class="card card-hover border-0 mb-4 mb-4 mt-md-0">
+          <div class="card card-hover border-0 mb-4 mb-4 mt-md-0 rounded-0">
             <img
               src="https://storage.googleapis.com/vue-course-api.appspot.com/jiangs2022vue3/1648451331482.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=pyCZnoR%2BoYYSGNC%2BWxRzMhSvTJJk%2FHDJo0S0DvvQVE3%2BZGO1ylj37GXAW%2B7NGZAQhpH%2BthQPYmb930gwFU%2BO7xK3efPq0mjtb1BgGi3WHoI4M7l6FZyR8PsN5M5nSsW7a%2FQTqVAruIO0iVtk9oTRPVKwvPujtDsRDmyB7vbfUR5zo%2BFkVQpDBw4d6KwU4WVfX57hnBuJU2Kj5Z4lXTzB8yJZpOfiddE9DzXEaNHen8NWVgsb%2Bvlb8t8FAQzGUaeT7SPz7kjafqU5L%2BV7QfsQW7t475%2BoB0Gcp1s0s6xCGIX1N8mbUvgzJytoxK3xUhBNT6d%2FYP6XFsuW9gzYoiCVVw%3D%3D"
               class="card-img-top rounded-0"
               style="height:200px;object-fit: cover ;"
-              alt="..."
+              alt="精選商品"
             />
             <div class="card-body text-center">
               <h4 class="mt-3">客廳居家沙發</h4>
@@ -103,12 +103,12 @@
           </div>
         </div>
         <div class="col-md-4 mt-4 mt-md-0">
-          <div class="card card-hover border-0 mb-4 mb-4 mt-md-0">
+          <div class="card card-hover border-0 mb-4 mb-4 mt-md-0 rounded-0">
             <img
               src="https://storage.googleapis.com/vue-course-api.appspot.com/jiangs2022vue3/1648451466363.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=GAZuJ6Tcx%2FpUpzJ3cdAJkSS%2FOnRxL4uS6ywGFAYdlA84tF1BizZeJgJ0LBIQmWCd6otFRxUxrYWOt320se28bo4bT2UmHEWjyRd9E5MHkbTwIgLkNG3fi2y1PdhibA%2FCKLjKE1KbFrM7pZbP3pCp8%2BLQaMCE0TcoDGzCbjycUw1ExDvjN0EhCRBLI%2BQ8VUjuGukXgIb2E7l%2BUZajbJSv6UVaFuzujcRndFKp4Vv6Z3F5kvFudXtuliY%2BmbTFXR%2BQqs%2BJLrk%2F0zEd2GC2jai9fvScg8Bz2HyEz%2B2kBuwjC8Op%2Bwg3ALsb2I%2FMknJYM9WqHA2ipS%2F6PWOqPcMOY1YEMg%3D%3D"
               class="card-img-top rounded-0"
               style="height:200px;object-fit: cover ;"
-              alt="..."
+              alt="精選商品"
             />
             <div class="card-body text-center">
               <h4 class="mt-3">舒適好坐椅子</h4>
@@ -133,7 +133,7 @@
         <div class="col-md-6 " >
           <img
             src="https://storage.googleapis.com/vue-course-api.appspot.com/jiangs2022vue3/1648448430217.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=L9PIzGN6tRxpzyU%2BlgPeVauQ7TFGanw2gAos0abkYcIxICaAeRPtB2pMDgp%2BACQV32UQyarS2Hud2CzcySEj2vEhpTmhy9cJxv%2BPc9Qjme3aSfPOCK0%2FAoE9uVPcwKDmASylr79E4Cmy%2BArfBwzJNQZ73fPTx22E1Lp4l3OV0IfvqLjIWmdj%2B5fRT70hFDY%2B65%2BxfWghajjFk25bufEQrltgIwHyT7pCETAYyMCV1vThp4NemQ7byQQsfoLMPswBN0dEqm%2BXi2rrtkzYS6LVB3CeKpYIQZ56DuMHMgwM%2FRP5RAqS%2FaUA3tGUXP1BOLiSF5YLg89fEAusAgGdwG3g4g%3D%3D"
-            alt=""
+            alt="嚴選家居"
             class="img-fluid"
           />
         </div>
@@ -150,7 +150,7 @@
         <div class="col-md-6 " >
           <img
             src="https://storage.googleapis.com/vue-course-api.appspot.com/jiangs2022vue3/1648448385536.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=d%2F3AN0C9XHROnZXFNMgHyNV1B%2FoJchqWVJKLpCIFZMVt09wsQOzfai6AtUw%2F%2FR2JpA4Cbc3To1rUYB7hJ%2FfBEFLnHTUr6yWsmYc9JpPxmmOE71T8QsMJ6IV5a2%2FPX%2Fv%2BO0tQs3k3lJFvsJLXnKEjk1gNlzGkrSOpqt0pdhrcHyH2ILP2g1Nfe3MrtKfRa99GkE0Epl0p8CLUWywx9FS5aVWaja8vpYazPP4yxpPCvi%2BLcM99PyCXLUKGyckaD3cpLmd4J1yYE4RPH13HR4XCZkQAJPWyeY4sfygiofwnugnXRjWbXdNEEkGrFCEtSEUd9JLZLo%2F56RboKHC41scCjA%3D%3D"
-            alt=""
+            alt="防疫樂活"
             class="img-fluid"
           />
         </div>
@@ -162,47 +162,31 @@
           </p>
         </div>
       </div>
-      <!-- <div class="row g-0 bg-light">
-        <div class="col-md-6 ">
-          <img
-            src="https://images.unsplash.com/photo-1589362281138-e3f7ebe47f1a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80"
-            alt=""
-            class="img-fluid"
-          />
-        </div>
-        <div class="col-md-4 m-auto text-center bg-light">
-          <h4 class="mt-4">嚴選家居</h4>
-          <p class="text-secondary">
-            收納櫃組、客廳家俱到寢具一應俱全。 <br />
-            WFH居家必備，打造屬於自己的角落。
-          </p>
-        </div>
-      </div> -->
     </div>
   </section>
   <!-- <RandomProducts></RandomProducts> -->
   <RecommendSwiper></RecommendSwiper>
-      <!-- sub -->
-    <!-- <div class="bg-light py-4">
-      <div class="container">
-        <div
-          class="d-flex flex-column flex-md-row justify-content-between
-        align-items-md-center align-items-start"
-        >
-          <p class="mb-0 fw-bold">
-            立即訂閱，獲取最新優惠
-          </p>
-          <div class="input-group w-md-50 mt-md-0 mt-3">
-            <input type="text" class="form-control rounded-0" placeholder="" />
-            <div class="input-group-append">
-              <button class="btn btn-dark rounded-0" type="button" id="search">
-                取得優惠
-              </button>
-            </div>
+  <!-- sub -->
+  <!-- <div class="bg-light py-4">
+    <div class="container">
+      <div
+        class="d-flex flex-column flex-md-row justify-content-between
+      align-items-md-center align-items-start"
+      >
+        <p class="mb-0 fw-bold">
+          立即訂閱，獲取最新優惠
+        </p>
+        <div class="input-group w-md-50 mt-md-0 mt-3">
+          <input type="text" class="form-control rounded-0" placeholder="" />
+          <div class="input-group-append">
+            <button class="btn btn-dark rounded-0" type="button" id="search">
+              取得優惠
+            </button>
           </div>
         </div>
       </div>
-    </div> -->
+    </div>
+  </div> -->
   <div class="bg-soft text-white py-2 py-md-5">
   <div class="container px-6 px-md-9">
     <ul class="row list-unstyled mb-0 gx-md-9">
@@ -246,7 +230,7 @@
     <p class="m-0 text-center">結帳不限金額，立即享 5 折</p>
     <br />
     <div class="d-flex justify-content-center d-flex align-items-center">
-      <img src="https://pic.sopili.net/pub/emoji/noto-emoji/png/128/emoji_u1f449.png" width=20 height=20>
+      <img src="https://pic.sopili.net/pub/emoji/noto-emoji/png/128/emoji_u1f449.png" alt="複製優惠碼" width=20 height=20>
       <span class="ms-2" id="content"> 2022</span>
       <button @click="copyCouponCode" class="btn btn-outline-soft ms-3 btn-sm" id="copyBT">複製優惠碼</button>
     </div>
@@ -260,7 +244,7 @@
 </template>
 
 <script>
-/* global $ */
+import $ from 'jquery';
 // @ is an alias to /src
 // import RandomProducts from '@/components/RandomProducts.vue';
 import RecommendSwiper from '@/components/RecommendSwiper.vue';
@@ -536,11 +520,14 @@ a {
     margin-left: 0px;
   }
 }
-.card-hover{
+.card-hover img{
+  filter: brightness(1);
   overflow: hidden;
 }
 .card-hover:hover img{
-  transform: scale(0.9);
+  filter: brightness(0.9);
+  // height: 100%;
+  // transform: scale(1.1);
   transition: .5s;
 }
 </style>

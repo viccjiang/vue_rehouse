@@ -3,18 +3,23 @@
   <!-- :slides-per-view="3" :space-between="50" -->
   <div class="container mb-5">
     <h3 class="text-center">WE RECOMMEND</h3>
-    <h4 class="text-center mb-5 border-bottom pb-3">推薦商品</h4>
+    <h4 class="text-center mb-5 border-bottom pb-3 ">推薦商品</h4>
     <swiper
-    class="swiper-container"
-    :loop="true"
-    :autoplay="autoplay"
-    :breakpoints="breakpoints"
-    :navigation="{
+      class="swiper-container "
+      :loop="true"
+      :autoplay="autoplay"
+      :breakpoints="breakpoints"
+      :navigation="{
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
-    }"
-    :modules="modules">
-      <swiper-slide class="card border-0" v-for="item in randomSelects" :key="item.id">
+      }"
+      :modules="modules"
+    >
+      <swiper-slide
+        class="card border-0 "
+        v-for="item in randomSelects"
+        :key="item.id"
+      >
         <div
           class="position-relative "
           style="
@@ -23,16 +28,22 @@
             background-size: cover;
           "
           :style="{ backgroundImage: `url(${item.imageUrl})` }"
-        > <div class="box bg-danger text-white position-absolute ">
-            <p class="m-0"> 推薦 </p>
+        >
+          <div class="box bg-danger text-white position-absolute">
+            <p class="m-0">推薦</p>
           </div>
-          </div>
-          <div class="card-body ">
-            <h5 class="btn card-title stretched-link p-0" @click="goRecommendPage(item.id)">{{item.title}}</h5>
-            <!-- <h5 class="btn card-title stretched-link p-0" >{{item.title}}</h5> -->
-                        <!-- <button class="btn btn-outline-secondary rounded-0 border " type="button"
+        </div>
+        <div class="card-body">
+          <h5
+            class="btn card-title stretched-link p-0"
+            @click="goRecommendPage(item.id)"
+          >
+            {{ item.title }}
+          </h5>
+          <!-- <h5 class="btn card-title stretched-link p-0" >{{item.title}}</h5> -->
+          <!-- <button class="btn btn-outline-secondary rounded-0 border " type="button"
                         @click="getProduct(item.id)">查看更多</button> -->
-          </div>
+        </div>
       </swiper-slide>
       <div class="swiper-button-prev"></div>
       <div class="swiper-button-next"></div>
@@ -203,23 +214,35 @@ export default {
 </script>
 
 <style lang="scss" >
-  .box{
-/*   border:1px solid #000; */
+.box {
+  /*   border:1px solid #000; */
   font-size: 16px;
   // font-weight: 700;
-  width:60px;
-  height:auto;
-  left:0px;
+  width: 60px;
+  height: auto;
+  left: 0px;
   justify-content: center;
-  text-align:center;
-  padding:10px;
+  text-align: center;
+  padding: 10px;
 }
 .swiper-container {
   --swiper-navigation-color: #fff;
-  --swiper-navigation-size: 40px;/* 设置按钮大小 */
+  --swiper-navigation-size: 40px; /* 设置按钮大小 */
 }
-.hover-box:hover img{
-  transform: scale(1.2);
-  transition: .5s;
+.swiper-img {
+  filter: brightness(1);
+  overflow: hidden;
+}
+.swiper-img:hover {
+  filter: brightness(0.8);
+  transition: 0.5s;
+}
+.hover-view {
+  filter: brightness(0.8);
+  transition: 0.5s;
+}
+.hover-view:hover {
+  filter: brightness(0.8);
+  transition: 0.5s;
 }
 </style>
