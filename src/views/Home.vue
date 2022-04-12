@@ -231,8 +231,8 @@
     <br />
     <div class="d-flex justify-content-center d-flex align-items-center">
       <img src="https://pic.sopili.net/pub/emoji/noto-emoji/png/128/emoji_u1f449.png" alt="複製優惠碼" width=20 height=20>
-      <span class="ms-2" id="content"> 2022</span>
-      <button @click="copyCouponCode" class="btn btn-outline-soft ms-3 btn-sm" id="copyBT">複製優惠碼</button>
+      <span class="ms-2" id="coupon_save">2022</span>
+      <button @click="copyCouponCode" class="btn btn-outline-soft ms-3 btn-sm" id="coupon_btn">複製優惠碼</button>
     </div>
   </div>
   <div class="" id="plus"><span >領優惠碼</span></div>
@@ -281,14 +281,22 @@ export default {
   },
   methods: {
     copyCouponCode() {
-      const range = document.createRange();
-      range.selectNode(document.getElementById('content'));
-      const selection = window.getSelection();
-      if (selection.rangeCount > 0) selection.removeAllRanges();
-      selection.addRange(range);
-      document.execCommand('copy');
-      this.showAlert();
-      console.log('複製成功！');
+      // 舊的寫法已淘汰 execCommand
+      // const range = document.createRange();
+      // range.selectNode(document.getElementById('content'));
+      // const selection = window.getSelection();
+      // if (selection.rangeCount > 0) selection.removeAllRanges();
+      // selection.addRange(range);
+      // document.execCommand('copy');
+      // this.showAlert();
+      // console.log('複製成功！');
+      // 新的寫法 navigator.clipboard
+      const select = (DOM) => document.querySelector(DOM);
+      select('#coupon_btn').addEventListener('click', () => {
+        navigator.clipboard.writeText(select('#coupon_save').textContent);
+        console.log(select('#coupon_save').textContent);
+        this.showAlert();
+      });
     },
     handleScroll() {
       const scrolltop = document.documentElement.scrollTop || document.body.scrollTop;
@@ -327,6 +335,7 @@ export default {
   },
   mounted() {
     // AOS.init();
+    this.copyCouponCode();
     console.log(process.env.VUE_APP_API, process.env.VUE_APP_PATH);
     window.addEventListener('scroll', this.handleScroll, true);
     this.toTop();
