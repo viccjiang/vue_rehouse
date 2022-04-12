@@ -66,6 +66,7 @@
           <div class="row g-0">
             <div class="col-3 col-md-2">
               <img
+                :alt="item.product.title"
                 :src="item.product.imageUrl"
                 class="img-fluid"
                 style="
@@ -88,9 +89,11 @@
               "
             >
               <div class="card-body p-0">
-                <h5 class="card-title fs-6 fw-bold text-soft m-0">
+                <a href="#" class="d-block" @click.prevent="getProduct(item.product.id)">
+                  <h5 class="card-title fs-6 fw-bold text-soft m-0">
                   {{ item.product.title }}
-                </h5>
+                  </h5>
+                </a>
                 <div class="text-success" v-if="item.coupon">已套用優惠券</div>
                 <div class="row">
                   <div class="col-12 col-md-6">

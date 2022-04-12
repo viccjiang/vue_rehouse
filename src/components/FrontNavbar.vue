@@ -189,7 +189,7 @@
       </div>
       </div>
       <p class="text-center m-0 fs-6 text-danger mb-3">總計 $ {{ $filters.currency(cartData.final_total)}} 元 </p>
-      <router-link class="btn btn-soft text-center m-0 nav-link text-white p-0 d-grid " to="/cart" >結帳去</router-link>
+      <router-link class="btn btn-soft text-center mt-auto nav-link text-white p-3 d-grid rounded-0" to="/cart" >結帳去</router-link>
       <!-- {{ cartData.carts }} -->
     </div>
       </div>
