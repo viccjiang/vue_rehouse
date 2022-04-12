@@ -54,7 +54,7 @@
         <button
             type="button"
             class="btn btn-outline-danger btn-sm mb-2 "
-            @click="removeCart()"
+            @click="openAllDelProductModal(cartData)"
           >
             <i class="bi bi-trash"> 清除全部購物車 </i>
         </button>
@@ -186,7 +186,7 @@
                   <div
                     class=""
                     :disabled="loadingItem === item.id"
-                    @click="removeCartItem(item.id)"
+                    @click="openDelProductModal(item)"
                   >
                     <i class="bi bi-trash3"></i>
                   </div>
@@ -601,16 +601,23 @@
       <!-- </div> -->
     <!-- </div> -->
   </div>
+  <DelModal :item="tempProduct" ref="delModal" @del-item="removeCartItem" />
+  <DelModal :item="tempProduct" ref="delAllModal" @del-item="removeCart" />
 </template>
 
 <script>
+import DelModal from '@/components/DelModal.vue';
 import emitter from '../methods/emitter';
 
 export default {
+  components: {
+    DelModal,
+  },
   data() {
     return {
       products: [],
       product: {},
+      tempProduct: {},
       cartData: {
         carts: {},
       },
@@ -672,14 +679,30 @@ export default {
     //       emitter.emit('get-cart');
     //     });
     // },
+    // 開啟刪除單一 Modal
+    openDelProductModal(item) {
+      this.tempProduct = { ...item };
+      console.log(this.tempProduct);
+      const delComponent = this.$refs.delModal;
+      delComponent.showModal();
+    },
+    // 開啟刪除全部 Modal
+    openAllDelProductModal(item) {
+      this.cartData = { ...item };
+      console.log(this.cartData);
+      const delComponent = this.$refs.delAllModal;
+      delComponent.showModal();
+    },
     // 刪除購物車品項
     removeCartItem(id) {
       this.loadingItem = id;
-      const url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/cart/${id}`;
+      const url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/cart/${this.tempProduct.id}`;
       this.isLoading = true;
       this.$http.delete(url).then((response) => {
         this.$httpMessageState(response, '移除購物車品項');
         this.loadingItem = '';
+        const delComponent = this.$refs.delModal;
+        delComponent.hideModal();
         this.getCarts();
         this.isLoading = false;
         emitter.emit('update-cart'); // 更新購物車數量
@@ -691,6 +714,8 @@ export default {
       this.isLoading = true;
       this.$http.delete(url).then((response) => {
         this.$httpMessageState(response, '移除全部購物車品項');
+        const delComponent = this.$refs.delAllModal;
+        delComponent.hideModal();
         this.getCarts();
         this.isLoading = false;
         emitter.emit('update-cart'); // 更新購物車數量
