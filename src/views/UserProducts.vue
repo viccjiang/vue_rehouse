@@ -179,7 +179,7 @@ export default {
         this.favShowAlert();
         // emitter.emit('update-favorite'); // 更新最愛數量
       }
-      console.log('myFavorite 我的最愛數量', this.myFavorite.length);
+      // console.log('myFavorite 我的最愛數量', this.myFavorite.length);
       // storageMethods.save(this.myFavorite); // 儲存狀態
       // emitter.emit('update-favorite'); // 更新最愛數量
     },
@@ -208,9 +208,9 @@ export default {
             return;
           }
           this.products = response.data.products;
-          console.log('取得全部', this.products);
+          // console.log('取得全部', this.products);
           this.getCategories();
-          console.log('取得分類', this.selectCategory);
+          // console.log('取得分類', this.selectCategory);
           const { selectCategory } = this.$route.params;
           if (selectCategory) {
             this.selectCategory = selectCategory;
@@ -253,9 +253,9 @@ export default {
       this.products.forEach((item) => {
         categories.add(item.category);// 把品項加入 categories
       });
-      console.log('取得所有分類 Set：', categories); // 這裡是 Set 屬於類陣列
+      // console.log('取得所有分類 Set：', categories); // 這裡是 Set 屬於類陣列
       this.categories = [...categories]; // 這裡要轉成純陣列的形式存回去  所以這裡要轉為 Proxy
-      console.log('取得所有分類 Proxy：', this.categories);
+      // console.log('取得所有分類 Proxy：', this.categories);
     },
     getProduct(id) {
       this.$router.push(`/product/${id}`);

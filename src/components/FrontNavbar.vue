@@ -249,7 +249,7 @@ export default {
               totalQty += item.qty;
             });
             this.cartsLength = totalQty;
-            console.log('購物車總數,', this.cartsLength);
+            // console.log('購物車總數,', this.cartsLength);
           } else {
             console.log('購物車資料異常');
           }
@@ -276,7 +276,7 @@ export default {
       this.$http
         .get(`${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/cart`)
         .then((res) => {
-          console.log('購物車:', res);
+          // console.log('購物車:', res);
           this.cartData = res.data.data;
         });
     },
@@ -315,7 +315,7 @@ export default {
     updateFavoriteNum() {
       const arr = JSON.parse(localStorage.getItem('hexFavorite'));
       this.favoriteNum = arr ? arr.length : 0;
-      console.log('目前我的最愛數量:', this.favoriteNum);
+      // console.log('目前我的最愛數量:', this.favoriteNum);
     },
     showOffcanvas() {
       this.offcanvas.show();

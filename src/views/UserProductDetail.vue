@@ -618,7 +618,7 @@ export default {
     getProducts() {
       const url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/products/all`;
       this.$http.get(url).then((res) => {
-        console.log('取得所有產品資料：', res);
+        // console.log('取得所有產品資料：', res);
         this.products = res.data.products;
         this.getLookLike();
       });
@@ -630,7 +630,7 @@ export default {
       this.isLoading = true;
       this.$http(`${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/product/${id}`)
         .then((res) => {
-          console.log('單一產品資訊 :', res);
+          // console.log('單一產品資訊 :', res);
           // this.isLoading = false;
           this.product = res.data.product; // 賦值
           this.randomProducts = []; // 轉到新頁面要先清空原本的
@@ -641,28 +641,28 @@ export default {
         .catch((err) => {
           console.dir(err.response.data.message);
         });
-      console.log(this.$router);
-      console.log(id);
+      // console.log(this.$router);
+      // console.log(id);
     },
     getLookLike() {
       const { category } = this.product;
       const filterProducts = this.products.filter((item) => item.category === category); // 取得相同品項
-      console.log('filterProducts:', filterProducts);
+      // console.log('filterProducts:', filterProducts);
       const maxSize = filterProducts.length < 4 ? filterProducts.length : 4;
       // 先新增一個類陣列，所以陣列的方法基本上不太能用
       const arrSet = new Set([]);
-      console.log(arrSet.size); // 這是類陣列長度
+      // console.log(arrSet.size); // 這是類陣列長度
       getRandomInt();
       for (let index = 0; arrSet.size < maxSize; index + 1) {
         // arrSet.size 不能寫死數字
         const num = getRandomInt(filterProducts.length); // 取得品項隨機數字
         arrSet.add(num);
-        console.log(arrSet, num);
+        // console.log(arrSet, num);
       }
       arrSet.forEach((index) => {
         this.randomProducts.push(filterProducts[index]);
       });
-      console.log(this.randomProducts);
+      // console.log(this.randomProducts);
     },
     addCart() {
       const { id } = this.$route.params;
@@ -685,13 +685,13 @@ export default {
           this.isLoading = false;
           this.$httpMessageState(error.response, '加入購物車');
         });
-      console.log('增加單一品項 :', cart);
+      // console.log('增加單一品項 :', cart);
     },
     getCart() {
       const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart`;
       this.isLoading = true;
       this.$http.get(url).then((response) => {
-        console.log(response);
+        // console.log(response);
         this.cart = response.data.data;
         this.isLoading = false;
       });
@@ -726,7 +726,7 @@ export default {
   },
   mounted() {
     this.id = this.$route.params.id;
-    console.log(this.id);
+    // console.log(this.id);
     this.getProduct();
   },
 };

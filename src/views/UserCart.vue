@@ -646,7 +646,7 @@ export default {
       this.isLoading = true;
       this.$http.get(url).then((response) => {
         this.products = response.data.products;
-        console.log('產品列表:', response);
+        // console.log('產品列表:', response);
         this.isLoading = false;
       });
     },
@@ -659,7 +659,7 @@ export default {
         .get(`${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/cart`)
         .then((res) => {
           this.isLoading = false;
-          console.log('購物車：', res);
+          // console.log('購物車：', res);
           this.cartData = res.data.data;
         });
     },

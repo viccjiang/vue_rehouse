@@ -294,7 +294,7 @@ export default {
       const select = (DOM) => document.querySelector(DOM);
       select('#coupon_btn').addEventListener('click', () => {
         navigator.clipboard.writeText(select('#coupon_save').textContent);
-        console.log(select('#coupon_save').textContent);
+        // console.log(select('#coupon_save').textContent);
         this.showAlert();
       });
     },
@@ -336,7 +336,7 @@ export default {
   mounted() {
     // AOS.init();
     this.copyCouponCode();
-    console.log(process.env.VUE_APP_API, process.env.VUE_APP_PATH);
+    // console.log(process.env.VUE_APP_API, process.env.VUE_APP_PATH);
     window.addEventListener('scroll', this.handleScroll, true);
     this.toTop();
     $(document).scroll(() => {
