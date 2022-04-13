@@ -343,6 +343,7 @@
             <div class="input-group-append">
               <button
                 class="btn btn-soft rounded-0"
+                :class="{'disabled': coupon_code === '' }"
                 type="button"
                 @click="addCouponCode"
               >
@@ -626,7 +627,7 @@ export default {
       },
       loadingItem: '', // 對應品項 id
       isLoading: false,
-      coupon_code: '2022',
+      coupon_code: '',
       form: {
         user: {
           name: '',
@@ -764,14 +765,20 @@ export default {
     createOrder() {
       const url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/order`;
       const order = this.form;
-      this.$http.post(url, { data: order }).then((response) => {
-        if (response.data.success) {
-          this.$router.push(`/check/${response.data.orderId}`);
-          this.$refs.form.resetForm();
+      this.$http.post(url, { data: order })
+        .then((response) => {
+          if (response.data.success) {
+            this.$router.push(`/check/${response.data.orderId}`);
+            this.$refs.form.resetForm();
+            this.isLoading = false;
+            // emitter.emit('update-cart'); // 更新購物車數量
+          }
+        })
+        .catch((error) => {
           this.isLoading = false;
-          // emitter.emit('update-cart'); // 更新購物車數量
-        }
-      });
+          this.$httpMessageState(error.response, '建立訂單');
+          // console.dir(error.response.data.message);
+        });
     },
   },
   mounted() {
