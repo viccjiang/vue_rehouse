@@ -53,8 +53,8 @@
                     rounded-0
                     "
                   >
-                    <i v-if="myFavorite.includes(item.id)" style="z-index:1010" class="fs-4 bi-suit-heart-fill position-absolute top-0 end-0 me-2 mt-1 text-danger"></i>
-                    <i v-else style="z-index:1010" class="fs-4 bi bi-suit-heart position-absolute top-0 end-0 me-2 mt-1 text-white "></i>
+                    <i v-if="myFavorite.includes(item.id)" style="z-index:1" class="fs-4 bi-suit-heart-fill position-absolute top-0 end-0 me-2 mt-1 text-danger"></i>
+                    <i v-else style="z-index:1" class="fs-4 bi bi-suit-heart position-absolute top-0 end-0 me-2 mt-1 text-white "></i>
                   </a>
                   <a
                     href="#"
