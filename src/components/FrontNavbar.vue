@@ -231,18 +231,6 @@ export default {
       window.location.reload(); // 其中 this.$router.go(0) 为刷新页面 但是不支援 iOS 系統
     },
   },
-  // watch: {
-  //  $route() {
-  //    this.getProduct(id);
-  //  },
-  // },
-  // watch: {
-  //   $route() {
-  //     if (this.$route.params.id) {
-  //       this.getProduct();
-  //     }
-  //   },
-  // },
   methods: {
     getProduct(id) {
       console.log(id);
@@ -253,18 +241,20 @@ export default {
       this.$http
         .get(url)
         .then((res) => {
+          // 清單合併成一個加總數目的品項
           this.cartsLength = res.data.data.carts.length; // 購物車 icon 判斷
-          if (res.data.success) {
-            let totalQty = 0;
-            this.cartsLength = res.data.data.carts.forEach((item) => {
-              // console.log(item);
-              totalQty += item.qty;
-            });
-            this.cartsLength = totalQty;
-            // console.log('購物車總數,', this.cartsLength);
-          } else {
-            console.log('購物車資料異常');
-          }
+          // 清單未合併，icon上的總數是依照加總的總數
+          // if (res.data.success) {
+          //   let totalQty = 0;
+          //   this.cartsLength = res.data.data.carts.forEach((item) => {
+          //     // console.log(item);
+          //     totalQty += item.qty;
+          //   });
+          //   this.cartsLength = totalQty;
+          //   // console.log('購物車總數,', this.cartsLength);
+          // } else {
+          //   console.log('購物車資料異常');
+          // }
         });
     },
     // 更新購物車
