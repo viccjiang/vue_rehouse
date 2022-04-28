@@ -62,7 +62,7 @@
           </div>
           <div>
             <!-- <router-link class="nav-link fs-5 position-relative" to="/cart"> -->
-            <a href="#" class="nav-link fs-5 position-relative" data-bs-scroll="true" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+            <a href="#" class="nav-link fs-5 position-relative" data-bs-scroll="true" @click.prevent="showOffcanvas">
               <i class="bi bi-bag text-secondary"></i>
               <div
                 class="
@@ -189,7 +189,7 @@
       </div>
       </div>
       <p class="text-center m-0 fs-6 text-danger mb-3">總計 $ {{ $filters.currency(cartData.final_total)}} 元 </p>
-      <router-link class="btn btn-soft text-center mt-auto nav-link text-white p-3 d-grid rounded-0" to="/cart" >結帳去</router-link>
+      <router-link class="btn btn-soft text-center mt-auto nav-link text-white p-3 d-grid rounded-0" to="/cart" @click="hideOffcanvas">結帳去</router-link>
       <!-- {{ cartData.carts }} -->
     </div>
       </div>
@@ -226,9 +226,21 @@ export default {
   // 監聽 $router (連到細節頁面)
   // 使用 vue中的$this.router.push()方法，如果只是傳入的參數不同，url地址會發生變化，但是頁面不會重新請求數據，需要刷新頁面才能加載新數據。
   // 解決辦法是 監聽 $router
+  watch: {
+    $route() {
+      window.location.reload(); // 其中 this.$router.go(0) 为刷新页面 但是不支援 iOS 系統
+    },
+  },
+  // watch: {
+  //  $route() {
+  //    this.getProduct(id);
+  //  },
+  // },
   // watch: {
   //   $route() {
-  //     this.$router.go(0); // 其中 this.$router.go(0) 为刷新页面
+  //     if (this.$route.params.id) {
+  //       this.getProduct();
+  //     }
   //   },
   // },
   methods: {
@@ -325,6 +337,15 @@ export default {
     },
   },
   mounted() {
+    // // 检测浏览器路由改变页面不刷新问题,hash模式的工作原理是hashchange事件
+    // window.addEventListener('hashchange', () => {
+    //   const currentPath = window.location.hash.slice(1);
+    //   if (this.$route.path !== currentPath) {
+    //     this.$router.push(currentPath);
+    //   }
+    // }, false);
+    const { id } = this.$route.params;
+    console.log(id);
     this.getCarts();
     this.updateCartNum();
     emitter.on('update-cart', () => {
