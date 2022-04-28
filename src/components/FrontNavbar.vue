@@ -226,11 +226,11 @@ export default {
   // 監聽 $router (連到細節頁面)
   // 使用 vue中的$this.router.push()方法，如果只是傳入的參數不同，url地址會發生變化，但是頁面不會重新請求數據，需要刷新頁面才能加載新數據。
   // 解決辦法是 監聽 $router
-  watch: {
-    $route() {
-      this.$router.go(0); // 其中 this.$router.go(0) 为刷新页面
-    },
-  },
+  // watch: {
+  //   $route() {
+  //     this.$router.go(0); // 其中 this.$router.go(0) 为刷新页面
+  //   },
+  // },
   methods: {
     getProduct(id) {
       console.log(id);
