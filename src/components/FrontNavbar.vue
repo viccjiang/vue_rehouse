@@ -344,8 +344,8 @@ export default {
     //     this.$router.push(currentPath);
     //   }
     // }, false);
-    const { id } = this.$route.params;
-    console.log(id);
+    // const { id } = this.$route.params;
+    // console.log(id);
     this.getCarts();
     this.updateCartNum();
     emitter.on('update-cart', () => {
