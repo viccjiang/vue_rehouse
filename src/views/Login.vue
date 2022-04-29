@@ -8,12 +8,12 @@
             <div class="row">
               <div class="col-lg-10 col-xl-7 mx-auto">
                 <h3 class="display-5">請先登入</h3>
-                <p class="text-muted mb-4">請輸入後台管理帳號及密碼</p>
+                <p class="text-secondary mb-4">請輸入後台管理帳號及密碼</p>
                 <form
                   class="row justify-content-center"
                   @submit.prevent="signIn"
                 >
-                  <div class="mb-3">
+                  <div >
                     <label for="inputEmail" class="sr-only"></label>
                     <input
                       v-model="user.username"
@@ -25,7 +25,7 @@
                       class="form-control rounded-pill border-0 shadow-sm px-4"
                     />
                   </div>
-                  <div class="mb-3">
+                  <div >
                     <label for="inputPassword" class="sr-only"></label>
                     <input
                       v-model="user.password"
@@ -44,7 +44,7 @@
                       "
                     />
                   </div>
-                  <div class="d-grid gap-2 mt-2">
+                  <div class="d-grid gap-2 mt-4">
                     <button
                       type="submit"
                       class="btn btn-soft btn-block mb-2 rounded-pill shadow-sm"
@@ -54,6 +54,11 @@
                   </div>
                 </form>
               </div>
+            </div>
+            <div class="row">
+              <router-link to="/" class="nav-link px-2 text-secondary text-center d-inline">
+                返回首頁
+              </router-link>
             </div>
           </div>
         </div>
