@@ -4,7 +4,17 @@
     <div class="row align-items-center">
       <div class="col-md-7">
         <!-- 圖片開始 -->
-        <img class="rounded-2 w-100" :src="productImg" :alt="product.title" />
+        <img
+          class="rounded-2 w-100"
+          :src="productImg"
+          :alt="product.title"
+          style="
+            height: 400px;
+            background-size: cover;
+            background-position: center center;
+            object-fit: cover;
+          "
+        />
         <div
           class="
             col-12
@@ -26,7 +36,8 @@
               justify-content-between
             "
           >
-            <div class="col-2" :src="product.imageUrl">
+            <!-- <div class="col-2" :style="{ backgroundImage: `url(${product.imageUrl})`}"> -->
+            <div class="col-2">
               <img
                 style="
                   height: 100px;
@@ -36,6 +47,7 @@
                 "
                 class="w-100 p-0 rounded"
                 :src="product.imageUrl"
+                alt="產品"
                 @click="changeImg(product.imageUrl)"
               />
             </div>
@@ -286,7 +298,7 @@
                 v-for="(image, id) in product.imagesUrl"
                 :key="id"
               >
-                <div class="">
+                <div>
                   <img
                     style="
                       height: 200px;
@@ -548,7 +560,7 @@
             "
             :src="item.imageUrl"
             class="card-img-top border-0 rounded-0"
-            alt=""
+            alt="推薦"
           />
           <div class="card-body d-flex flex-column justify-content-between">
             <h5 class="card-title">{{ item.title }}</h5>
@@ -701,8 +713,7 @@ export default {
         product_id: item.id,
         qty: item.qty,
       };
-      this.$http
-        .put(`${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/cart/${item.id}`, { data })
+      this.$http.put(`${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/cart/${item.id}`, { data })
         .then((res) => {
           console.log(res);
           this.getCart();

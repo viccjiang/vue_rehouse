@@ -53,7 +53,7 @@
                   @change="uploadFile"
                 />
               </div>
-              <img class="img-fluid" :src="tempProduct.imageUrl" alt="" />
+              <img class="img-fluid" :src="tempProduct.imageUrl" alt="產品"/>
               <!-- 延伸技巧，多圖 -->
               <!-- 陣列 的判斷方式 ，如果是陣列才會跑判斷迴圈 -->
               <div v-if="Array.isArray(tempProduct.imagesUrl)">
@@ -66,7 +66,7 @@
                       type="text" class="form-control"
                       placeholder="請輸入圖片連結">
                   </div>
-                  <img class="img-fluid" :src="image">
+                  <img class="img-fluid" :src="image" alt="產品">
                   <div>
                   <!-- 陣列刪除 pop -->
                   <button class="btn btn-outline-danger btn-sm d-block w-100"

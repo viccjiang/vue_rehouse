@@ -6,11 +6,11 @@
     <div class="row row-cols-1 row-cols-md-3">
       <div class="col" v-for="item in randomSelects" :key="item.id">
         <div class="card h-100 img-fluid position-relative">
-          <img :src="item.imageUrl" style="
+          <img :src="item.imageUrl" :alt="item.title" style="
               background-size: cover;
               background-position: center;
             "
-            :style="{ backgroundImage: `url(${item.imageUrl})` }"  class="img-fluid" alt="...">
+            :style="{ backgroundImage: `url(${item.imageUrl})` }"  class="img-fluid" >
               <div class="box bg-danger text-white position-absolute ">
                 <p class="m-0"> 推薦 </p>
               </div>
