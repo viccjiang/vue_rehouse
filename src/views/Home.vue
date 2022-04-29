@@ -378,19 +378,10 @@ export default {
   methods: {
     copyCouponCode() {
       // 舊的寫法已淘汰 execCommand
-      // const range = document.createRange();
-      // range.selectNode(document.getElementById('content'));
-      // const selection = window.getSelection();
-      // if (selection.rangeCount > 0) selection.removeAllRanges();
-      // selection.addRange(range);
-      // document.execCommand('copy');
-      // this.showAlert();
-      // console.log('複製成功！');
       // 新的寫法 navigator.clipboard
       const select = (DOM) => document.querySelector(DOM);
       select('#coupon_btn').addEventListener('click', () => {
         navigator.clipboard.writeText(select('#coupon_save').textContent);
-        // console.log(select('#coupon_save').textContent);
         this.showAlert();
       });
     },
@@ -405,17 +396,6 @@ export default {
     },
     toTop() {
       document.getElementById('app').scrollIntoView();
-      // const top = document.documentElement.scrollTop || document.body.scrollTop;
-      // 實現滾動效果
-      // console.log(top);
-      // const timeTop = setInterval(() => {
-      //   document.body.scrollTop = document.documentElement.scrollTop;
-      //   document.body.scrollTop = top;
-      //   document.body.scrollTop -= 50;
-      //   if (top <= 0) {
-      //     clearInterval(timeTop);
-      //   }
-      // }, 10);
     },
     showAlert() {
       // Use sweetalert2
@@ -430,9 +410,7 @@ export default {
     },
   },
   mounted() {
-    // AOS.init();
     this.copyCouponCode();
-    // console.log(process.env.VUE_APP_API, process.env.VUE_APP_PATH);
     window.addEventListener('scroll', this.handleScroll, true);
     this.toTop();
     $(document).scroll(() => {

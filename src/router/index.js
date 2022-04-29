@@ -88,13 +88,6 @@ const router = createRouter({
   routes,
   // 換頁時，滾動到最上方
   scrollBehavior() {
-    // console.log(to, from, savedPosition)
-    // 如果到達的頁面，路徑名稱符合特定字串的話
-    // if (to.fullPath.match('products')) {
-    //   return {
-    //     top: 500
-    //   }
-    // }
     return {
       top: 0,
     };

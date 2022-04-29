@@ -90,10 +90,8 @@ export default {
         .then((response) => {
           this.isLoading = false; // 取得商品 loading 關閉
           if (response.data.success) {
-            console.log(response.data);
             this.products = response.data.products;
             this.pagination = response.data.pagination;
-            // console.log(this.products, this.pagination);
           }
         })
         .catch((error) => {
@@ -102,7 +100,6 @@ export default {
         });
     },
     openModal(isNew, item) {
-      // console.log(isNew, item);
       if (isNew) {
         this.tempProduct = {};
       } else {
@@ -125,7 +122,6 @@ export default {
       const productComponent = this.$refs.productModal;
       this.$http[httpMethod](api, { data: this.tempProduct })
         .then((response) => {
-          console.log(response);
           productComponent.hideModal();
           // this.getProducts();
           if (response.data.success) {
@@ -154,8 +150,7 @@ export default {
     },
     delProduct() {
       const url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/admin/product/${this.tempProduct.id}`;
-      this.$http.delete(url).then((response) => {
-        console.log(response.data);
+      this.$http.delete(url).then(() => {
         const delComponent = this.$refs.delModal;
         delComponent.hideModal();
         this.getProducts();

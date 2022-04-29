@@ -359,7 +359,6 @@ export default {
   },
   methods: {
     getProduct(id) {
-      console.log(id);
       this.$router.push(`/product/${id}`);
     },
     updateCartNum() {
@@ -369,18 +368,6 @@ export default {
         // 清單合併成一個加總數目的品項
         this.cartsLength = res.data.data.carts.length; // 購物車 icon 判斷
         this.isLoading = false;
-        // 清單未合併，icon上的總數是依照加總的總數
-        // if (res.data.success) {
-        //   let totalQty = 0;
-        //   this.cartsLength = res.data.data.carts.forEach((item) => {
-        //     // console.log(item);
-        //     totalQty += item.qty;
-        //   });
-        //   this.cartsLength = totalQty;
-        //   // console.log('購物車總數,', this.cartsLength);
-        // } else {
-        //   console.log('購物車資料異常');
-        // }
       });
     },
     // 更新購物車
@@ -392,8 +379,7 @@ export default {
         product_id: item.product_id,
         qty: item.qty,
       };
-      this.$http.put(url, { data: cart }).then((res) => {
-        console.log(res);
+      this.$http.put(url, { data: cart }).then(() => {
         this.loadingItem = '';
         this.getCarts();
         emitter.emit('update-cart'); // 更新購物車數量
@@ -405,7 +391,6 @@ export default {
       this.$http
         .get(`${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/cart`)
         .then((res) => {
-          // console.log('購物車:', res);
           this.cartData = res.data.data;
           this.isLoading = false;
         });
@@ -434,18 +419,9 @@ export default {
         emitter.emit('update-cart'); // 更新購物車數量
       });
     },
-    // getCart() {
-    //   this.$http
-    //     .get(`${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/cart`)
-    //     .then((res) => {
-    //       console.log('Navbar icon 目前購物車:', res);
-    //       this.cartData = res.data.data;
-    //     });
-    // },
     updateFavoriteNum() {
       const arr = JSON.parse(localStorage.getItem('hexFavorite'));
       this.favoriteNum = arr ? arr.length : 0;
-      // console.log('目前我的最愛數量:', this.favoriteNum);
     },
     showOffcanvas() {
       this.offcanvas.show();
@@ -455,15 +431,6 @@ export default {
     },
   },
   mounted() {
-    // // 检测浏览器路由改变页面不刷新问题,hash模式的工作原理是hashchange事件
-    // window.addEventListener('hashchange', () => {
-    //   const currentPath = window.location.hash.slice(1);
-    //   if (this.$route.path !== currentPath) {
-    //     this.$router.push(currentPath);
-    //   }
-    // }, false);
-    // const { id } = this.$route.params;
-    // console.log(id);
     this.getCarts();
     this.updateCartNum();
     emitter.on('update-cart', () => {

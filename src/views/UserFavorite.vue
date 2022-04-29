@@ -187,11 +187,9 @@ export default {
       const url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/products/all`;
       this.isLoading = true;
       this.$http.get(url).then((response) => {
-        // console.log('取得 response：', response);
         this.products = response.data.products;
         this.isLoading = false;
         if (response.data.success) {
-          // console.log('取得所有產品：', response.data);
           this.products = response.data.products;
           this.getFavorites();
         }
@@ -200,7 +198,7 @@ export default {
     getFavorites() {
       this.favorites = []; // 先給我的最愛空陣列
       const favoriteIdArr = JSON.parse(localStorage.getItem('hexFavorite')) || []; // 把 hexFavorite 欄位從 localStorage 取出時會是字串，所以要再用 JSON.parse 轉為物件
-      // console.log(favoriteIdArr);
+      // 加到 favorites 陣列裡
       for (let i = 0; i < this.products.length; i += 1) {
         for (let k = 0; k < favoriteIdArr.length; k += 1) {
           if (this.products[i].id === favoriteIdArr[k]) {
@@ -210,7 +208,6 @@ export default {
       }
     },
     addMyFavorite(item) {
-      // console.log('addMyFavorite');
       // this.myFavorite.push(item.id);
       // this.myFavorite.includes(item.id) 原本是寫 item.id 存 id 就好，但後面要做其他事情可以先存整個物件
       if (this.myFavorite.includes(item.id)) {
@@ -223,20 +220,18 @@ export default {
         this.myFavorite.push(item.id); // 否則沒有此品項 就把品項加入
         // emitter.emit('update-favorite'); // 更新最愛數量
       }
-      // console.log('myFavorite 我的最愛數量', this.myFavorite.length);
       // storageMethods.save(this.myFavorite); // 儲存狀態
       // emitter.emit('update-favorite'); // 更新最愛數量
     },
     getCategories() {
       // Vue 3 雙向綁定 Proxy(new Proxy 物件)
       // new Set
+      // 這裡 Set 的 categories 屬於類陣列
       const categories = new Set(); // 建在全新的空的物件上
       this.products.forEach((item) => {
         categories.add(item.category); // 把品項加入 categories
       });
-      // console.log('取得所有分類 Set：', categories); // 這裡是 Set 屬於類陣列
-      this.categories = [...categories]; // 這裡要轉成純陣列的形式存回去  所以這裡要轉為 Proxy
-      // console.log('取得所有分類 Proxy：', this.categories);
+      this.categories = [...categories]; // 這裡要轉成純陣列的形式存回去  所以這裡要轉為 Proxy 的 categories
     },
     getProduct(id) {
       this.$router.push(`/product/${id}`);
@@ -248,9 +243,8 @@ export default {
         product_id: id,
         qty: 1,
       };
-      this.$http.post(url, { data: cart }).then((res) => {
+      this.$http.post(url, { data: cart }).then(() => {
         this.status.loadingItem = '';
-        console.log(res);
         emitter.emit('update-cart'); // 更新購物車數量
       });
     },

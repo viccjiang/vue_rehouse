@@ -246,7 +246,6 @@ export default {
         .get(`${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/cart`)
         .then((res) => {
           this.isLoading = false;
-          console.log('購物車：', res);
           this.cartData = res.data.data;
         });
     },
@@ -255,17 +254,14 @@ export default {
       this.$http.get(url).then((res) => {
         if (res.data.success) {
           this.order = res.data.order;
-          console.log(this.order);
         }
       });
     },
     payOrder() {
       const url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/pay/${this.orderId}`;
       this.$http.post(url).then((res) => {
-        console.log(res);
         if (res.data.success) {
           this.order.is_paid = true;
-          console.log(this.order.is_paid);
           this.getOrder();
           this.getCarts();
           emitter.emit('update-cart'); // 更新購物車數量
@@ -275,7 +271,6 @@ export default {
   },
   created() {
     this.orderId = this.$route.params.orderId;
-    console.log(this.orderId);
     this.getOrder();
   },
 };

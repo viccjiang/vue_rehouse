@@ -223,7 +223,6 @@ export default {
   },
   methods: {
     addMyFavorite(item) {
-      // console.log('addMyFavorite');
       // this.myFavorite.push(item.id);
       // this.myFavorite.includes(item.id) 原本是寫 item.id 存 id 就好，但後面要做其他事情可以先存整個物件
       if (this.myFavorite.includes(item.id)) {
@@ -235,25 +234,9 @@ export default {
         this.favShowAlert();
         // emitter.emit('update-favorite'); // 更新最愛數量
       }
-      // console.log('myFavorite 我的最愛數量', this.myFavorite.length);
       // storageMethods.save(this.myFavorite); // 儲存狀態
       // emitter.emit('update-favorite'); // 更新最愛數量
     },
-    // getProducts(page = 1) {
-    //   const url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/products/?page=${page}`;
-    //   this.isLoading = true;
-    //   this.$http.get(url).then((response) => {
-    //     console.log('取得 response：', response);
-    //     this.products = response.data.products;
-    //     this.isLoading = false;
-    //     if (response.data.success) {
-    //       console.log('取得所有產品：', response.data);
-    //       this.products = response.data.products;
-    //       this.pagination = response.data.pagination;
-    //       this.getCategories();
-    //     }
-    //   });
-    // },
     getProducts(page = 1) {
       this.isLoading = true;
       const url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/products/all`;
@@ -265,9 +248,7 @@ export default {
             return;
           }
           this.products = response.data.products;
-          // console.log('取得全部', this.products);
           this.getCategories();
-          // console.log('取得分類', this.selectCategory);
           const { selectCategory } = this.$route.params;
           if (selectCategory) {
             this.selectCategory = selectCategory;
@@ -310,9 +291,7 @@ export default {
       this.products.forEach((item) => {
         categories.add(item.category); // 把品項加入 categories
       });
-      // console.log('取得所有分類 Set：', categories); // 這裡是 Set 屬於類陣列
       this.categories = [...categories]; // 這裡要轉成純陣列的形式存回去  所以這裡要轉為 Proxy
-      // console.log('取得所有分類 Proxy：', this.categories);
     },
     getProduct(id) {
       this.$router.push(`/product/${id}`);
@@ -324,10 +303,9 @@ export default {
         product_id: id,
         qty: 1,
       };
-      this.$http.post(url, { data: cart }).then((res) => {
+      this.$http.post(url, { data: cart }).then(() => {
         this.status.loadingItem = '';
         this.showAlert();
-        console.log(res);
         emitter.emit('update-cart'); // 更新購物車數量
       });
     },

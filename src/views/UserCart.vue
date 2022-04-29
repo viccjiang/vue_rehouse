@@ -667,7 +667,6 @@ export default {
       this.isLoading = true;
       this.$http.get(url).then((response) => {
         this.products = response.data.products;
-        // console.log('產品列表:', response);
         this.isLoading = false;
       });
     },
@@ -680,37 +679,18 @@ export default {
         .get(`${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/cart`)
         .then((res) => {
           this.isLoading = false;
-          // console.log('購物車：', res);
           this.cartData = res.data.data;
         });
     },
-    // // 加入購物車
-    // addToCart(id, qty = 1) {
-    //   const data = {
-    //     product_id: id,
-    //     qty,
-    //   };
-    //   this.loadingItem = id;
-    //   this.$http
-    //     .post(`${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/cart`, { data })
-    //     .then((res) => {
-    //       console.log(res);
-    //       this.loadingItem = '';
-    //       // get-cart
-    //       emitter.emit('get-cart');
-    //     });
-    // },
     // 開啟刪除單一 Modal
     openDelProductModal(item) {
       this.tempProduct = { ...item };
-      console.log(this.tempProduct);
       const delComponent = this.$refs.delModal;
       delComponent.showModal();
     },
     // 開啟刪除全部 Modal
     openAllDelProductModal(item) {
       this.cartData = { ...item };
-      console.log(this.cartData);
       const delComponent = this.$refs.delAllModal;
       delComponent.showModal();
     },
@@ -751,8 +731,7 @@ export default {
         product_id: item.product_id,
         qty: item.qty,
       };
-      this.$http.put(url, { data: cart }).then((res) => {
-        console.log(res);
+      this.$http.put(url, { data: cart }).then(() => {
         this.loadingItem = '';
         this.getCarts();
         this.isLoading = false;
