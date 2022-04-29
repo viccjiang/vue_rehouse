@@ -1,5 +1,5 @@
 <template>
-  <Loading :active="isLoading" loader="bars" color="#236F6B"> </Loading>
+  <Loading :active="isLoading" loader="bars" color="#236F6B"/>
   <!-- 購物車進度 -->
   <div class="container mt-5 p-0">
     <h2 class="text-center mb-5 fw-bold">購物車</h2>

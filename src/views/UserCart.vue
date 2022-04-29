@@ -1,5 +1,5 @@
 <template>
-  <Loading :active="isLoading" loader="bars" color="#236F6B"> </Loading>
+  <Loading :active="isLoading" loader="bars" color="#236F6B"/>
   <!-- 購物車沒東西 -->
   <div v-if="cartData.carts.length == 0" class="text-center">
     <div class="card border-0 rounded-0 bg-dark text-white">
