@@ -1,6 +1,6 @@
 <template>
   <Loading :active="isLoading" loader="bars" color="#236F6B" />
-  <div class="card border-0 rounded-0 bg-dark text-white mb-5">
+  <div class="card border-0 rounded-0 bg-dark text-white mb-2 mb-md-0">
     <div
       class="filters"
       style="
@@ -32,20 +32,20 @@
         <div class="list-group rounded-0 list-group-horizontal">
           <a
             href="#"
-            class="list-group-item list-group-item-action rounded-0"
+            class="list-group-item list-group-item-action rounded-0 p-3"
             @click.prevent="
               selectCategory = '';
               this.$route.params.selectCategory = '';
             "
-            ><i class="bi bi-arrow-right-circle"></i> 全部商品</a
+            ><i class="bi bi-arrow-right-circle"></i> 全部</a
           >
           <a
             href="#"
             v-for="item in categories"
             :key="item"
-            class="list-group-item list-group-item-action rounded-0"
+            class="list-group-item list-group-item-action rounded-0 p-3"
             @click.prevent="selectCategory = item"
-            ><i class="bi bi-arrow-right-circle"></i>{{ item }}</a
+            ><i class="bi bi-arrow-right-circle"></i> {{ item }}</a
           >
         </div>
       </div>
