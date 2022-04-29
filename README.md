@@ -6,7 +6,7 @@ Demo：[https://viccjiang.github.io/vue_rehouse/](https://viccjiang.github.io/vu
 
 ## 設計概念
 **創作理念：** re 重新 + house 房子 = 重新打造一個家<br>
-**主要風格：** 日系、溫款、居家<br>
+**主要風格：** 日系、溫馨、環保、居家<br>
 **色系搭配：**
 
 <img src="https://i.imgur.com/BJ2JcMe.png" width="250" /><br>
