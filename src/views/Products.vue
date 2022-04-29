@@ -134,7 +134,6 @@ export default {
         })
         .catch((error) => {
           productComponent.hideModal();
-          // console.dir(error);
           this.emitter.emit('push-message', {
             style: 'danger',
             title: '更新失敗',

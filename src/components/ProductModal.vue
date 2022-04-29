@@ -281,7 +281,6 @@ export default {
     uploadFile() {
       // 把上傳的檔案取出來
       const uploadedFile = this.$refs.fileInput.files[0];
-      // console.dir(uploadedFile);
       // 轉成 formData 格式
       const formData = new FormData();
       formData.append('file-to-upload', uploadedFile);

@@ -596,9 +596,6 @@ export default {
           this.product = res.data.product; // 賦值
           this.productImg = this.product.imageUrl;
           this.getProducts(); // 先取得單一產品資訊，再取得所有產品資訊
-        })
-        .catch((err) => {
-          console.dir(err.response.data.message);
         });
     },
     getProducts() {
@@ -621,9 +618,6 @@ export default {
           this.productImg = this.product.imageUrl;
           this.isLoading = false;
           this.getLookLike();
-        })
-        .catch((err) => {
-          console.dir(err.response.data.message);
         });
     },
     getLookLike() {

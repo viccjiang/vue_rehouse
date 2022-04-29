@@ -60,9 +60,6 @@ export default {
           this.isLoading = false;
           this.product = res.data.product; // 賦值
           this.getProducts(); // 先取得單一產品資訊，再取得所有產品資訊
-        })
-        .catch((err) => {
-          console.dir(err.response.data.message);
         });
     },
     getProducts() {
@@ -85,9 +82,6 @@ export default {
           this.product = res.data.product; // 賦值
           this.randomProducts = []; // 轉到新頁面要先清空原本的
           this.getLookLike();
-        })
-        .catch((err) => {
-          console.dir(err.response.data.message);
         });
     },
     getLookLike() {

@@ -54,9 +54,6 @@ export default {
             this.$router.push('/login');
             this.showAlert();
           }
-        })
-        .catch((error) => {
-          console.dir(error.response.data.message);
         });
     },
   },

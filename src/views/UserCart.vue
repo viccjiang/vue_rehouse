@@ -502,7 +502,6 @@ export default {
         .catch((error) => {
           this.isLoading = false;
           this.$httpMessageState(error.response, '加入優惠券');
-          // console.dir(error.response.data.message);
         });
     },
     // 訂單成立，送出表單
@@ -522,7 +521,6 @@ export default {
         .catch((error) => {
           this.isLoading = false;
           this.$httpMessageState(error.response, '建立訂單');
-          // console.dir(error.response.data.message);
         });
     },
   },
