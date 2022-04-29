@@ -1,11 +1,11 @@
 <template>
-  <Loading :active="isLoading"/>
+  <Loading :active="isLoading" />
   <!-- :slides-per-view="3" :space-between="50" -->
   <div class="container mb-5">
     <h3 class="text-center">WE RECOMMEND</h3>
-    <h4 class="text-center mb-5 border-bottom pb-3 ">推薦商品</h4>
+    <h4 class="text-center mb-5 border-bottom pb-3">推薦商品</h4>
     <swiper
-      class="swiper-container "
+      class="swiper-container"
       :loop="true"
       :autoplay="autoplay"
       :breakpoints="breakpoints"
@@ -16,12 +16,12 @@
       :modules="modules"
     >
       <swiper-slide
-        class="card border-0 "
+        class="card border-0"
         v-for="item in randomSelects"
         :key="item.id"
       >
         <div
-          class="position-relative "
+          class="position-relative"
           style="
             height: 300px;
             background-position: center center;
@@ -213,7 +213,7 @@ export default {
 };
 </script>
 
-<style lang="scss" >
+<style lang='scss' >
 .box {
   /*   border:1px solid #000; */
   font-size: 16px;

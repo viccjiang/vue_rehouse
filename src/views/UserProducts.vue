@@ -1,5 +1,5 @@
 <template>
-  <Loading :active="isLoading" loader="bars" color="#236F6B"/>
+  <Loading :active="isLoading" loader="bars" color="#236F6B" />
   <div class="card border-0 rounded-0 bg-dark text-white mb-5">
     <div
       class="filters"
@@ -11,19 +11,32 @@
         background-attachment: fixed;
       "
     />
-      <div class="card-img-overlay d-flex flex-column justify-content-center align-item-center">
-        <h1 class="card-title text-center fw-bold">產品列表</h1>
-      </div>
+    <div
+      class="
+        card-img-overlay
+        d-flex
+        flex-column
+        justify-content-center
+        align-item-center
+      "
+    >
+      <h1 class="card-title text-center fw-bold">產品列表</h1>
+    </div>
   </div>
   <div class="container mt-0 mt-md-3">
-    <div class="row flex-column flex-md-row ">
+    <div class="row flex-column flex-md-row">
       <!-- 分類欄 -->
-      <div class="subNav sticky-top col-12 mt-4 flex-column flex-md-row border-0">
-        <div class="list-group rounded-0 list-group-horizontal ">
-           <a
+      <div
+        class="subNav sticky-top col-12 mt-4 flex-column flex-md-row border-0"
+      >
+        <div class="list-group rounded-0 list-group-horizontal">
+          <a
             href="#"
             class="list-group-item list-group-item-action rounded-0"
-            @click.prevent="selectCategory = ''; this.$route.params.selectCategory = ''"
+            @click.prevent="
+              selectCategory = '';
+              this.$route.params.selectCategory = '';
+            "
             ><i class="bi bi-arrow-right-circle"></i> 全部商品</a
           >
           <a
@@ -47,21 +60,44 @@
                     href="#"
                     @click.prevent="addMyFavorite(item)"
                     :class="{ active: myFavorite.includes(item.id) }"
-                    class="
-                    link-secondary
-                    d-block
-                    rounded-0
-                    "
+                    class="link-secondary d-block rounded-0"
                   >
-                    <i v-if="myFavorite.includes(item.id)" style="z-index:1" class="fs-4 bi-suit-heart-fill position-absolute top-0 end-0 me-2 mt-1 text-danger"></i>
-                    <i v-else style="z-index:1" class="fs-4 bi bi-suit-heart position-absolute top-0 end-0 me-2 mt-1 text-white "></i>
+                    <i
+                      v-if="myFavorite.includes(item.id)"
+                      style="z-index: 1"
+                      class="
+                        fs-4
+                        bi-suit-heart-fill
+                        position-absolute
+                        top-0
+                        end-0
+                        me-2
+                        mt-1
+                        text-danger
+                      "
+                    ></i>
+                    <i
+                      v-else
+                      style="z-index: 1"
+                      class="
+                        fs-4
+                        bi bi-suit-heart
+                        position-absolute
+                        top-0
+                        end-0
+                        me-2
+                        mt-1
+                        text-white
+                      "
+                    ></i>
                   </a>
                   <a
                     href="#"
-                    class="img-card rounded-0 "
+                    class="img-card rounded-0"
                     @click.prevent="getProduct(item.id)"
                   >
-                    <div class="card-imageUrl rounded-0"
+                    <div
+                      class="card-imageUrl rounded-0"
                       style="
                         height: 300px;
                         background-size: cover;
@@ -70,17 +106,25 @@
                       :style="{ backgroundImage: `url(${item.imageUrl})` }"
                     ></div>
                   </a>
-                  <div class="card-body ">
+                  <div class="card-body">
                     <div class="d-flex mb-4">
-                      <p class="badge bg-soft text-center text-light">{{
-                      item.category
-                    }}</p>
-                    <h5 class="card-title mb-3">{{ item.title }}</h5>
-                    <!-- <h6 class="h6 text-secondary">
+                      <p class="badge bg-soft text-center text-light">
+                        {{ item.category }}
+                      </p>
+                      <h5 class="card-title mb-3">{{ item.title }}</h5>
+                      <!-- <h6 class="h6 text-secondary">
                       {{ item.description }}
                     </h6> -->
                     </div>
-                    <div class="mb-3 d-flex flex-column justify-content-end align-items-start">
+                    <div
+                      class="
+                        mb-3
+                        d-flex
+                        flex-column
+                        justify-content-end
+                        align-items-start
+                      "
+                    >
                       <div class="h5 list-inline-item" v-if="!item.price">
                         {{ item.origin_price }} 元
                       </div>
@@ -95,18 +139,28 @@
                       </div>
                     </div>
                     <div class="d-grid d-md-flex justify-content-md-between">
-                      <button class="btn btn-outline-secondary rounded-0 border w-100" type="button"
-                        @click="getProduct(item.id)">查看更多</button>
-                      <button class="btn btn-soft text-light rounded-0 border-0 w-100" type="button"
+                      <button
+                        class="btn btn-outline-secondary rounded-0 border w-100"
+                        type="button"
+                        @click="getProduct(item.id)"
+                      >
+                        查看更多
+                      </button>
+                      <button
+                        class="btn btn-soft text-light rounded-0 border-0 w-100"
+                        type="button"
                         :disabled="this.status.loadingItem === item.id"
-                        @click="addCart(item.id)"><div
+                        @click="addCart(item.id)"
+                      >
+                        <div
                           v-if="this.status.loadingItem === item.id"
                           class="spinner-border text-light spinner-border-sm"
                           role="status"
                         >
                           <span class="visually-hidden">Loading...</span>
                         </div>
-                        加到購物車</button>
+                        加到購物車
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -114,7 +168,8 @@
             </div>
           </div>
           <!-- 分頁 -->
-          <Pagination class="d-flex justify-content-center justify-content-md-end"
+          <Pagination
+            class="d-flex justify-content-center justify-content-md-end"
             :pages="pagination"
             @emit-pages="getProducts"
           ></Pagination>
@@ -171,7 +226,8 @@ export default {
       // console.log('addMyFavorite');
       // this.myFavorite.push(item.id);
       // this.myFavorite.includes(item.id) 原本是寫 item.id 存 id 就好，但後面要做其他事情可以先存整個物件
-      if (this.myFavorite.includes(item.id)) { // 這裡意思是 如果我的最愛已經有這個品項，再按一次就代表取消
+      if (this.myFavorite.includes(item.id)) {
+        // 這裡意思是 如果我的最愛已經有這個品項，再按一次就代表取消
         this.myFavorite.splice(this.myFavorite.indexOf(item.id), 1);
         // emitter.emit('update-favorite'); // 更新最愛數量
       } else {
@@ -201,7 +257,8 @@ export default {
     getProducts(page = 1) {
       this.isLoading = true;
       const url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/products/all`;
-      this.$http.get(url)
+      this.$http
+        .get(url)
         .then((response) => {
           if (!response.data.success) {
             this.isLoading = false;
@@ -242,8 +299,8 @@ export default {
       } else {
         this.pagination.has_next = true;
       }
-      const minPage = (this.pagination.current_page * perPage) - perPage;
-      const maxPage = (this.pagination.current_page * perPage);
+      const minPage = this.pagination.current_page * perPage - perPage;
+      const maxPage = this.pagination.current_page * perPage;
       this.products = this.products.slice(minPage, maxPage);
     },
     getCategories() {
@@ -251,7 +308,7 @@ export default {
       // new Set
       const categories = new Set(); // 建在全新的空的物件上
       this.products.forEach((item) => {
-        categories.add(item.category);// 把品項加入 categories
+        categories.add(item.category); // 把品項加入 categories
       });
       // console.log('取得所有分類 Set：', categories); // 這裡是 Set 屬於類陣列
       this.categories = [...categories]; // 這裡要轉成純陣列的形式存回去  所以這裡要轉為 Proxy
@@ -297,7 +354,8 @@ export default {
       });
     },
   },
-  watch: { // 監聽特定值
+  watch: {
+    // 監聽特定值
     myFavorite: {
       // 深層監聽
       handler() {
@@ -312,7 +370,8 @@ export default {
       }
     },
   },
-  computed: { // 產生新的資料集 (裡面的值產生變化之後，資料重新運算)
+  computed: {
+    // 產生新的資料集 (裡面的值產生變化之後，資料重新運算)
     filterProducts() {
       return this.products.filter((item) => item.category.match(this.selectCategory));
       // 如果選到的產品品項是一樣的就呈現
@@ -328,23 +387,23 @@ export default {
 </script>
 
 <style lang="scss">
-  .subNav {
-    z-index: 1000;
-    position: sticky;
-    top: 89px;
-    flex-wrap: wrap;
-    justify-content: space-around;
-  }
-  .img-card {
-    width: 100%;
-    overflow: hidden;
-  }
-  .card-imageUrl{
-    overflow: hidden;
-  }
-  .card-imageUrl:hover{
-    transform: scale(1.2);
-    transition: .5s;
-    height: 300px;
-  }
+.subNav {
+  z-index: 1000;
+  position: sticky;
+  top: 89px;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.img-card {
+  width: 100%;
+  overflow: hidden;
+}
+.card-imageUrl {
+  overflow: hidden;
+}
+.card-imageUrl:hover {
+  transform: scale(1.2);
+  transition: 0.5s;
+  height: 300px;
+}
 </style>

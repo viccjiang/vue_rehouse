@@ -1,5 +1,5 @@
 <template>
-  <Loading :active="isLoading" loader="bars" color="#236F6B"/>
+  <Loading :active="isLoading" loader="bars" color="#236F6B" />
   <div class="card border-0 rounded-0 bg-dark text-white mb-5">
     <img
       class="filters"
@@ -24,7 +24,15 @@
     </div>
   </div>
   <div class="container mt-0 mt-md-10 mb-0 mb-md-10">
-    <div class="g-4 row row-cols-1 row-cols-md-2 row-cols-lg-3 flex-column justify-content-center flex-md-row">
+    <div
+      class="
+        g-4
+        row row-cols-1 row-cols-md-2 row-cols-lg-3
+        flex-column
+        justify-content-center
+        flex-md-row
+      "
+    >
       <div
         class="d-flex flex-column justify-content-center align-items-center"
         v-if="favorites.length === 0"
@@ -35,99 +43,99 @@
         </router-link>
       </div>
       <template v-else>
-      <div class="col" v-for="item in favorites" :key="item.id">
-        <div class="card h-100 rounded-0 position-relative">
-          <a
-            href="#"
-            @click.prevent="addMyFavorite(item)"
-            :class="{ active: myFavorite.includes(item.id) }"
-            class="link-secondary d-block rounded-0"
-          >
-            <i
-              v-if="myFavorite.includes(item.id)"
-              class="
-                fs-5
-                bi bi-heart-fill
-                position-absolute
-                top-00
-                end-0
-                me-1
-                mt-1
-                text-danger
-              "
-            ></i>
-            <i
-              v-else
-              class="
-                fs-5
-                bi bi-heart
-                position-absolute
-                top-00
-                end-0
-                me-1
-                mt-1
-                text-danger
-              "
-            ></i>
-          </a>
-          <a href="#" class="rounded-0" @click.prevent="getProduct(item.id)">
-            <div
-              style="
-                height: 300px;
-                background-size: cover;
-                background-position: center;
-              "
-              :style="{ backgroundImage: `url(${item.imageUrl})` }"
-            ></div>
-          </a>
-          <!-- <img :src="item.imageUrl" class="card-img-top" alt="..." /> -->
-          <div class="card-body">
-            <span class="badge bg-secondary text-light mb-2">{{
-              item.category
-            }}</span>
-            <h5 class="card-title">{{ item.title }}</h5>
-            <h6 class="h6 text-secondary">
-              {{ item.description }}
-            </h6>
-
-            <div class="h5 list-inline-item" v-if="!item.price">
-              {{ item.origin_price }} 元
-            </div>
-            <del
-              class="h6 list-inline-item text-secondary mt-4"
-              v-if="item.price"
-              >原價 NT$ {{ $filters.currency(item.origin_price) }} 元</del
+        <div class="col" v-for="item in favorites" :key="item.id">
+          <div class="card h-100 rounded-0 position-relative">
+            <a
+              href="#"
+              @click.prevent="addMyFavorite(item)"
+              :class="{ active: myFavorite.includes(item.id) }"
+              class="link-secondary d-block rounded-0"
             >
-            <div class="h5 text-danger mb-3" v-if="item.price">
-              NT$ {{ $filters.currency(item.price) }} 元
-            </div>
-            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-              <button
-                class="btn btn-outline-secondary rounded-0 border"
-                type="button"
-                @click="getProduct(item.id)"
+              <i
+                v-if="myFavorite.includes(item.id)"
+                class="
+                  fs-5
+                  bi bi-heart-fill
+                  position-absolute
+                  top-00
+                  end-0
+                  me-1
+                  mt-1
+                  text-danger
+                "
+              ></i>
+              <i
+                v-else
+                class="
+                  fs-5
+                  bi bi-heart
+                  position-absolute
+                  top-00
+                  end-0
+                  me-1
+                  mt-1
+                  text-danger
+                "
+              ></i>
+            </a>
+            <a href="#" class="rounded-0" @click.prevent="getProduct(item.id)">
+              <div
+                style="
+                  height: 300px;
+                  background-size: cover;
+                  background-position: center;
+                "
+                :style="{ backgroundImage: `url(${item.imageUrl})` }"
+              ></div>
+            </a>
+            <!-- <img :src="item.imageUrl" class="card-img-top" alt="..." /> -->
+            <div class="card-body">
+              <span class="badge bg-secondary text-light mb-2">{{
+                item.category
+              }}</span>
+              <h5 class="card-title">{{ item.title }}</h5>
+              <h6 class="h6 text-secondary">
+                {{ item.description }}
+              </h6>
+
+              <div class="h5 list-inline-item" v-if="!item.price">
+                {{ item.origin_price }} 元
+              </div>
+              <del
+                class="h6 list-inline-item text-secondary mt-4"
+                v-if="item.price"
+                >原價 NT$ {{ $filters.currency(item.origin_price) }} 元</del
               >
-                查看更多
-              </button>
-              <button
-                class="btn btn-soft text-light rounded-0 border-0 me-md-2"
-                type="button"
-                :disabled="this.status.loadingItem === item.id"
-                @click="addCart(item.id)"
-              >
-                <div
-                  v-if="this.status.loadingItem === item.id"
-                  class="spinner-border text-light spinner-border-sm"
-                  role="status"
+              <div class="h5 text-danger mb-3" v-if="item.price">
+                NT$ {{ $filters.currency(item.price) }} 元
+              </div>
+              <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <button
+                  class="btn btn-outline-secondary rounded-0 border"
+                  type="button"
+                  @click="getProduct(item.id)"
                 >
-                  <span class="visually-hidden">Loading...</span>
-                </div>
-                加到購物車
-              </button>
+                  查看更多
+                </button>
+                <button
+                  class="btn btn-soft text-light rounded-0 border-0 me-md-2"
+                  type="button"
+                  :disabled="this.status.loadingItem === item.id"
+                  @click="addCart(item.id)"
+                >
+                  <div
+                    v-if="this.status.loadingItem === item.id"
+                    class="spinner-border text-light spinner-border-sm"
+                    role="status"
+                  >
+                    <span class="visually-hidden">Loading...</span>
+                  </div>
+                  加到購物車
+                </button>
+              </div>
             </div>
           </div>
         </div>
-      </div>
       </template>
     </div>
   </div>

@@ -1,31 +1,42 @@
 <template>
-<Loading :active="isLoading"
-  loader="bars"
-  color="#236F6B">
-</Loading>
+  <Loading :active="isLoading" loader="bars" color="#236F6B"> </Loading>
   <!-- 購物車沒東西 -->
-  <div v-if="cartData.carts.length == 0" class="text-center ">
+  <div v-if="cartData.carts.length == 0" class="text-center">
     <div class="card border-0 rounded-0 bg-dark text-white">
-    <img
-      style="
-        height: 70vh;
-        background-image: url(https://storage.googleapis.com/vue-course-api.appspot.com/jiangs2022vue3/1649503318659.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=UXZKvjIy7LwCITDs60RfAb%2BjMAxzeDVQT6DR8joBI3Am6utPx2gJZzKzBz%2FjSRqJlnmSxDC1IIBMOR59ONmBYiE9Ag%2F0QLSBzQ9CjuB0ufKqVC%2Fbdr6YpxKvGBD4Umk15ieZXk%2FEHW4umcZZ%2BMjE%2FVFG3y2yMGuGeZ5WOguoVdh%2BkJninCzHB44ifvqoMsZsc03YzAc570%2FZAlE2%2ByWvfK4mJVz46b%2FsK%2FOF4UXvZV%2Fs2XYYmU8fhioNjr6D6rLrnkS0KtqvxBtGstBMeMR81SRnrcfz10YxHBXxNN5%2FHxd1hl%2BSUod7%2BzBIjln6tV8%2BjhoR%2FiR0ipqpIdbY0D3rbA%3D%3D);
-        background-size: cover;
-        background-position: center bottom;
-        object-fit: cover;
-        background-attachment: fixed;
-        background-blend-mode: multiply;
-        background-color: rgba(0, 0, 0, .6);
-      "
-    />
-    <div class="card-img-overlay d-flex flex-column justify-content-center align-item-center">
-      <h2 class="card-title  text-center fw-bold" >購物車內沒東西<br>請至產品列表選購</h2>
-         <div class="d-flex align-items-center justify-content-center mt-5">
-          <button type="button" class="btn btn-outline-light me-5"><router-link class="text-light " to="/">返回首頁</router-link></button>
-          <button type="button" class="btn btn-light"><router-link  class="text-dark" to="/products">繼續購物</router-link></button>
+      <img
+        style="
+          height: 70vh;
+          background-image: url(https://storage.googleapis.com/vue-course-api.appspot.com/jiangs2022vue3/1649503318659.jpg?GoogleAccessId=firebase-adminsdk-zzty7%40vue-course-api.iam.gserviceaccount.com&Expires=1742169600&Signature=UXZKvjIy7LwCITDs60RfAb%2BjMAxzeDVQT6DR8joBI3Am6utPx2gJZzKzBz%2FjSRqJlnmSxDC1IIBMOR59ONmBYiE9Ag%2F0QLSBzQ9CjuB0ufKqVC%2Fbdr6YpxKvGBD4Umk15ieZXk%2FEHW4umcZZ%2BMjE%2FVFG3y2yMGuGeZ5WOguoVdh%2BkJninCzHB44ifvqoMsZsc03YzAc570%2FZAlE2%2ByWvfK4mJVz46b%2FsK%2FOF4UXvZV%2Fs2XYYmU8fhioNjr6D6rLrnkS0KtqvxBtGstBMeMR81SRnrcfz10YxHBXxNN5%2FHxd1hl%2BSUod7%2BzBIjln6tV8%2BjhoR%2FiR0ipqpIdbY0D3rbA%3D%3D);
+          background-size: cover;
+          background-position: center bottom;
+          object-fit: cover;
+          background-attachment: fixed;
+          background-blend-mode: multiply;
+          background-color: rgba(0, 0, 0, 0.6);
+        "
+      />
+      <div
+        class="
+          card-img-overlay
+          d-flex
+          flex-column
+          justify-content-center
+          align-item-center
+        "
+      >
+        <h2 class="card-title text-center fw-bold">
+          購物車內沒東西<br />請至產品列表選購
+        </h2>
+        <div class="d-flex align-items-center justify-content-center mt-5">
+          <button type="button" class="btn btn-outline-light me-5">
+            <router-link class="text-light" to="/">返回首頁</router-link>
+          </button>
+          <button type="button" class="btn btn-light">
+            <router-link class="text-dark" to="/products">繼續購物</router-link>
+          </button>
         </div>
+      </div>
     </div>
-  </div>
   </div>
   <div v-else class="container mt-5 p-0">
     <h2 class="text-center mb-5 fw-bold">購物車</h2>
@@ -52,11 +63,11 @@
       <div class="col">
         <!-- 清除全部購物車 -->
         <button
-            type="button"
-            class="btn btn-outline-danger btn-sm mb-2 "
-            @click="openAllDelProductModal(cartData)"
-          >
-            <i class="bi bi-trash"> 清除全部購物車 </i>
+          type="button"
+          class="btn btn-outline-danger btn-sm mb-2"
+          @click="openAllDelProductModal(cartData)"
+        >
+          <i class="bi bi-trash"> 清除全部購物車 </i>
         </button>
         <div
           class="card pt-2 border-top mb-3 border-0"
@@ -89,9 +100,13 @@
               "
             >
               <div class="card-body p-0">
-                <a href="#" class="d-block" @click.prevent="getProduct(item.product.id)">
+                <a
+                  href="#"
+                  class="d-block"
+                  @click.prevent="getProduct(item.product.id)"
+                >
                   <h5 class="card-title fs-6 fw-bold text-soft m-0">
-                  {{ item.product.title }}
+                    {{ item.product.title }}
                   </h5>
                 </a>
                 <div class="text-success" v-if="item.coupon">已套用優惠券</div>
@@ -197,7 +212,9 @@
               </p>
             </div>
           </div>
-          <div class="text-end"> 定價 {{ $filters.currency (item.product.price) }} </div>
+          <div class="text-end">
+            定價 {{ $filters.currency(item.product.price) }}
+          </div>
           <!-- <small v-if="cartData.final_total !== cartData.total" class="text-success text-end"
             >折扣價：{{ $filters.currency(item.final_total) }}
           </small> -->
@@ -343,7 +360,7 @@
             <div class="input-group-append">
               <button
                 class="btn btn-soft rounded-0"
-                :class="{'disabled': coupon_code === '' }"
+                :class="{ disabled: coupon_code === '' }"
                 type="button"
                 @click="addCouponCode"
               >
@@ -383,11 +400,11 @@
     <!-- 舊版表單 -->
     <!-- <div class="row g-0 mb-5">
       <! 購物車列表 -->
-      <!-- 左側 - 確認訂單數量價格... -->
-      <!-- <div class="col-12 col-lg-7 me-md-auto"> -->
-        <!-- <p class="mt-4">確認訂單內容</p> -->
-        <!-- <div class="cartTable mt-5"> -->
-          <!-- <table class="table align-middle">
+    <!-- 左側 - 確認訂單數量價格... -->
+    <!-- <div class="col-12 col-lg-7 me-md-auto"> -->
+    <!-- <p class="mt-4">確認訂單內容</p> -->
+    <!-- <div class="cartTable mt-5"> -->
+    <!-- <table class="table align-middle">
             <thead>
               <tr>
                 <th style="width: 5%"></th>
@@ -455,21 +472,21 @@
                 </tr>
               </template>
             </tbody> -->
-            <!-- <p>總共{{cartData.carts.length}} 筆項目 </p> -->
-            <!-- <tfoot v-if="cartData.carts.length !== 0"> -->
-              <!-- <tr>
+    <!-- <p>總共{{cartData.carts.length}} 筆項目 </p> -->
+    <!-- <tfoot v-if="cartData.carts.length !== 0"> -->
+    <!-- <tr>
                 <td colspan="5">
                   <button
                     type="button"
                     class="btn btn-outline-danger btn-sm mt-4 mb-4"
                     @click="removeCart()"
                   > -->
-                    <!-- <i class="bi bi-trash"> </i> -->
-                    <!-- 清除全部購物車
+    <!-- <i class="bi bi-trash"> </i> -->
+    <!-- 清除全部購物車
                   </button>
                 </td>
               </tr> -->
-              <!-- <tr>
+    <!-- <tr>
                 <td colspan="4" class="text-end">總計</td>
                 <td class="text-end">
                   {{ $filters.currency(cartData.total) }}
@@ -513,12 +530,12 @@
           <div v-else></div>
         </div>
       </div> -->
-      <!-- 右側 - 送出表單 -->
-      <!-- <div class="col-12 col-lg-4 bg-light mt-0 mt-lg-10 p-0 p-md-2 p-lg-5"> -->
-        <!-- <h3 class="bg-secondary text-light my-5 border p-3 ">Step２.填寫資料</h3> -->
-        <!-- <div class="col mt-5"> -->
-          <!-- <h3 class="bg-secondary text-light my-5 border p-3">填寫訂購資訊</h3> -->
-          <!-- <Form ref="form" v-slot="{ errors }" @submit="createOrder">
+    <!-- 右側 - 送出表單 -->
+    <!-- <div class="col-12 col-lg-4 bg-light mt-0 mt-lg-10 p-0 p-md-2 p-lg-5"> -->
+    <!-- <h3 class="bg-secondary text-light my-5 border p-3 ">Step２.填寫資料</h3> -->
+    <!-- <div class="col mt-5"> -->
+    <!-- <h3 class="bg-secondary text-light my-5 border p-3">填寫訂購資訊</h3> -->
+    <!-- <Form ref="form" v-slot="{ errors }" @submit="createOrder">
             <div class="mb-3">
               <label for="email" class="form-label"
                 ><span class="text-danger">*</span>Email</label
@@ -601,8 +618,8 @@
               <button class="btn btn-soft rounded-0">送出訂單</button>
             </div>
           </Form> -->
-        <!-- </div> -->
-      <!-- </div> -->
+    <!-- </div> -->
+    <!-- </div> -->
     <!-- </div> -->
   </div>
   <DelModal :item="tempProduct" ref="delModal" @del-item="removeCartItem" />
@@ -749,7 +766,8 @@ export default {
         code: this.coupon_code,
       };
       this.isLoading = true;
-      this.$http.post(url, { data: coupon })
+      this.$http
+        .post(url, { data: coupon })
         .then((response) => {
           this.$httpMessageState(response, '加入優惠券');
           this.getCarts();
@@ -765,7 +783,8 @@ export default {
     createOrder() {
       const url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/order`;
       const order = this.form;
-      this.$http.post(url, { data: order })
+      this.$http
+        .post(url, { data: order })
         .then((response) => {
           if (response.data.success) {
             this.$router.push(`/check/${response.data.orderId}`);

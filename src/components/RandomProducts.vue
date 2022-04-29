@@ -1,33 +1,35 @@
 <template>
-  <Loading :active="isLoading"/>
+  <Loading :active="isLoading" />
   <div class="container mb-5">
     <h3 class="text-center">WE RECOMMEND</h3>
     <h4 class="text-center mb-5">推薦商品</h4>
     <div class="row row-cols-1 row-cols-md-3">
       <div class="col" v-for="item in randomSelects" :key="item.id">
         <div class="card h-100 img-fluid position-relative">
-          <img :src="item.imageUrl" :alt="item.title" style="
-              background-size: cover;
-              background-position: center;
-            "
-            :style="{ backgroundImage: `url(${item.imageUrl})` }"  class="img-fluid" >
-              <div class="box bg-danger text-white position-absolute ">
-                <p class="m-0"> 推薦 </p>
-              </div>
+          <img
+            :src="item.imageUrl"
+            :alt="item.title"
+            style="background-size: cover; background-position: center"
+            :style="{ backgroundImage: `url(${item.imageUrl})` }"
+            class="img-fluid"
+          />
+          <div class="box bg-danger text-white position-absolute">
+            <p class="m-0">推薦</p>
+          </div>
           <div class="card-body">
-            <h5 class="card-title">{{item.title}}</h5>
-            <p class="card-text">{{item.description}}</p>
+            <h5 class="card-title">{{ item.title }}</h5>
+            <p class="card-text">{{ item.description }}</p>
           </div>
         </div>
       </div>
-  </div>
+    </div>
   </div>
 </template>
 
 <script>
 // import { Swiper, SwiperSlide } from 'swiper/vue/swiper-vue';
 // import 'swiper/swiper.scss'; // core Swiper
-import emitter from '../methods/emitter';
+import emitter from "../methods/emitter";
 
 // 相同產品取得隨機數
 function getRandomInt(max) {
@@ -39,7 +41,7 @@ export default {
     return {
       product: {},
       products: [], // 取得所有產品資料 存起來
-      id: '',
+      id: "",
       isLoading: false,
       randomSelects: [],
       qty: 1, // 畫面上的輸入欄位顯示的預設值
@@ -51,9 +53,11 @@ export default {
       // $router 方法
       const { id } = this.$route.params; // 這裡要用解構 airbnb 規則
       this.isLoading = true;
-      this.$http(`${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/product/${id}`)
+      this.$http(
+        `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/product/${id}`
+      )
         .then((res) => {
-          console.log('單一產品資訊 :', res);
+          console.log("單一產品資訊 :", res);
           this.isLoading = false;
           this.product = res.data.product; // 賦值
           this.getProducts(); // 先取得單一產品資訊，再取得所有產品資訊
@@ -65,7 +69,7 @@ export default {
     getProducts() {
       const url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/products/all`;
       this.$http.get(url).then((res) => {
-        console.log('取得所有產品資料：', res);
+        console.log("取得所有產品資料：", res);
         this.products = res.data.products;
         this.getLookLike();
       });
@@ -75,9 +79,11 @@ export default {
       this.$router.push(`/product/${id}`);
       // this.getLookLike();
       this.isLoading = true;
-      this.$http(`${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/product/${id}`)
+      this.$http(
+        `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/product/${id}`
+      )
         .then((res) => {
-          console.log('單一產品資訊 :', res);
+          console.log("單一產品資訊 :", res);
           this.isLoading = false;
           this.product = res.data.product; // 賦值
           this.randomProducts = []; // 轉到新頁面要先清空原本的
@@ -121,15 +127,15 @@ export default {
         .post(url, { data: cart })
         .then((res) => {
           this.isLoading = false;
-          this.$httpMessageState(res, '加入購物車');
-          console.log('購物車 :', res);
-          emitter.emit('update-cart'); // 更新購物車數量
+          this.$httpMessageState(res, "加入購物車");
+          console.log("購物車 :", res);
+          emitter.emit("update-cart"); // 更新購物車數量
         })
         .catch((error) => {
           this.isLoading = false;
-          this.$httpMessageState(error.response, '加入購物車');
+          this.$httpMessageState(error.response, "加入購物車");
         });
-      console.log('增加單一品項 :', cart);
+      console.log("增加單一品項 :", cart);
     },
     getCart() {
       const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart`;
@@ -146,7 +152,10 @@ export default {
         qty: item.qty,
       };
       this.$http
-        .put(`${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/cart/${item.id}`, { data })
+        .put(
+          `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/cart/${item.id}`,
+          { data }
+        )
         .then((res) => {
           console.log(res);
           this.getCart();
@@ -162,15 +171,15 @@ export default {
 </script>
 
 <style lang="scss">
-  .box{
-/*   border:1px solid #000; */
+.box {
+  /*   border:1px solid #000; */
   font-size: 20px;
   font-weight: 700;
-  width:80px;
-  height:auto;
-  left:30px;
+  width: 80px;
+  height: auto;
+  left: 30px;
   justify-content: center;
-  text-align:center;
-  padding:10px;
+  text-align: center;
+  padding: 10px;
 }
 </style>

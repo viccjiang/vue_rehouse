@@ -1,5 +1,5 @@
 <template>
-  <Loading :active="isLoading" loader="bars" color="#236F6B"/>
+  <Loading :active="isLoading" loader="bars" color="#236F6B" />
   <div class="container mt-3 mt-md-5">
     <div class="row align-items-center">
       <div class="col-md-7">
@@ -713,7 +713,8 @@ export default {
         product_id: item.id,
         qty: item.qty,
       };
-      this.$http.put(`${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/cart/${item.id}`, { data })
+      this.$http
+        .put(`${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/cart/${item.id}`, { data })
         .then((res) => {
           console.log(res);
           this.getCart();

@@ -1,8 +1,8 @@
 <template>
- <Navbar/>
+  <Navbar />
   <div class="container-fluid mt-3 position-relative">
-   <ToastMessages/>
-   <RouterView />
+    <ToastMessages />
+    <RouterView />
   </div>
 </template>
 

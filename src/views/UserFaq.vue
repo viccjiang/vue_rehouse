@@ -10,7 +10,15 @@
         background-attachment: fixed;
       "
     />
-    <div class="card-img-overlay d-flex flex-column justify-content-center align-item-center">
+    <div
+      class="
+        card-img-overlay
+        d-flex
+        flex-column
+        justify-content-center
+        align-item-center
+      "
+    >
       <h1 class="card-title text-center fw-bold">常見問題</h1>
     </div>
   </div>

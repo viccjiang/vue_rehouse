@@ -27,7 +27,7 @@
           <div class="row">
             <div class="col-sm-4">
               <div class="mb-3">
-                <label for="image" class="form-label" >輸入圖片網址</label>
+                <label for="image" class="form-label">輸入圖片網址</label>
                 <input
                   ref="textUrl"
                   type="text"
@@ -53,45 +53,60 @@
                   @change="uploadFile"
                 />
               </div>
-              <img class="img-fluid" :src="tempProduct.imageUrl" alt="產品"/>
+              <img class="img-fluid" :src="tempProduct.imageUrl" alt="產品" />
               <!-- 延伸技巧，多圖 -->
               <!-- 陣列 的判斷方式 ，如果是陣列才會跑判斷迴圈 -->
               <div v-if="Array.isArray(tempProduct.imagesUrl)">
-                <template class="mb-1" v-for="(image, key) in tempProduct.imagesUrl"
-                :key="key">
+                <template
+                  class="mb-1"
+                  v-for="(image, key) in tempProduct.imagesUrl"
+                  :key="key"
+                >
                   <div class="mb-3">
                     <label for="imageUrl" class="form-label">圖片網址</label>
                     <input
                       v-model="tempProduct.imagesUrl[key]"
-                      type="text" class="form-control"
-                      placeholder="請輸入圖片連結">
+                      type="text"
+                      class="form-control"
+                      placeholder="請輸入圖片連結"
+                    />
                   </div>
-                  <img class="img-fluid" :src="image" alt="產品">
+                  <img class="img-fluid" :src="image" alt="產品" />
                   <div>
-                  <!-- 陣列刪除 pop -->
-                  <button class="btn btn-outline-danger btn-sm d-block w-100"
-                  @click="tempProduct.imagesUrl.pop()">
-                    刪除圖片
-                  </button>
-                </div>
+                    <!-- 陣列刪除 pop -->
+                    <button
+                      class="btn btn-outline-danger btn-sm d-block w-100"
+                      @click="tempProduct.imagesUrl.pop()"
+                    >
+                      刪除圖片
+                    </button>
+                  </div>
                 </template>
                 <!-- 圖片區按鈕 -->
                 <!-- 先判斷陣列內 有沒有第一個元素 如果沒有的話要新增一個
                   這個意思是 如果都沒有的話 新增一個
                   如果有要判斷(特定索引位置)裡面有沒有字，有字的話跑出新增下一個
                   索引位置帶入(最後一個就是length-1) -->
-                <div v-if="!tempProduct.imagesUrl.length ||
-                  tempProduct.imagesUrl[tempProduct.imagesUrl.length - 1]">
+                <div
+                  v-if="
+                    !tempProduct.imagesUrl.length ||
+                    tempProduct.imagesUrl[tempProduct.imagesUrl.length - 1]
+                  "
+                >
                   <!-- 陣列新增 -->
-                  <button class="btn btn-outline-soft btn-sm d-block w-100"
-                    @click="tempProduct.imagesUrl.push('')">
+                  <button
+                    class="btn btn-outline-soft btn-sm d-block w-100"
+                    @click="tempProduct.imagesUrl.push('')"
+                  >
                     新增圖片
                   </button>
                 </div>
               </div>
               <div v-else>
-                <button class="btn btn-outline-primary btn-sm d-block w-100"
-                @click="tempProduct.imagesUrl.push('')">
+                <button
+                  class="btn btn-outline-primary btn-sm d-block w-100"
+                  @click="tempProduct.imagesUrl.push('')"
+                >
                   新增圖片
                 </button>
               </div>
@@ -224,7 +239,9 @@ export default {
   props: {
     product: {
       type: Object,
-      default() { return {}; },
+      default() {
+        return {};
+      },
     },
     isNew: {
       type: Boolean,
@@ -269,31 +286,34 @@ export default {
       const formData = new FormData();
       formData.append('file-to-upload', uploadedFile);
       const url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/admin/upload`;
-      this.$http.post(url, formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-      }).then((response) => {
-        this.status.fileUploading = false;
-        if (response.data.success) {
-          this.tempProduct.imageUrl = response.data.imageUrl;
-          this.$refs.fileInput.value = '';
-          this.emitter.emit('push-message', {
-            style: 'success',
-            title: '圖片上傳成功',
-          });
-        } else {
-          this.$refs.fileInput.value = '';
-          this.emitter.emit('push-message', {
-            style: 'danger',
-            title: '圖片上傳失敗',
-            content: response.data.message,
-          });
-        }
-      }).catch((error) => {
-        this.status.fileUploading = true;
-        this.$httpMessageState(error.response, '錯誤訊息');
-      });
+      this.$http
+        .post(url, formData, {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+          },
+        })
+        .then((response) => {
+          this.status.fileUploading = false;
+          if (response.data.success) {
+            this.tempProduct.imageUrl = response.data.imageUrl;
+            this.$refs.fileInput.value = '';
+            this.emitter.emit('push-message', {
+              style: 'success',
+              title: '圖片上傳成功',
+            });
+          } else {
+            this.$refs.fileInput.value = '';
+            this.emitter.emit('push-message', {
+              style: 'danger',
+              title: '圖片上傳失敗',
+              content: response.data.message,
+            });
+          }
+        })
+        .catch((error) => {
+          this.status.fileUploading = true;
+          this.$httpMessageState(error.response, '錯誤訊息');
+        });
     },
   },
   mounted() {

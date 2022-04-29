@@ -1,7 +1,9 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top ">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
     <div class="container">
-      <router-link class="navbar-brand brandlogo" to="/"><span class="brandlogos">re.</span>HOUSE </router-link>
+      <router-link class="navbar-brand brandlogo" to="/"
+        ><span class="brandlogos">re.</span>HOUSE
+      </router-link>
       <button
         class="navbar-toggler"
         type="button"
@@ -13,8 +15,19 @@
       >
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="flex justify-content-end collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav d-flex align-items-center justify-content-center mb-2 mb-lg-0">
+      <div
+        class="flex justify-content-end collapse navbar-collapse"
+        id="navbarSupportedContent"
+      >
+        <ul
+          class="
+            navbar-nav
+            d-flex
+            align-items-center
+            justify-content-center
+            mb-2 mb-lg-0
+          "
+        >
           <!-- <li class="nav-item">
             <router-link class="nav-link" to="/">首頁</router-link>
           </li> -->
@@ -34,13 +47,17 @@
             <router-link class="nav-link" to="/contact">聯絡我們</router-link>
           </li>
         </ul>
-        <ul class="navbar-nav d-flex align-items-center flex-column flex-lg-row">
+        <ul
+          class="navbar-nav d-flex align-items-center flex-column flex-lg-row"
+        >
           <li>
             <!-- favorite -->
-            <router-link class="nav-link fs-5 position-relative text-secondary" to="/favorite">
-              <i class="bi bi-heart"></i
+            <router-link
+              class="nav-link fs-5 position-relative text-secondary"
+              to="/favorite"
             >
-                          <div
+              <i class="bi bi-heart"></i>
+              <div
                 class="
                   badge
                   rounded-pill
@@ -50,8 +67,8 @@
                   top-0
                   start-50
                 "
-                style = "font-size: 10px;"
-                v-if = "favoriteNum != 0"
+                style="font-size: 10px"
+                v-if="favoriteNum != 0"
               >
                 <!-- 購物車品項數量 (不重複) -->
                 <!-- {{ cartData.carts.length }} -->
@@ -62,7 +79,12 @@
           </li>
           <li>
             <!-- <router-link class="nav-link fs-5 position-relative" to="/cart"> -->
-            <a href="#" class="nav-link fs-5 position-relative" data-bs-scroll="true" @click.prevent="showOffcanvas">
+            <a
+              href="#"
+              class="nav-link fs-5 position-relative"
+              data-bs-scroll="true"
+              @click.prevent="showOffcanvas"
+            >
               <i class="bi bi-bag text-secondary"></i>
               <div
                 class="
@@ -74,19 +96,22 @@
                   top-0
                   start-50
                 "
-                style = "font-size: 10px;"
-                v-if = "cartsLength != 0"
+                style="font-size: 10px"
+                v-if="cartsLength != 0"
               >
                 <!-- 購物車品項數量 (不重複) -->
                 <!-- {{ cartData.carts.length }} -->
                 <!-- 購物車品項數量總數 (重複) -->
                 {{ cartsLength }}
               </div>
-              </a>
+            </a>
             <!-- </router-link> -->
           </li>
           <li>
-            <router-link class="nav-link fs-5 text-secondary" to="/dashboard/products">
+            <router-link
+              class="nav-link fs-5 text-secondary"
+              to="/dashboard/products"
+            >
               <i class="bi bi-person-circle"></i
             ></router-link>
           </li>
@@ -98,111 +123,212 @@
       </button> -->
     </div>
   </nav>
-  <div class="offcanvas offcanvas-end"  data-bs-scroll="true" data-bs-backdrop="false" ref="offcanvas" style="overflow: auto" tabindex="-1" id="offcanvasRight"  aria-labelledby="offcanvasRightLabel">
-    <div class=" bg-soft offcanvas-header text-white">
+  <div
+    class="offcanvas offcanvas-end"
+    data-bs-scroll="true"
+    data-bs-backdrop="false"
+    ref="offcanvas"
+    style="overflow: auto"
+    tabindex="-1"
+    id="offcanvasRight"
+    aria-labelledby="offcanvasRightLabel"
+  >
+    <div class="bg-soft offcanvas-header text-white">
       <h5 id="offcanvasRightLabel " class="text-center m-0">購物車</h5>
-      <button type="button" class="btn-close btn-close-white text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      <button
+        type="button"
+        class="btn-close btn-close-white text-reset"
+        data-bs-dismiss="offcanvas"
+        aria-label="Close"
+      ></button>
     </div>
-    <div v-if="cartData.carts.length >0">
-    <div class="offcanvas-body d-flex flex-column justify-content-between">
-      <div class="container">
-      <div class="row  border-bottom mb-3 d-flex " v-for="item in cartData.carts" :key="item.id">
-        <div class="d-flex ">
-          <!-- offcanvas 刪除單一品項 -->
-          <div class="col-2 d-flex align-items-center justify-content-center" >
-            <p
-              type=""
-              class="btn btn-sm text-secondary  text-start m-0"
-              :disabled="loadingItem === item.id"
-              @click="removeCartItem(item.id)"
-            >
-              <i class="bi bi-trash3"></i>
-            </p>
-          </div>
-          <!-- 連到細節頁面 -->
-          <a href="#"
-            @click.prevent="getProduct(item.product_id)"
-            class="d-flex align-items-center justify-content-center link-soft">
-            <div
-              class="col-2 mb-2 "
-              style="
-                height: 50px;
-                width:50px;
-                background-size: cover;
-                background-position: center;
-              "
-              :style="{ backgroundImage: `url(${item.product.imageUrl})` }">
-                <!-- {{item.product.imageUrl}} -->
-            </div>
-            <div class="col fs-6 fw-bold ">
-              <!-- <router-link :to="`/product/${item.product_id}`">GO</router-link> -->
-              <!-- <a href="#" @click.prevent="getProduct(item.product_id)">GO</a> -->
-              {{item.product.title}}
-            </div>
-          </a>
-        </div>
-        <div class="border-top d-flex justify-content-center bg-light">
-          <div class="col d-flex flex-column ms-auto " >
-            <div
-              class="price d-flex justify-content-md-between flex-column flex-nowrap flex-md-row "
-            >
-              <!-- 數量 -->
+    <div v-if="cartData.carts.length > 0">
+      <div class="offcanvas-body d-flex flex-column justify-content-between">
+        <div class="container">
+          <div
+            class="row border-bottom mb-3 d-flex"
+            v-for="item in cartData.carts"
+            :key="item.id"
+          >
+            <div class="d-flex">
+              <!-- offcanvas 刪除單一品項 -->
               <div
-                class="input-group product-num-group bg-light mt-1 mb-4 my-md-0"
+                class="col-2 d-flex align-items-center justify-content-center"
               >
-                <!-- 減 -->
-                <div class="">
-                  <button
-                    :disabled="item.qty <= 1 || loadingItem === item.id"
-                    @click="updateCart(item, item.qty--)"
-                    class="btn border-0 bg-light"
-                    type="button"
-                  >
-                    <i class="bi bi-dash-lg"></i>
-                  </button>
+                <p
+                  type=""
+                  class="btn btn-sm text-secondary text-start m-0"
+                  :disabled="loadingItem === item.id"
+                  @click="removeCartItem(item.id)"
+                >
+                  <i class="bi bi-trash3"></i>
+                </p>
+              </div>
+              <!-- 連到細節頁面 -->
+              <a
+                href="#"
+                @click.prevent="getProduct(item.product_id)"
+                class="
+                  d-flex
+                  align-items-center
+                  justify-content-center
+                  link-soft
+                "
+              >
+                <div
+                  class="col-2 mb-2"
+                  style="
+                    height: 50px;
+                    width: 50px;
+                    background-size: cover;
+                    background-position: center;
+                  "
+                  :style="{ backgroundImage: `url(${item.product.imageUrl})` }"
+                >
+                  <!-- {{item.product.imageUrl}} -->
                 </div>
-                <!-- 數量 -->
-                <input
-                  type="text"
-                  class="form-control border-0 text-center my-auto shadow-none bg-light border"
-                  aria-describedby="button-addon1"
-                  v-model.lazy="item.qty"
-                />
-                <!-- 加 -->
-                <div class="">
-                  <button
-                    :disabled="loadingItem === item.id"
-                    @click="updateCart(item, item.qty++)"
-                    class="btn border-0"
-                    type="button"
+                <div class="col fs-6 fw-bold">
+                  <!-- <router-link :to="`/product/${item.product_id}`">GO</router-link> -->
+                  <!-- <a href="#" @click.prevent="getProduct(item.product_id)">GO</a> -->
+                  {{ item.product.title }}
+                </div>
+              </a>
+            </div>
+            <div class="border-top d-flex justify-content-center bg-light">
+              <div class="col d-flex flex-column ms-auto">
+                <div
+                  class="
+                    price
+                    d-flex
+                    justify-content-md-between
+                    flex-column flex-nowrap flex-md-row
+                  "
+                >
+                  <!-- 數量 -->
+                  <div
+                    class="
+                      input-group
+                      product-num-group
+                      bg-light
+                      mt-1
+                      mb-4
+                      my-md-0
+                    "
                   >
-                    <i class="bi bi-plus-lg"></i>
-                  </button>
+                    <!-- 減 -->
+                    <div class="">
+                      <button
+                        :disabled="item.qty <= 1 || loadingItem === item.id"
+                        @click="updateCart(item, item.qty--)"
+                        class="btn border-0 bg-light"
+                        type="button"
+                      >
+                        <i class="bi bi-dash-lg"></i>
+                      </button>
+                    </div>
+                    <!-- 數量 -->
+                    <input
+                      type="text"
+                      class="
+                        form-control
+                        border-0
+                        text-center
+                        my-auto
+                        shadow-none
+                        bg-light
+                        border
+                      "
+                      aria-describedby="button-addon1"
+                      v-model.lazy="item.qty"
+                    />
+                    <!-- 加 -->
+                    <div class="">
+                      <button
+                        :disabled="loadingItem === item.id"
+                        @click="updateCart(item, item.qty++)"
+                        class="btn border-0"
+                        type="button"
+                      >
+                        <i class="bi bi-plus-lg"></i>
+                      </button>
+                    </div>
+                  </div>
                 </div>
               </div>
+              <div
+                class="
+                  col
+                  d-flex
+                  flex-column
+                  ms-auto
+                  text-end
+                  fs-7
+                  text-secondary
+                  align-items-end
+                  justify-content-center
+                "
+              >
+                ${{ $filters.currency(item.final_total) }}
               </div>
+            </div>
           </div>
-        <div class="col d-flex flex-column ms-auto text-end  fs-7 text-secondary align-items-end justify-content-center" >
-          ${{$filters.currency(item.final_total)}}
         </div>
+        <p class="text-center m-0 fs-6 text-danger mb-3">
+          總計 $ {{ $filters.currency(cartData.final_total) }} 元
+        </p>
+        <router-link
+          class="
+            btn btn-soft
+            text-center
+            mt-auto
+            nav-link
+            text-white
+            p-3
+            d-grid
+            rounded-0
+          "
+          to="/cart"
+          @click="hideOffcanvas"
+          >結帳去</router-link
+        >
+        <!-- {{ cartData.carts }} -->
+      </div>
+    </div>
+    <div
+      v-else
+      class="
+        offcanvas-body
+        d-flex
+        flex-column
+        align-items-center
+        justify-content-center
+      "
+    >
+      <div
+        class="
+          text-center
+          d-flex
+          flex-column
+          align-items-center
+          justify-content-center
+        "
+      >
+        <p class="m-0">你的購物車沒有商品</p>
+        <div class="d-flex align-items-center justify-content-center">
+          <router-link to="/"
+            ><button type="button" class="btn btn-outline-secondary m-2">
+              回首頁
+            </button></router-link
+          >
+          <router-link to="/products"
+            ><button type="button" class="btn btn-outline-secondary">
+              購物去
+            </button></router-link
+          >
         </div>
       </div>
-      </div>
-      <p class="text-center m-0 fs-6 text-danger mb-3">總計 $ {{ $filters.currency(cartData.final_total)}} 元 </p>
-      <router-link class="btn btn-soft text-center mt-auto nav-link text-white p-3 d-grid rounded-0" to="/cart" @click="hideOffcanvas">結帳去</router-link>
-      <!-- {{ cartData.carts }} -->
     </div>
-      </div>
-    <div v-else class="offcanvas-body d-flex flex-column align-items-center justify-content-center">
-    <div  class="text-center d-flex flex-column align-items-center justify-content-center">
-      <p class="m-0 ">你的購物車沒有商品</p>
-      <div class="d-flex align-items-center justify-content-center">
-        <router-link to="/"><button type="button" class="btn btn-outline-secondary m-2">回首頁</button></router-link>
-        <router-link to="/products"><button type="button" class="btn btn-outline-secondary">購物去</button></router-link>
-      </div>
-    </div>
-    </div>
-</div>
+  </div>
 </template>
 
 <script>
@@ -238,24 +364,22 @@ export default {
     },
     updateCartNum() {
       const url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/cart`;
-      this.$http
-        .get(url)
-        .then((res) => {
-          // 清單合併成一個加總數目的品項
-          this.cartsLength = res.data.data.carts.length; // 購物車 icon 判斷
-          // 清單未合併，icon上的總數是依照加總的總數
-          // if (res.data.success) {
-          //   let totalQty = 0;
-          //   this.cartsLength = res.data.data.carts.forEach((item) => {
-          //     // console.log(item);
-          //     totalQty += item.qty;
-          //   });
-          //   this.cartsLength = totalQty;
-          //   // console.log('購物車總數,', this.cartsLength);
-          // } else {
-          //   console.log('購物車資料異常');
-          // }
-        });
+      this.$http.get(url).then((res) => {
+        // 清單合併成一個加總數目的品項
+        this.cartsLength = res.data.data.carts.length; // 購物車 icon 判斷
+        // 清單未合併，icon上的總數是依照加總的總數
+        // if (res.data.success) {
+        //   let totalQty = 0;
+        //   this.cartsLength = res.data.data.carts.forEach((item) => {
+        //     // console.log(item);
+        //     totalQty += item.qty;
+        //   });
+        //   this.cartsLength = totalQty;
+        //   // console.log('購物車總數,', this.cartsLength);
+        // } else {
+        //   console.log('購物車資料異常');
+        // }
+      });
     },
     // 更新購物車
     updateCart(item) {
@@ -354,14 +478,14 @@ export default {
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Expletus+Sans:ital,wght@0,400;0,600;0,700;1,500;1,600&display=swap');
 
-.brandlogo{
-  font-family:'Expletus Sans', cursive;
-  font-weight: Bold ;
-  font-size: 42px;;
+.brandlogo {
+  font-family: "Expletus Sans", cursive;
+  font-weight: Bold;
+  font-size: 42px;
 }
 
-.brandlogos{
-  font-family:'Expletus Sans', cursive;
+.brandlogos {
+  font-family: "Expletus Sans", cursive;
   font-weight: 400;
   font-size: 30px;
   font-style: italic;
@@ -369,5 +493,4 @@ export default {
 a:link {
   text-decoration: none;
 }
-
 </style>

@@ -1,8 +1,5 @@
 <template>
-<Loading :active="isLoading"
-  loader="bars"
-  color="#236F6B">
-</Loading>
+  <Loading :active="isLoading" loader="bars" color="#236F6B"> </Loading>
   <!-- 購物車進度 -->
   <div class="container mt-5 p-0">
     <h2 class="text-center mb-5 fw-bold">購物車</h2>
@@ -15,7 +12,7 @@
       <div class="col">
         <span class="fs-7">2</span>
         <p class="m-3 text-soft">建立訂單</p>
-        <div v-if="!order.is_paid" class="step-bar "></div>
+        <div v-if="!order.is_paid" class="step-bar"></div>
         <div v-else class="step-bar-none"></div>
       </div>
       <div class="col">
@@ -29,99 +26,128 @@
   <!-- 已付款，完成訂單 -->
   <div v-if="order.is_paid" class="container text-center mt-5 mb-5">
     <div class="card text-center">
-    <div class="card-header bg-soft text-white">
+      <div class="card-header bg-soft text-white">
         付款成功，感謝您的購買與支持
-    </div>
-    <div class="card-body">
-        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-check-circle-fill text-soft mb-3" viewBox="0 0 16 16">
-          <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+      </div>
+      <div class="card-body">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="40"
+          height="40"
+          fill="currentColor"
+          class="bi bi-check-circle-fill text-soft mb-3"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"
+          />
         </svg>
         <h5 class="fs-2 fw-bold card-title">感謝您的訂購</h5>
-        <p class="card-text border-bottom pb-3">商品預計於七個工作天內寄送<br>（不含週休及國定例假日）<br>再請留意簡訊通知及配送人員的電話</p>
-        <dl class="row d-flex justify-content-start align-items-start text-start px-0 px-md-10 m-0">
-            <dt class="col-sm-3 ">購買日期</dt>
-            <dd class="col-sm-9 ">{{ $filters.date(order.create_at)}}</dd>
-            <dt class="col-sm-3">訂單編號</dt>
-            <dd class="col-sm-9">
-                <p class="m-0">{{order.id}}</p>
-            </dd>
-            <dt class="col-sm-3 ">Email</dt>
-            <dd class="col-sm-9">{{ order.user.email }}</dd>
-            <dt class="col-sm-3 ">收件人姓名</dt>
-            <dd class="col-sm-9">{{ order.user.name }}</dd>
-            <dt class="col-sm-3 ">收件人電話</dt>
-            <dd class="col-sm-9">{{ order.user.tel }}</dd>
-            <dt class="col-sm-3 ">收件人地址</dt>
-            <dd class="col-sm-9">{{ order.user.address }}</dd>
-            <dt class="col-sm-3">購買項目</dt>
-            <dd class="col-sm-9">
-              <div v-for="item in order.products" :key="item.id">
-                <span> {{ item.product.title }} </span>
-                <span> {{ item.qty }}{{ item.product.unit }} </span>
-                <span> NT$ {{ $filters.currency(item.final_total) }}</span>
-              </div>
-            </dd>
-            <dt class="col-sm-3 ">總金額</dt>
-            <dd class="col-sm-9">NT$ {{ $filters.currency(order.total) }}</dd>
-            <dt class="col-sm-3">付款狀態</dt>
-            <dd class="col-sm-9">
-                <span v-if="!order.is_paid" class="text-danger">尚未付款</span>
-                <span v-else class="text-success">付款完成</span>
-            </dd>
+        <p class="card-text border-bottom pb-3">
+          商品預計於七個工作天內寄送<br />（不含週休及國定例假日）<br />再請留意簡訊通知及配送人員的電話
+        </p>
+        <dl
+          class="
+            row
+            d-flex
+            justify-content-start
+            align-items-start
+            text-start
+            px-0 px-md-10
+            m-0
+          "
+        >
+          <dt class="col-sm-3">購買日期</dt>
+          <dd class="col-sm-9">{{ $filters.date(order.create_at) }}</dd>
+          <dt class="col-sm-3">訂單編號</dt>
+          <dd class="col-sm-9">
+            <p class="m-0">{{ order.id }}</p>
+          </dd>
+          <dt class="col-sm-3">Email</dt>
+          <dd class="col-sm-9">{{ order.user.email }}</dd>
+          <dt class="col-sm-3">收件人姓名</dt>
+          <dd class="col-sm-9">{{ order.user.name }}</dd>
+          <dt class="col-sm-3">收件人電話</dt>
+          <dd class="col-sm-9">{{ order.user.tel }}</dd>
+          <dt class="col-sm-3">收件人地址</dt>
+          <dd class="col-sm-9">{{ order.user.address }}</dd>
+          <dt class="col-sm-3">購買項目</dt>
+          <dd class="col-sm-9">
+            <div v-for="item in order.products" :key="item.id">
+              <span> {{ item.product.title }} </span>
+              <span> {{ item.qty }}{{ item.product.unit }} </span>
+              <span> NT$ {{ $filters.currency(item.final_total) }}</span>
+            </div>
+          </dd>
+          <dt class="col-sm-3">總金額</dt>
+          <dd class="col-sm-9">NT$ {{ $filters.currency(order.total) }}</dd>
+          <dt class="col-sm-3">付款狀態</dt>
+          <dd class="col-sm-9">
+            <span v-if="!order.is_paid" class="text-danger">尚未付款</span>
+            <span v-else class="text-success">付款完成</span>
+          </dd>
         </dl>
         <div class="d-flex align-items-end justify-content-between mt-5">
-         <router-link class="btn btn-outline-soft " to="/"
-            >回首頁</router-link
-          >
-        <router-link class="btn btn-soft " to="/products"
+          <router-link class="btn btn-outline-soft" to="/">回首頁</router-link>
+          <router-link class="btn btn-soft" to="/products"
             >繼續購物</router-link
           >
         </div>
-    </div>
+      </div>
     </div>
   </div>
   <!-- 未付款 -->
   <div v-else class="container text-center mt-5 mb-5">
     <div class="card text-center">
-    <div class="card-header bg-soft text-white">
+      <div class="card-header bg-soft text-white">
         已建立訂單：{{ order.id }}
-    </div>
-    <div class="card-body">
+      </div>
+      <div class="card-body">
         <!-- <h5 class="card-title">購買日期 {{ $filters.date(order.create_at)}}</h5>
         <p class="card-text">感謝您的購買與支持</p> -->
-        <dl class="row d-flex justify-content-start align-items-start text-start px-0 px-md-10 m-0">
-            <dt class="col-sm-3 ">購買日期</dt>
-            <dd class="col-sm-9 ">{{ $filters.date(order.create_at) }}</dd>
-            <dt class="col-sm-3">訂單編號</dt>
-            <dd class="col-sm-9">
-                <p class="m-0">{{ order.id }}</p>
-            </dd>
-            <dt class="col-sm-3 ">Email</dt>
-            <dd class="col-sm-9">{{ order.user.email }}</dd>
-            <dt class="col-sm-3 ">收件人姓名</dt>
-            <dd class="col-sm-9">{{ order.user.name }}</dd>
-            <dt class="col-sm-3 ">收件人電話</dt>
-            <dd class="col-sm-9">{{ order.user.tel }}</dd>
-            <dt class="col-sm-3 ">收件人地址</dt>
-            <dd class="col-sm-9">{{ order.user.address }}</dd>
-            <dt class="col-sm-3">購買項目</dt>
-            <dd class="col-sm-9">
-              <div v-for="item in order.products" :key="item.id">
-                <span> {{ item.product.title }} </span>
-                <span> {{ item.qty }}{{ item.product.unit }} </span>
-                <span> NT$ {{ $filters.currency(item.final_total) }}</span>
-              </div>
-            </dd>
-            <dt class="col-sm-3 ">總金額</dt>
-            <dd class="col-sm-9">NT$ {{ $filters.currency(order.total) }}</dd>
-            <dt class="col-sm-3">付款狀態</dt>
-            <dd class="col-sm-9">
-                <span v-if="!order.is_paid" class="text-danger">尚未付款</span>
-                <span v-else class="text-success">付款完成</span>
-            </dd>
+        <dl
+          class="
+            row
+            d-flex
+            justify-content-start
+            align-items-start
+            text-start
+            px-0 px-md-10
+            m-0
+          "
+        >
+          <dt class="col-sm-3">購買日期</dt>
+          <dd class="col-sm-9">{{ $filters.date(order.create_at) }}</dd>
+          <dt class="col-sm-3">訂單編號</dt>
+          <dd class="col-sm-9">
+            <p class="m-0">{{ order.id }}</p>
+          </dd>
+          <dt class="col-sm-3">Email</dt>
+          <dd class="col-sm-9">{{ order.user.email }}</dd>
+          <dt class="col-sm-3">收件人姓名</dt>
+          <dd class="col-sm-9">{{ order.user.name }}</dd>
+          <dt class="col-sm-3">收件人電話</dt>
+          <dd class="col-sm-9">{{ order.user.tel }}</dd>
+          <dt class="col-sm-3">收件人地址</dt>
+          <dd class="col-sm-9">{{ order.user.address }}</dd>
+          <dt class="col-sm-3">購買項目</dt>
+          <dd class="col-sm-9">
+            <div v-for="item in order.products" :key="item.id">
+              <span> {{ item.product.title }} </span>
+              <span> {{ item.qty }}{{ item.product.unit }} </span>
+              <span> NT$ {{ $filters.currency(item.final_total) }}</span>
+            </div>
+          </dd>
+          <dt class="col-sm-3">總金額</dt>
+          <dd class="col-sm-9">NT$ {{ $filters.currency(order.total) }}</dd>
+          <dt class="col-sm-3">付款狀態</dt>
+          <dd class="col-sm-9">
+            <span v-if="!order.is_paid" class="text-danger">尚未付款</span>
+            <span v-else class="text-success">付款完成</span>
+          </dd>
         </dl>
-         <div class="d-flex align-items-end justify-content-between mt-5">
-         <router-link class="btn btn-outline-soft " to="/products"
+        <div class="d-flex align-items-end justify-content-between mt-5">
+          <router-link class="btn btn-outline-soft" to="/products"
             >繼續購物</router-link
           >
           <div v-if="order.is_paid === false">
@@ -129,7 +155,7 @@
             <!-- 再做一個完成訂購頁面 -->
           </div>
         </div>
-    </div>
+      </div>
     </div>
   </div>
   <!-- 購物車訂單資訊 -->

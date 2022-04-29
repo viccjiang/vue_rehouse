@@ -1,5 +1,5 @@
 <template>
-  <Loading :active="isLoading"/>
+  <Loading :active="isLoading" />
   <div class="text-end mt-4">
     <button class="btn btn-soft" type="button" @click="openModal(true)">
       建立新的產品
@@ -49,8 +49,7 @@
   </table>
   <!-- props，前內後外，pages內接收，pagination外層傳 -->
   <!-- emit，前內後外，emit-pages內事件名稱，getProducts觸發外函式 -->
-  <Pagination :pages="pagination"
-    @emit-pages="getProducts"></Pagination>
+  <Pagination :pages="pagination" @emit-pages="getProducts"></Pagination>
   <ProductModal
     ref="productModal"
     :product="tempProduct"

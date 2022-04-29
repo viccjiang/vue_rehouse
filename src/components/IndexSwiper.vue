@@ -49,8 +49,8 @@
 </template>
 
 <script>
-import { Swiper, SwiperSlide } from 'swiper/vue/swiper-vue';
-import 'swiper/swiper.scss'; // core Swiper
+import { Swiper, SwiperSlide } from "swiper/vue/swiper-vue";
+import "swiper/swiper.scss"; // core Swiper
 
 export default {
   data() {
@@ -68,7 +68,7 @@ export default {
       this.isLoading = true;
       this.$http.get(url).then((response) => {
         this.products = response.data.products;
-        console.log('products:', response);
+        console.log("products:", response);
         this.isLoading = false;
         if (response.data.success) {
           console.log(response.data);
