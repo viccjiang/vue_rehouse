@@ -236,16 +236,16 @@ export default {
           if (this.selectCategory !== '') {
             this.pagination = {};
           } else {
-            this.setPagination(page);
+            this.setPage(page);
           }
           this.isLoading = false;
         })
         .catch((error) => {
-          this.$httpMessageState(error, '連線錯誤');
+          this.$httpMessageState(error, '錯誤');
           this.isLoading = false;
         });
     },
-    setPagination(page = 1) {
+    setPage(page = 1) {
       const perPage = 12;
       this.pagination = {
         total_pages: Math.ceil(this.products.length / perPage),

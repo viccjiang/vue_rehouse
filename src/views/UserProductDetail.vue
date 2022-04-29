@@ -120,6 +120,30 @@
                 加入購物車
               </button>
             </div>
+            <!-- 加入收藏 -->
+            <a
+              href="#"
+              @click.prevent="addMyFavorite(product)"
+              :class="{ active: myFavorite.includes(product.id) }"
+              class="link-secondary d-block rounded border text-center mb-3 "
+            >
+              <p v-if="myFavorite.includes(product.id)" class="m-0 text-danger d-flex align-items-center justify-content-center">
+                <i
+                class="
+                  fs-4
+                  bi-suit-heart-fill
+                  top-0
+                  end-0
+                  me-2
+                  mt-1
+                  text-danger
+                "
+              ></i>已加入收藏
+              </p>
+              <p v-else class="m-0  text-soft d-flex align-items-center justify-content-center"><i
+                class="fs-4 bi bi-suit-heart top-0 end-0 me-2 mt-1 p-0"
+              ></i>加入收藏</p>
+            </a>
           </div>
         </div>
         <ul class="list-unstyled">
@@ -539,6 +563,7 @@
 </template>
 
 <script>
+import storageMethods from '../methods/storageMethods';
 import emitter from '../methods/emitter';
 
 // 相同產品取得隨機數
@@ -556,6 +581,7 @@ export default {
       isLoading: false,
       randomProducts: [],
       qty: 1, // 畫面上的輸入欄位顯示的預設值
+      myFavorite: storageMethods.get() || [], // 我的最愛，有品項的話就用 storageMethods.get() 取到內容，沒有的話就傳空陣列
     };
   },
   methods: {
@@ -669,6 +695,32 @@ export default {
     },
     changeImg(img) {
       this.productImg = img;
+    },
+    addMyFavorite(item) {
+      // this.myFavorite.push(item.id);
+      // this.myFavorite.includes(item.id) 原本是寫 item.id 存 id 就好，但後面要做其他事情可以先存整個物件
+      if (this.myFavorite.includes(item.id)) {
+        // 這裡意思是 如果我的最愛已經有這個品項，再按一次就代表取消
+        this.myFavorite.splice(this.myFavorite.indexOf(item.id), 1);
+        // emitter.emit('update-favorite'); // 更新最愛數量
+      } else {
+        this.myFavorite.push(item.id); // 否則沒有此品項 就把品項加入
+        this.favShowAlert();
+        // emitter.emit('update-favorite'); // 更新最愛數量
+      }
+      // storageMethods.save(this.myFavorite); // 儲存狀態
+      // emitter.emit('update-favorite'); // 更新最愛數量
+    },
+    favShowAlert() {
+      // Use sweetalert2
+      this.$swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: '已加入收藏',
+        showConfirmButton: false,
+        timer: 2000,
+        iconColor: '#236F6B',
+      });
     },
   },
   mounted() {
