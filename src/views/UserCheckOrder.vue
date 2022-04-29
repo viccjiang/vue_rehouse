@@ -282,24 +282,24 @@ export default {
 </script>
 
 <style lang="scss">
-.check-step span {
-  width: 20px;
-  height: 20px;
-  padding: 6px 10px;
-  justify-content: center;
-  background: #236f6b;
-  color: #fff;
-  border-radius: 50%;
-  margin-bottom: 5px;
-}
-.step-bar {
-  width: 100%;
-  height: 5px;
-  background: #236f6b;
-}
-.step-bar-none {
-  width: 100%;
-  height: 5px;
-  background: rgba(35, 111, 107, 0.2);
-}
+  .check-step span {
+    width: 20px;
+    height: 20px;
+    padding: 6px 10px;
+    justify-content: center;
+    background: #236f6b;
+    color: #fff;
+    border-radius: 50%;
+    margin-bottom: 5px;
+  }
+  .step-bar {
+    width: 100%;
+    height: 5px;
+    background: #236f6b;
+  }
+  .step-bar-none {
+    width: 100%;
+    height: 5px;
+    background: rgba(35, 111, 107, 0.2);
+  }
 </style>

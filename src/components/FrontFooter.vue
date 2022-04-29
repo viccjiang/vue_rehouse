@@ -85,34 +85,33 @@
 
 <style lang="scss">
 @import url("https://fonts.googleapis.com/css2?family=Expletus+Sans:ital,wght@0,400;0,600;0,700;1,500;1,600&display=swap");
-
-// logo
-.brandlogo {
-  font-family: "Expletus Sans", cursive;
-  font-weight: Bold;
-  font-size: 42px;
-}
-.brandlogos {
-  font-family: "Expletus Sans", cursive;
-  font-weight: 400;
-  font-size: 30px;
-  font-style: italic;
-}
-// footer
-.navhover a {
-  position: relative;
-}
-.navhover ::after {
-  content: " ";
-  position: absolute;
-  right: 50%;
-  left: 50%;
-  bottom: -5px;
-  border-bottom: 1px solid #fff;
-  transition: 0.3s;
-}
-.navhover :hover::after {
-  right: 0%;
-  left: 0%;
-}
+  // logo
+  .brandlogo {
+    font-family: "Expletus Sans", cursive;
+    font-weight: Bold;
+    font-size: 42px;
+  }
+  .brandlogos {
+    font-family: "Expletus Sans", cursive;
+    font-weight: 400;
+    font-size: 30px;
+    font-style: italic;
+  }
+  // footer
+  .navhover a {
+    position: relative;
+  }
+  .navhover ::after {
+    content: " ";
+    position: absolute;
+    right: 50%;
+    left: 50%;
+    bottom: -5px;
+    border-bottom: 1px solid #fff;
+    transition: 0.3s;
+  }
+  .navhover :hover::after {
+    right: 0%;
+    left: 0%;
+  }
 </style>

@@ -214,35 +214,35 @@ export default {
 </script>
 
 <style lang='scss' >
-.box {
-  /*   border:1px solid #000; */
-  font-size: 16px;
-  // font-weight: 700;
-  width: 60px;
-  height: auto;
-  left: 0px;
-  justify-content: center;
-  text-align: center;
-  padding: 10px;
-}
-.swiper-container {
-  --swiper-navigation-color: #fff;
-  --swiper-navigation-size: 40px; /* 设置按钮大小 */
-}
-.swiper-img {
-  filter: brightness(1);
-  overflow: hidden;
-}
-.swiper-img:hover {
-  filter: brightness(0.8);
-  transition: 0.5s;
-}
-.hover-view {
-  filter: brightness(0.8);
-  transition: 0.5s;
-}
-.hover-view:hover {
-  filter: brightness(0.8);
-  transition: 0.5s;
-}
+  .box {
+    /*   border:1px solid #000; */
+    font-size: 16px;
+    // font-weight: 700;
+    width: 60px;
+    height: auto;
+    left: 0px;
+    justify-content: center;
+    text-align: center;
+    padding: 10px;
+  }
+  .swiper-container {
+    --swiper-navigation-color: #fff;
+    --swiper-navigation-size: 40px; /* 设置按钮大小 */
+  }
+  .swiper-img {
+    filter: brightness(1);
+    overflow: hidden;
+  }
+  .swiper-img:hover {
+    filter: brightness(0.8);
+    transition: 0.5s;
+  }
+  .hover-view {
+    filter: brightness(0.8);
+    transition: 0.5s;
+  }
+  .hover-view:hover {
+    filter: brightness(0.8);
+    transition: 0.5s;
+  }
 </style>

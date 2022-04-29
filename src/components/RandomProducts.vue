@@ -171,15 +171,15 @@ export default {
 </script>
 
 <style lang="scss">
-.box {
-  /*   border:1px solid #000; */
-  font-size: 20px;
-  font-weight: 700;
-  width: 80px;
-  height: auto;
-  left: 30px;
-  justify-content: center;
-  text-align: center;
-  padding: 10px;
-}
+  .box {
+    /*   border:1px solid #000; */
+    font-size: 20px;
+    font-weight: 700;
+    width: 80px;
+    height: auto;
+    left: 30px;
+    justify-content: center;
+    text-align: center;
+    padding: 10px;
+  }
 </style>

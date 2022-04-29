@@ -387,23 +387,23 @@ export default {
 </script>
 
 <style lang="scss">
-.subNav {
-  z-index: 1000;
-  position: sticky;
-  top: 89px;
-  flex-wrap: wrap;
-  justify-content: space-around;
-}
-.img-card {
-  width: 100%;
-  overflow: hidden;
-}
-.card-imageUrl {
-  overflow: hidden;
-}
-.card-imageUrl:hover {
-  transform: scale(1.2);
-  transition: 0.5s;
-  height: 300px;
-}
+  .subNav {
+    z-index: 1000;
+    position: sticky;
+    top: 89px;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  .img-card {
+    width: 100%;
+    overflow: hidden;
+  }
+  .card-imageUrl {
+    overflow: hidden;
+  }
+  .card-imageUrl:hover {
+    transform: scale(1.2);
+    transition: 0.5s;
+    height: 300px;
+  }
 </style>

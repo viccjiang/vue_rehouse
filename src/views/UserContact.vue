@@ -92,28 +92,28 @@
 </template>
 
 <style lang="scss">
-ul,
-ol {
-  list-style: none;
-  padding: 0;
-}
-.filters {
-  filter: brightness(0.8);
-}
-.bg-cover {
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-.darker {
-  filter: brightness(0.8);
-}
-.reservation__item {
-  min-height: 132px;
-  filter: brightness(0.8);
-}
-.reservation__item:hover {
-  min-height: 132px;
-  filter: brightness(1);
-}
+  ul,
+  ol {
+    list-style: none;
+    padding: 0;
+  }
+  .filters {
+    filter: brightness(0.8);
+  }
+  .bg-cover {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  .darker {
+    filter: brightness(0.8);
+  }
+  .reservation__item {
+    min-height: 132px;
+    filter: brightness(0.8);
+  }
+  .reservation__item:hover {
+    min-height: 132px;
+    filter: brightness(1);
+  }
 </style>

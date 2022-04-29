@@ -460,184 +460,184 @@ export default {
 <style lang='scss'>
 @import url("https://fonts.googleapis.com/css2?family=Expletus+Sans:ital,wght@0,400;0,600;0,700;1,500;1,600&display=swap");
 
-.footer .gotop {
-  z-index: 1000;
-  text-align: center;
-  position: fixed;
-  right: 30px;
-  bottom: 30px;
-  cursor: pointer;
-  padding: 10px;
-  border-radius: 50%;
-  background-color: #236f6b;
-  color: #fff;
-}
-
-.footer .gotop:hover {
-  background-color: #fff;
-  color: #236f6b;
-}
-
-.brandlogo {
-  font-family: "Expletus Sans", cursive;
-  font-weight: Bold;
-  font-size: 42px;
-}
-
-.brandlogos {
-  font-family: "Expletus Sans", cursive;
-  font-weight: 400;
-  font-size: 30px;
-  font-style: italic;
-}
-a {
-  text-decoration: none;
-}
-.hd {
-  background-size: cover;
-  background-position: center;
-  height: 0 auto;
-  width: 100%;
-}
-
-.arrow {
-  text-align: center;
-  margin: 30px auto;
-  width: 0px;
-  height: 0px;
-  overflow: hidden;
-  border-width: 10px;
-  border-color: #fff transparent transparent transparent;
-  border-style: solid dashed dashed dashed;
-}
-
-.arrow_bounce {
-  -moz-animation: bounce 2s infinite;
-  -webkit-animation: bounce 2s infinite;
-  animation: bounce 2s infinite;
-}
-
-@keyframes bounce {
-  0%,
-  20%,
-  50%,
-  80%,
-  100% {
-    transform: translateY(0);
+  .footer .gotop {
+    z-index: 1000;
+    text-align: center;
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 50%;
+    background-color: #236f6b;
+    color: #fff;
   }
-  40% {
-    transform: translateY(-10px);
-  }
-  60% {
-    transform: translateY(-5px);
-  }
-}
 
-#popUp {
-  position: fixed;
-  max-width: 350px;
-  height: 170px;
-  margin-bottom: 100px;
-  background: rgba(236, 240, 241, 0.8);
-  /*   border: 7px solid #fff; */
-  bottom: -5%;
-  margin-left: 0;
-  -webkit-transition: all 1s ease;
-  -moz-transition: all 1s ease;
-  -o-transition: all 1s ease;
-  transition: all 1s ease;
-  z-index: 1000;
-  border-radius: 0px 10px 10px 0;
-}
-#new span {
-  background: #ee847d;
-  position: absolute;
-  color: #fff;
-  padding: 4px 10px;
-  font-size: 16px;
-  font-weight: 600;
-  letter-spacing: 1px;
-  margin-top: -15px;
-}
-#popUp .close {
-  color: #464646;
-  right: 10px;
-  top: 8px;
-  position: absolute;
-  font-size: 14px;
-  cursor: pointer;
-}
-#popUp h2 {
-  font-size: 16px;
-  color: #464646;
-  line-height: 16px;
-  font-weight: 400;
-  text-align: center;
-  margin-top: 50px;
-  padding: 0 20px;
-  margin-bottom: 10px;
-}
-.newbtn {
-  margin: 0 auto;
-  text-align: center;
-  right: 0;
-  left: 0;
-  position: absolute;
-  width: 120px;
-  font-size: 15px;
-  color: #fff;
-  border-bottom: 2px solid #18729f;
-  background: #236f6b;
-  border-radius: 4px;
-  padding: 10px 0;
-}
-#plus {
-  position: fixed;
-  color: #fff;
-  bottom: 15%;
-  font-size: 15px;
-  margin-left: -425px;
-  -webkit-transition: all 1.25s ease;
-  -moz-transition: all 1.25s ease;
-  -o-transition: all 1.25s ease;
-  transition: all 1.25s ease;
-  cursor: pointer;
-  text-align: left;
-  letter-spacing: 5px;
-  z-index: 1000;
-}
-#plus span {
-  position: absolute;
-  margin-top: 26px;
-  left: 8px;
-  letter-spacing: 5px;
-  line-height: 25px;
-}
-#plus::after {
-  content: "";
-  display: block;
-  display: relative;
-  border-top: 90px solid #236f6b;
-  border-bottom: 50px solid #236f6b;
-  border-left: 40px solid #236f6b;
-  border-radius: 0px 10px 10px 0;
-}
-@media all and (max-width: 900px) {
+  .footer .gotop:hover {
+    background-color: #fff;
+    color: #236f6b;
+  }
+
+  .brandlogo {
+    font-family: "Expletus Sans", cursive;
+    font-weight: Bold;
+    font-size: 42px;
+  }
+
+  .brandlogos {
+    font-family: "Expletus Sans", cursive;
+    font-weight: 400;
+    font-size: 30px;
+    font-style: italic;
+  }
+  a {
+    text-decoration: none;
+  }
+  .hd {
+    background-size: cover;
+    background-position: center;
+    height: 0 auto;
+    width: 100%;
+  }
+
+  .arrow {
+    text-align: center;
+    margin: 30px auto;
+    width: 0px;
+    height: 0px;
+    overflow: hidden;
+    border-width: 10px;
+    border-color: #fff transparent transparent transparent;
+    border-style: solid dashed dashed dashed;
+  }
+
+  .arrow_bounce {
+    -moz-animation: bounce 2s infinite;
+    -webkit-animation: bounce 2s infinite;
+    animation: bounce 2s infinite;
+  }
+
+  @keyframes bounce {
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+      transform: translateY(0);
+    }
+    40% {
+      transform: translateY(-10px);
+    }
+    60% {
+      transform: translateY(-5px);
+    }
+  }
+
   #popUp {
-    margin-left: -425px;
+    position: fixed;
+    max-width: 350px;
+    height: 170px;
+    margin-bottom: 100px;
+    background: rgba(236, 240, 241, 0.8);
+    /*   border: 7px solid #fff; */
+    bottom: -5%;
+    margin-left: 0;
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    transition: all 1s ease;
+    z-index: 1000;
+    border-radius: 0px 10px 10px 0;
+  }
+  #new span {
+    background: #ee847d;
+    position: absolute;
+    color: #fff;
+    padding: 4px 10px;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-top: -15px;
+  }
+  #popUp .close {
+    color: #464646;
+    right: 10px;
+    top: 8px;
+    position: absolute;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  #popUp h2 {
+    font-size: 16px;
+    color: #464646;
+    line-height: 16px;
+    font-weight: 400;
+    text-align: center;
+    margin-top: 50px;
+    padding: 0 20px;
+    margin-bottom: 10px;
+  }
+  .newbtn {
+    margin: 0 auto;
+    text-align: center;
+    right: 0;
+    left: 0;
+    position: absolute;
+    width: 120px;
+    font-size: 15px;
+    color: #fff;
+    border-bottom: 2px solid #18729f;
+    background: #236f6b;
+    border-radius: 4px;
+    padding: 10px 0;
   }
   #plus {
-    margin-left: 0px;
+    position: fixed;
+    color: #fff;
+    bottom: 15%;
+    font-size: 15px;
+    margin-left: -425px;
+    -webkit-transition: all 1.25s ease;
+    -moz-transition: all 1.25s ease;
+    -o-transition: all 1.25s ease;
+    transition: all 1.25s ease;
+    cursor: pointer;
+    text-align: left;
+    letter-spacing: 5px;
+    z-index: 1000;
   }
-}
-.card-hover img {
-  filter: brightness(1);
-  overflow: hidden;
-}
-.card-hover:hover img {
-  filter: brightness(0.9);
-  // height: 100%;
-  // transform: scale(1.1);
-  transition: 0.5s;
-}
+  #plus span {
+    position: absolute;
+    margin-top: 26px;
+    left: 8px;
+    letter-spacing: 5px;
+    line-height: 25px;
+  }
+  #plus::after {
+    content: "";
+    display: block;
+    display: relative;
+    border-top: 90px solid #236f6b;
+    border-bottom: 50px solid #236f6b;
+    border-left: 40px solid #236f6b;
+    border-radius: 0px 10px 10px 0;
+  }
+  @media all and (max-width: 900px) {
+    #popUp {
+      margin-left: -425px;
+    }
+    #plus {
+      margin-left: 0px;
+    }
+  }
+  .card-hover img {
+    filter: brightness(1);
+    overflow: hidden;
+  }
+  .card-hover:hover img {
+    filter: brightness(0.9);
+    // height: 100%;
+    // transform: scale(1.1);
+    transition: 0.5s;
+  }
 </style>
