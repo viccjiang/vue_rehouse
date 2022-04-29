@@ -35,7 +35,7 @@
           </li>
         </ul>
         <ul class="navbar-nav d-flex align-items-center flex-column flex-lg-row">
-          <div>
+          <li>
             <!-- favorite -->
             <router-link class="nav-link fs-5 position-relative text-secondary" to="/favorite">
               <i class="bi bi-heart"></i
@@ -59,8 +59,8 @@
                 {{ favoriteNum }}
               </div>
             </router-link>
-          </div>
-          <div>
+          </li>
+          <li>
             <!-- <router-link class="nav-link fs-5 position-relative" to="/cart"> -->
             <a href="#" class="nav-link fs-5 position-relative" data-bs-scroll="true" @click.prevent="showOffcanvas">
               <i class="bi bi-bag text-secondary"></i>
@@ -84,12 +84,12 @@
               </div>
               </a>
             <!-- </router-link> -->
-          </div>
-          <div>
+          </li>
+          <li>
             <router-link class="nav-link fs-5 text-secondary" to="/dashboard/products">
               <i class="bi bi-person-circle"></i
             ></router-link>
-          </div>
+          </li>
         </ul>
       </div>
       <!-- <button type="button" class="btn btn-primary">
