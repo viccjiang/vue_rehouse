@@ -110,7 +110,7 @@
                     <p class="badge bg-soft text-center text-light">
                       {{ item.category }}
                     </p>
-                    <h5 class="card-title mb-3">{{ item.title }}</h5>
+                    <a href="#" class="link-soft card-title mb-3 d-block fs-5" @click.prevent="getProduct(item.id)">{{ item.title }}</a>
                     <div
                       class="
                         mb-3
