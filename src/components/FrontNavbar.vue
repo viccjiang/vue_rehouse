@@ -364,9 +364,11 @@ export default {
     },
     updateCartNum() {
       const url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/cart`;
+      this.isLoading = true;
       this.$http.get(url).then((res) => {
         // 清單合併成一個加總數目的品項
         this.cartsLength = res.data.data.carts.length; // 購物車 icon 判斷
+        this.isLoading = false;
         // 清單未合併，icon上的總數是依照加總的總數
         // if (res.data.success) {
         //   let totalQty = 0;
@@ -394,16 +396,18 @@ export default {
         console.log(res);
         this.loadingItem = '';
         this.getCarts();
-        this.isLoading = false;
         emitter.emit('update-cart'); // 更新購物車數量
+        this.isLoading = false;
       });
     },
     getCarts() {
+      this.isLoading = true;
       this.$http
         .get(`${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/cart`)
         .then((res) => {
           // console.log('購物車:', res);
           this.cartData = res.data.data;
+          this.isLoading = false;
         });
     },
     // 刪除購物車品項
