@@ -107,15 +107,10 @@
                     ></div>
                   </a>
                   <div class="card-body">
-                    <div class="d-flex mb-4">
-                      <p class="badge bg-soft text-center text-light">
-                        {{ item.category }}
-                      </p>
-                      <h5 class="card-title mb-3">{{ item.title }}</h5>
-                      <!-- <h6 class="h6 text-secondary">
-                      {{ item.description }}
-                    </h6> -->
-                    </div>
+                    <p class="badge bg-soft text-center text-light">
+                      {{ item.category }}
+                    </p>
+                    <h5 class="card-title mb-3">{{ item.title }}</h5>
                     <div
                       class="
                         mb-3

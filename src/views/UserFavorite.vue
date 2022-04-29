@@ -37,9 +37,9 @@
         class="d-flex flex-column justify-content-center align-items-center"
         v-if="favorites.length === 0"
       >
-        <h3 class="h5 mb-4">目前沒有收藏任何商品...</h3>
-        <router-link to="/products" class="btn btn-soft">
-          來去選購
+        <h3 class="text-center mb-2 pb-3">目前沒有收藏任何商品</h3>
+        <router-link to="/products" class="btn btn-soft mb-5 mb-md-0">
+          <i class="bi bi-bag"></i> 來去收藏喜歡的商品
         </router-link>
       </div>
       <template v-else>
@@ -53,33 +53,40 @@
             >
               <i
                 v-if="myFavorite.includes(item.id)"
+                style="z-index: 1"
                 class="
-                  fs-5
-                  bi bi-heart-fill
+                  fs-4
+                  bi-suit-heart-fill
                   position-absolute
-                  top-00
+                  top-0
                   end-0
-                  me-1
+                  me-2
                   mt-1
                   text-danger
                 "
               ></i>
               <i
                 v-else
+                style="z-index: 1"
                 class="
-                  fs-5
-                  bi bi-heart
+                  fs-4
+                  bi bi-suit-heart
                   position-absolute
-                  top-00
+                  top-0
                   end-0
-                  me-1
+                  me-2
                   mt-1
-                  text-danger
+                  text-white
                 "
               ></i>
             </a>
-            <a href="#" class="rounded-0" @click.prevent="getProduct(item.id)">
+            <a
+              href="#"
+              class="img-card rounded-0"
+              @click.prevent="getProduct(item.id)"
+            >
               <div
+                class="card-imageUrl rounded-0"
                 style="
                   height: 300px;
                   background-size: cover;
@@ -88,37 +95,43 @@
                 :style="{ backgroundImage: `url(${item.imageUrl})` }"
               ></div>
             </a>
-            <!-- <img :src="item.imageUrl" class="card-img-top" alt="..." /> -->
             <div class="card-body">
-              <span class="badge bg-secondary text-light mb-2">{{
-                item.category
-              }}</span>
-              <h5 class="card-title">{{ item.title }}</h5>
-              <h6 class="h6 text-secondary">
-                {{ item.description }}
-              </h6>
-
-              <div class="h5 list-inline-item" v-if="!item.price">
-                {{ item.origin_price }} 元
-              </div>
-              <del
-                class="h6 list-inline-item text-secondary mt-4"
-                v-if="item.price"
-                >原價 NT$ {{ $filters.currency(item.origin_price) }} 元</del
+              <p class="badge bg-soft text-center text-light">
+                {{ item.category }}
+              </p>
+              <h5 class="card-title mb-3">{{ item.title }}</h5>
+              <div
+                class="
+                  mb-3
+                  d-flex
+                  flex-column
+                  justify-content-end
+                  align-items-start
+                "
               >
-              <div class="h5 text-danger mb-3" v-if="item.price">
-                NT$ {{ $filters.currency(item.price) }} 元
+                <div class="h5 list-inline-item" v-if="!item.price">
+                  {{ item.origin_price }} 元
+                </div>
+                <del
+                  class="fs-7 list-inline-item text-secondary"
+                  v-if="item.price"
+                  >原價 NT$
+                  {{ $filters.currency(item.origin_price) }} 元</del
+                >
+                <div class="fs-6 text-danger fw-bold" v-if="item.price">
+                  NT$ {{ $filters.currency(item.price) }} 元
+                </div>
               </div>
-              <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+              <div class="d-grid d-md-flex justify-content-md-between">
                 <button
-                  class="btn btn-outline-secondary rounded-0 border"
+                  class="btn btn-outline-secondary rounded-0 border w-100"
                   type="button"
                   @click="getProduct(item.id)"
                 >
                   查看更多
                 </button>
                 <button
-                  class="btn btn-soft text-light rounded-0 border-0 me-md-2"
+                  class="btn btn-soft text-light rounded-0 border-0 w-100"
                   type="button"
                   :disabled="this.status.loadingItem === item.id"
                   @click="addCart(item.id)"
@@ -139,12 +152,12 @@
       </template>
     </div>
   </div>
-  <!-- 我的最愛 -->
-  <!-- {{ myFavorite.length }} -->
+  <RecommendSwiper></RecommendSwiper>
 </template>
 
 <script>
 import emitter from '@/methods/emitter';
+import RecommendSwiper from '@/components/RecommendSwiper.vue';
 import storageMethods from '../methods/storageMethods';
 
 export default {
@@ -161,6 +174,9 @@ export default {
       myFavorite: storageMethods.get() || [], // 我的最愛，有品項的話就用 storageMethods.get() 取到內容，沒有的話就傳空陣列
       favorites: [],
     };
+  },
+  components: {
+    RecommendSwiper,
   },
   provide() {
     return {
@@ -260,3 +276,18 @@ export default {
   },
 };
 </script>
+
+<style lang="scss">
+  .img-card {
+    width: 100%;
+    overflow: hidden;
+  }
+  .card-imageUrl {
+    overflow: hidden;
+  }
+  .card-imageUrl:hover {
+    transform: scale(1.2);
+    transition: 0.5s;
+    height: 300px;
+  }
+</style>
