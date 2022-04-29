@@ -1,7 +1,7 @@
 <template>
   <FrontNavbar/>
   <ToastMessages/>
-  <router-view/>
+  <RouterView />
   <FrontFooter/>
 </template>
 
