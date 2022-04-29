@@ -4,14 +4,13 @@
       <nav class="nav-item mb-4 d-none d-md-inline-block">
         <ul class="row justify-content-between list-unstyled m-0">
           <li class="navhover col-md-2 p-1 col-lg-2">
-            <router-link to="/" href="#" class="nav-link px-2 text-secondary">
+            <router-link to="/" class="nav-link px-2 text-secondary">
               首頁
             </router-link>
           </li>
           <li class="navhover col-md-2 p-1 col-lg-2">
             <router-link
               to="/about"
-              href="#"
               class="nav-link px-2 text-secondary"
             >
               關於我們
@@ -20,7 +19,6 @@
           <li class="navhover col-md-2 p-1 col-lg-2">
             <router-link
               to="/faq"
-              href="#"
               class="nav-link px-2 text-secondary"
             >
               常見問答
@@ -29,7 +27,6 @@
           <li class="navhover col-md-2 p-1 col-lg-2">
             <router-link
               to="/products"
-              href="#"
               class="nav-link px-2 text-secondary"
             >
               線上商城
@@ -38,7 +35,6 @@
           <li class="navhover col-md-2 p-1 col-lg-2">
             <router-link
               to="/cart"
-              href="#"
               class="nav-link px-2 text-secondary"
             >
               購物車
@@ -47,7 +43,6 @@
           <li class="navhover col-md-2 p-1 col-lg-2">
             <router-link
               to="/contact"
-              href="#"
               class="nav-link px-2 text-secondary"
             >
               聯絡我們
@@ -71,15 +66,15 @@
       <div class="mt-3">© 2022 re.HOUSE COPYRIGHT</div>
       <ul class="d-flex justify-content-center list-unstyled mt-3 mb-0 h4">
         <li>
-          <a href="#" class="text-white mx-3"><i class="bi bi-github"></i></a>
+          <a href="https://github.com/viccjiang/vue_rehouse" class="text-white mx-3"><i class="bi bi-github"></i></a>
         </li>
         <li>
-          <a href="#" class="text-white mx-3"
+          <a href="https://github.com/viccjiang/vue_rehouse" class="text-white mx-3"
             ><i class="bi bi-instagram"></i
           ></a>
         </li>
         <li>
-          <a href="#" class="text-white ms-3"
+          <a href="https://github.com/viccjiang/vue_rehouse" class="text-white ms-3"
             ><i class="bi bi-messenger"></i
           ></a>
         </li>

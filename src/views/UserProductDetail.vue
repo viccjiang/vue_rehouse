@@ -156,7 +156,7 @@
           class="text-secondary d-flex justify-content-end align-items-center"
         >
           <span class="me-3">分享</span>
-          <a href="#" class="link-dark">
+          <a href="https://github.com/viccjiang/vue_rehouse" class="link-dark">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
@@ -170,7 +170,7 @@
               />
             </svg>
           </a>
-          <a href="#" class="link-dark">
+          <a href="https://github.com/viccjiang/vue_rehouse" class="link-dark">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
@@ -184,7 +184,7 @@
               />
             </svg>
           </a>
-          <a href="#" class="link-dark">
+          <a href="https://github.com/viccjiang/vue_rehouse" class="link-dark">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"

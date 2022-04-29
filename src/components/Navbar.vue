@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-dark bg-soft">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">re.HOUSE</a>
+      <router-link class="navbar-brand" to="/">re.HOUSE</router-link>
       <button
         class="navbar-toggler"
         type="button"
