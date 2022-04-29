@@ -135,14 +135,14 @@
                     </div>
                     <div class="d-grid d-md-flex justify-content-md-between">
                       <button
-                        class="btn btn-outline-secondary rounded-0 border w-100"
+                        class="btn btn-outline-secondary rounded-0 border w-100 py-2 mb-3 mb-md-0"
                         type="button"
                         @click="getProduct(item.id)"
                       >
                         查看更多
                       </button>
                       <button
-                        class="btn btn-soft text-light rounded-0 border-0 w-100"
+                        class="btn btn-soft text-light rounded-0 border-0 w-100 py-2"
                         type="button"
                         :disabled="this.status.loadingItem === item.id"
                         @click="addCart(item.id)"
