@@ -27,18 +27,7 @@ export default {
       emitter,
     };
   },
-  // methods: {
-  //   showAlert() {
-  //     // Use sweetalert2
-  //     this.$swal.fire({
-  //       position: 'center',
-  //       icon: 'success',
-  //       title: '已登入',
-  //       showConfirmButton: false,
-  //       timer: 1500,
-  //     });
-  //   },
-  // },
+
   created() {
     const token = document.cookie.replace(/(?:(?:^|.*;\s*)jiangsToken\s*=\s*([^;]*).*$)|^.*$/, '$1');
     this.$http.defaults.headers.common.Authorization = token;
@@ -48,7 +37,6 @@ export default {
       .then((response) => {
         if (response.data.success) {
           this.check = true;
-          // this.showAlert();
         } else {
           this.$router.push('/login');
         }

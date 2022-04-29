@@ -214,29 +214,7 @@
       </div>
     </div>
   </section>
-  <!-- <RandomProducts></RandomProducts> -->
   <RecommendSwiper></RecommendSwiper>
-  <!-- sub -->
-  <!-- <div class="bg-light py-4">
-    <div class="container">
-      <div
-        class="d-flex flex-column flex-md-row justify-content-between
-      align-items-md-center align-items-start"
-      >
-        <p class="mb-0 fw-bold">
-          立即訂閱，獲取最新優惠
-        </p>
-        <div class="input-group w-md-50 mt-md-0 mt-3">
-          <input type="text" class="form-control rounded-0" placeholder="" />
-          <div class="input-group-append">
-            <button class="btn btn-dark rounded-0" type="button" id="search">
-              取得優惠
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div> -->
   <div class="bg-soft text-white py-2 py-md-5">
     <div class="container px-6 px-md-9">
       <ul class="row list-unstyled mb-0 gx-md-9">
@@ -341,32 +319,13 @@
 
 <script>
 import $ from 'jquery';
-// @ is an alias to /src
-// import RandomProducts from '@/components/RandomProducts.vue';
 import RecommendSwiper from '@/components/RecommendSwiper.vue';
-// import '../../node_modules/aos/dist/aos.css';
 import 'aos/dist/aos.css';
 import storageMethods from '../methods/storageMethods';
-
-// const storageMethods = {
-//   // 存檔
-//   save(favorite) {
-//     // 丟進來的東西先做轉型 JSON.stringify
-//     const favoriteString = JSON.stringify(favorite);
-//     // hexFavorite 再做寫入，也就是把東西存進去
-//     localStorage.setItem('hexFavorite', favoriteString);
-//   },
-//   // 取出
-//   get() {
-//     // 把 hexFavorite 欄位從 localStorage 取出時會是字串，所以要再用 JSON.parse 轉為物件
-//     return JSON.parse(localStorage.getItem('hexFavorite'));
-//   },
-// };
 
 export default {
   name: 'Home',
   components: {
-    // RandomProducts,
     RecommendSwiper,
   },
   data() {
@@ -392,7 +351,6 @@ export default {
       } else {
         this.gotop = false;
       }
-      // scrolltop > 30 ? (this.gotop = true) : (this.gotop = false);
     },
     toTop() {
       document.getElementById('app').scrollIntoView();
@@ -437,7 +395,6 @@ export default {
 
 <style lang='scss'>
 @import url("https://fonts.googleapis.com/css2?family=Expletus+Sans:ital,wght@0,400;0,600;0,700;1,500;1,600&display=swap");
-
   .footer .gotop {
     z-index: 1000;
     text-align: center;

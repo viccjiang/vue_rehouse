@@ -73,31 +73,13 @@
         </div>
         <!-- 圖片結束 -->
       </div>
-      <!-- <div
-          id="carouselExampleControls"
-          class="carousel slide"
-          data-ride="carousel"
-        >
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <img :src="product.imageUrl" class="d-block w-100" style="
-            height: 500px;
-            background-position: center center;
-            background-size: cover;
-            object-fit:cover;
-          " alt="..." />
-            </div>
-          </div>
-        </div> -->
       <div class="col-md-5">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb bg-white px-0 mb-0 py-3 fs-6">
             <li class="breadcrumb-item">
-              <!-- <a class="text-muted" href="./index.html">Home</a> -->
               <router-link to="/" class="link-soft">回首頁</router-link>
             </li>
             <li class="breadcrumb-item">
-              <!-- <a class="text-muted" href="./product.html">Product</a> -->
               <router-link to="/products" class="link-soft"
                 >產品列表</router-link
               >
@@ -201,18 +183,6 @@
         </div>
       </div>
     </div>
-    <!-- <swiper :slides-per-view="1" :space-between="50">
-      <swiper-slide v-for="(item, key)  in product.imagesUrl" :key="item.id">
-        <div
-          style="
-            height: 300px;
-            background-position: center center;
-            background-size: cover;
-          "
-          :style="{ backgroundImage: `url(${product.imagesUrl[key]})` }"
-        ></div>
-      </swiper-slide>
-   </swiper> -->
   </div>
   <div class="container">
     <div class="row mt-5 mb-5">
@@ -283,16 +253,6 @@
                 my-5
               "
             >
-              <!-- <div class="col-md-4">
-                <p>
-                  {{ product.category }}
-                </p>
-              </div>
-              <div class="col-md-3">
-                <p class="text-muted">
-                  {{ product.description }}
-                </p>
-              </div> -->
               <div
                 class="col"
                 v-for="(image, id) in product.imagesUrl"
@@ -575,17 +535,10 @@
         </div>
       </div>
     </div>
-    <!-- <ul>
-      <li v-for="item in randomProducts" :key="item">
-        {{ item.title }}
-      </li>
-    </ul> -->
   </div>
 </template>
 
 <script>
-// import { Swiper, SwiperSlide } from 'swiper/vue/swiper-vue';
-// import 'swiper/swiper.scss'; // core Swiper
 import emitter from '../methods/emitter';
 
 // 相同產品取得隨機數
@@ -605,10 +558,6 @@ export default {
       qty: 1, // 畫面上的輸入欄位顯示的預設值
     };
   },
-  // components: {
-  //   Swiper,
-  //   SwiperSlide,
-  // },
   methods: {
     getProduct() {
       // $route 物件取值

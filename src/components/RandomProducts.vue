@@ -91,8 +91,6 @@ export default {
         });
     },
     getLookLike() {
-      // const { category } = this.product;
-      // const filterProducts = this.products.filter((item) => item.category === category); // 取得相同品項
       const maxSize = this.products.length < 3 ? this.products.length : 3;
       // 先新增一個類陣列，所以陣列的方法基本上不太能用
       const arrSet = new Set([]);  // arrSet.size 是類陣列長度

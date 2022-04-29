@@ -1,6 +1,5 @@
 <template>
   <Loading :active="isLoading" />
-  <!-- :slides-per-view="3" :space-between="50" -->
   <div class="container mb-5">
     <h3 class="text-center">WE RECOMMEND</h3>
     <h4 class="text-center mb-5 border-bottom pb-3">推薦商品</h4>
@@ -40,9 +39,6 @@
           >
             {{ item.title }}
           </h5>
-          <!-- <h5 class="btn card-title stretched-link p-0" >{{item.title}}</h5> -->
-          <!-- <button class="btn btn-outline-secondary rounded-0 border " type="button"
-                        @click="getProduct(item.id)">查看更多</button> -->
         </div>
       </swiper-slide>
       <div class="swiper-button-prev"></div>
@@ -136,8 +132,6 @@ export default {
         });
     },
     getLookLike() {
-      // const { category } = this.product;
-      // const filterProducts = this.products.filter((item) => item.category === category); // 取得相同品項
       const maxSize = this.products.length < 5 ? this.products.length : 5;
       // 先新增一個類陣列，所以陣列的方法基本上不太能用
       const arrSet = new Set([]); // arrSet.size 是類陣列長度
@@ -200,9 +194,7 @@ export default {
 
 <style lang='scss' >
   .box {
-    /*   border:1px solid #000; */
     font-size: 16px;
-    // font-weight: 700;
     width: 60px;
     height: auto;
     left: 0px;
