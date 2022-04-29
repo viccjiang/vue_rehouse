@@ -717,6 +717,17 @@ export default {
       });
     },
   },
+  watch: {
+    // 監聽特定值
+    myFavorite: {
+      // 深層監聽
+      handler() {
+        storageMethods.save(this.myFavorite); // 把資料儲存
+        emitter.emit('update-favorite'); // 更新最愛數量
+      },
+      deep: true,
+    },
+  },
   mounted() {
     this.id = this.$route.params.id;
     this.getProduct();
