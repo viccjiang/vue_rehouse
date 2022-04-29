@@ -221,7 +221,7 @@
         <p class="bg-soft m-0 p-3 text-white">顧客資訊</p>
         <div class="col p-5 bg-light">
           <!-- <h3 class="bg-secondary text-light my-5 border p-3">填寫訂購資訊</h3> -->
-          <Form ref="form" class="" v-slot="{ errors }" @submit="createOrder">
+          <Form ref="form" v-slot="{ errors }" @submit="createOrder">
             <div class="mb-3">
               <label for="email" class="form-label"
                 ><span class="text-danger">*</span>Email</label
@@ -518,7 +518,7 @@
         <!-- <h3 class="bg-secondary text-light my-5 border p-3 ">Step２.填寫資料</h3> -->
         <!-- <div class="col mt-5"> -->
           <!-- <h3 class="bg-secondary text-light my-5 border p-3">填寫訂購資訊</h3> -->
-          <!-- <Form ref="form" class="" v-slot="{ errors }" @submit="createOrder">
+          <!-- <Form ref="form" v-slot="{ errors }" @submit="createOrder">
             <div class="mb-3">
               <label for="email" class="form-label"
                 ><span class="text-danger">*</span>Email</label

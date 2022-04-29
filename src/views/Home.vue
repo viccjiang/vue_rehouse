@@ -1,6 +1,6 @@
 <template>
   <section>
-    <div id="carouselExampleCaptions" class="" data-bs-ride="carousel">
+    <div id="carouselExampleCaptions" data-bs-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active ">
           <div
@@ -235,7 +235,7 @@
       <button @click="copyCouponCode" class="btn btn-outline-soft ms-3 btn-sm" id="coupon_btn">複製優惠碼</button>
     </div>
   </div>
-  <div class="" id="plus"><span >領優惠碼</span></div>
+  <div id="plus"><span >領優惠碼</span></div>
 </div>
 <!-- GoTop -->
 <div class="footer">
