@@ -1,5 +1,5 @@
 <template>
-  <Loading :active="isLoading" loader="bars" color="#236F6B"> </Loading>
+  <Loading :active="isLoading" loader="bars" color="#236F6B"/>
   <div class="container mt-3 mt-md-5">
     <div class="row align-items-center">
       <div class="col-md-7">

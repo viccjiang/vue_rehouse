@@ -1,5 +1,5 @@
 <template>
-  <Loading :active="isLoading"></Loading>
+  <Loading :active="isLoading"/>
   <div class="text-end mt-4">
     <button class="btn btn-soft" type="button" @click="openModal(true)">
       建立新的產品

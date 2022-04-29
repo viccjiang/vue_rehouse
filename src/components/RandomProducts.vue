@@ -1,5 +1,5 @@
 <template>
-  <Loading :active="isLoading"></Loading>
+  <Loading :active="isLoading"/>
   <div class="container mb-5">
     <h3 class="text-center">WE RECOMMEND</h3>
     <h4 class="text-center mb-5">推薦商品</h4>

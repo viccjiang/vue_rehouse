@@ -1,5 +1,5 @@
 <template>
-  <Loading :active="isLoading"></Loading>
+  <Loading :active="isLoading"/>
   <!-- :slides-per-view="3" :space-between="50" -->
   <div class="container mb-5">
     <h3 class="text-center">WE RECOMMEND</h3>
