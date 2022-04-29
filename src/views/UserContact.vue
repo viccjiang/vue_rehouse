@@ -76,10 +76,10 @@
             常見問題
           </li>
           <li class="mb-5 text-soft">
-            需要立即查詢，可以參考相關<router-link
+            需要立即查詢，可以參考相關<RouterLink
               class="nav-link d-inline-block p-0"
               to="/faq"
-              >常見問題</router-link
+              >常見問題</RouterLink
             >
           </li>
           <li class="fs-5 fw-bold">

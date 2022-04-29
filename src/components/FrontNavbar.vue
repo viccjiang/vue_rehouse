@@ -1,9 +1,9 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
     <div class="container">
-      <router-link class="navbar-brand brandlogo" to="/"
+      <RouterLink class="navbar-brand brandlogo" to="/"
         ><span class="brandlogos">re.</span>HOUSE
-      </router-link>
+      </RouterLink>
       <button
         class="navbar-toggler"
         type="button"
@@ -29,22 +29,22 @@
           "
         >
           <!-- <li class="nav-item">
-            <router-link class="nav-link" to="/">首頁</router-link>
+            <RouterLink class="nav-link" to="/">首頁</RouterLink>
           </li> -->
           <li class="nav-item">
-            <router-link class="nav-link" to="/about">關於我們</router-link>
+            <RouterLink class="nav-link" to="/about">關於我們</RouterLink>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="/products">產品列表</router-link>
+            <RouterLink class="nav-link" to="/products">產品列表</RouterLink>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="/faq">常見問題</router-link>
+            <RouterLink class="nav-link" to="/faq">常見問題</RouterLink>
           </li>
           <!-- <li class="nav-item">
-            <router-link class="nav-link" to="/cart">購物車</router-link>
+            <RouterLink class="nav-link" to="/cart">購物車</RouterLink>
           </li> -->
           <li class="nav-item">
-            <router-link class="nav-link" to="/contact">聯絡我們</router-link>
+            <RouterLink class="nav-link" to="/contact">聯絡我們</RouterLink>
           </li>
         </ul>
         <ul
@@ -52,7 +52,7 @@
         >
           <li>
             <!-- favorite -->
-            <router-link
+            <RouterLink
               class="nav-link fs-5 position-relative text-secondary"
               to="/favorite"
             >
@@ -75,10 +75,10 @@
                 <!-- 購物車品項數量總數 (重複) -->
                 {{ favoriteNum }}
               </div>
-            </router-link>
+            </RouterLink>
           </li>
           <li>
-            <!-- <router-link class="nav-link fs-5 position-relative" to="/cart"> -->
+            <!-- <RouterLink class="nav-link fs-5 position-relative" to="/cart"> -->
             <a
               href="#"
               class="nav-link fs-5 position-relative"
@@ -105,15 +105,15 @@
                 {{ cartsLength }}
               </div>
             </a>
-            <!-- </router-link> -->
+            <!-- </RouterLink> -->
           </li>
           <li>
-            <router-link
+            <RouterLink
               class="nav-link fs-5 text-secondary"
               to="/dashboard/products"
             >
               <i class="bi bi-person-circle"></i
-            ></router-link>
+            ></RouterLink>
           </li>
         </ul>
       </div>
@@ -274,7 +274,7 @@
         <p class="text-center m-0 fs-6 text-danger mb-3">
           總計 $ {{ $filters.currency(cartData.final_total) }} 元
         </p>
-        <router-link
+        <RouterLink
           class="
             btn btn-soft
             text-center
@@ -287,7 +287,7 @@
           "
           to="/cart"
           @click="hideOffcanvas"
-          >結帳去</router-link
+          >結帳去</RouterLink
         >
         <!-- {{ cartData.carts }} -->
       </div>
@@ -313,15 +313,15 @@
       >
         <p class="m-0">你的購物車沒有商品</p>
         <div class="d-flex align-items-center justify-content-center">
-          <router-link to="/"
+          <RouterLink to="/"
             ><button type="button" class="btn btn-outline-secondary m-2">
               回首頁
-            </button></router-link
+            </button></RouterLink
           >
-          <router-link to="/products"
+          <RouterLink to="/products"
             ><button type="button" class="btn btn-outline-secondary">
               購物去
-            </button></router-link
+            </button></RouterLink
           >
         </div>
       </div>

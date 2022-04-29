@@ -29,10 +29,10 @@
         </h2>
         <div class="d-flex align-items-center justify-content-center mt-5">
           <button type="button" class="btn btn-outline-light me-5">
-            <router-link class="text-light" to="/">返回首頁</router-link>
+            <RouterLink class="text-light" to="/">返回首頁</RouterLink>
           </button>
           <button type="button" class="btn btn-light">
-            <router-link class="text-dark" to="/products">繼續購物</router-link>
+            <RouterLink class="text-dark" to="/products">繼續購物</RouterLink>
           </button>
         </div>
       </div>

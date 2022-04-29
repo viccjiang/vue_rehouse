@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-dark bg-soft">
     <div class="container-fluid">
-      <router-link class="navbar-brand" to="/">re.HOUSE</router-link>
+      <RouterLink class="navbar-brand" to="/">re.HOUSE</RouterLink>
       <button
         class="navbar-toggler"
         type="button"
@@ -15,14 +15,14 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <router-link to="/dashboard/products" class="nav-link"
-            >產品</router-link
+          <RouterLink to="/dashboard/products" class="nav-link"
+            >產品</RouterLink
           >
-          <router-link to="/dashboard/orders" class="nav-link"
-            >訂單</router-link
+          <RouterLink to="/dashboard/orders" class="nav-link"
+            >訂單</RouterLink
           >
-          <router-link to="/dashboard/coupons" class="nav-link"
-            >優惠券</router-link
+          <RouterLink to="/dashboard/coupons" class="nav-link"
+            >優惠券</RouterLink
           >
           <a href="#" @click.prevent="logout" class="nav-link">登出</a>
         </div>

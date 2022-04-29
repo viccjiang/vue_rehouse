@@ -56,9 +56,9 @@
               </div>
             </div>
             <div class="row">
-              <router-link to="/" class="nav-link px-2 text-secondary text-center d-inline">
+              <RouterLink to="/" class="nav-link px-2 text-secondary text-center d-inline">
                 返回首頁
-              </router-link>
+              </RouterLink>
             </div>
           </div>
         </div>

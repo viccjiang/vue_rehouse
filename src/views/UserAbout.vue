@@ -201,14 +201,14 @@
             </a>
           </li>
         </ul>
-        <router-link to="/products">
+        <RouterLink to="/products">
           <button
             type="button"
             class="btn btn-outline-soft rounded-pill mt-4 py-3 px-5"
           >
             屬於你的美好生活指南
           </button>
-        </router-link>
+        </RouterLink>
       </div>
     </div>
   </section>

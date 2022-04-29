@@ -24,14 +24,14 @@
               美好生活，創造你的生活美學
             </p>
 
-            <router-link to="/products">
+            <RouterLink to="/products">
               <button
                 type="button"
                 class="btn btn-outline-light rounded-pill mt-2 py-3 px-5"
               >
                 SHOP NOW
               </button>
-            </router-link>
+            </RouterLink>
             <!-- arrow -->
             <div
               class="
@@ -89,7 +89,7 @@
               <p class="card-text text-secondary mb-0">
                 簡約風格打造你的工作環境，讓生活更簡單！
               </p>
-              <router-link to="/products">
+              <RouterLink to="/products">
                 <button
                   type="button"
                   class="
@@ -103,7 +103,7 @@
                 >
                   立即前往
                 </button>
-              </router-link>
+              </RouterLink>
             </div>
           </div>
         </div>
@@ -122,7 +122,7 @@
                 舒適色調與多款式選擇，讓家更有溫度！
               </p>
 
-              <router-link to="/products">
+              <RouterLink to="/products">
                 <button
                   type="button"
                   class="
@@ -136,7 +136,7 @@
                 >
                   立即前往
                 </button>
-              </router-link>
+              </RouterLink>
             </div>
           </div>
         </div>
@@ -155,7 +155,7 @@
                 一張好的椅子，就能讓你享受一個人的時光。
               </p>
 
-              <router-link to="/products">
+              <RouterLink to="/products">
                 <button
                   type="button"
                   class="
@@ -169,7 +169,7 @@
                 >
                   立即前往
                 </button>
-              </router-link>
+              </RouterLink>
             </div>
           </div>
         </div>

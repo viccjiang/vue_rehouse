@@ -88,9 +88,9 @@
           </dd>
         </dl>
         <div class="d-flex align-items-end justify-content-between mt-5">
-          <router-link class="btn btn-outline-soft" to="/">回首頁</router-link>
-          <router-link class="btn btn-soft" to="/products"
-            >繼續購物</router-link
+          <RouterLink class="btn btn-outline-soft" to="/">回首頁</RouterLink>
+          <RouterLink class="btn btn-soft" to="/products"
+            >繼續購物</RouterLink
           >
         </div>
       </div>
@@ -147,8 +147,8 @@
           </dd>
         </dl>
         <div class="d-flex align-items-end justify-content-between mt-5">
-          <router-link class="btn btn-outline-soft" to="/products"
-            >繼續購物</router-link
+          <RouterLink class="btn btn-outline-soft" to="/products"
+            >繼續購物</RouterLink
           >
           <div v-if="order.is_paid === false">
             <button class="btn btn-soft" @click="payOrder">確認付款去</button>

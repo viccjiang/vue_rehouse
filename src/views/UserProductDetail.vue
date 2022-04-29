@@ -77,11 +77,11 @@
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb bg-white px-0 mb-0 py-3 fs-6">
             <li class="breadcrumb-item">
-              <router-link to="/" class="link-soft">回首頁</router-link>
+              <RouterLink to="/" class="link-soft">回首頁</RouterLink>
             </li>
             <li class="breadcrumb-item">
-              <router-link to="/products" class="link-soft"
-                >產品列表</router-link
+              <RouterLink to="/products" class="link-soft"
+                >產品列表</RouterLink
               >
             </li>
             <li class="breadcrumb-item active" aria-current="page">產品細節</li>

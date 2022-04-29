@@ -38,9 +38,9 @@
         v-if="favorites.length === 0"
       >
         <h3 class="text-center mb-2 pb-3">目前沒有收藏任何商品</h3>
-        <router-link to="/products" class="btn btn-soft mb-5 mb-md-0">
+        <RouterLink to="/products" class="btn btn-soft mb-5 mb-md-0">
           <i class="bi bi-bag"></i> 來去收藏喜歡的商品
-        </router-link>
+        </RouterLink>
       </div>
       <template v-else>
         <div class="col" v-for="item in favorites" :key="item.id">

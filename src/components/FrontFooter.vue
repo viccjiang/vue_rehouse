@@ -4,62 +4,62 @@
       <nav class="nav-item mb-4 d-none d-md-inline-block">
         <ul class="row justify-content-between list-unstyled m-0">
           <li class="navhover col-md-2 p-1 col-lg-2">
-            <router-link to="/" class="nav-link px-2 text-secondary">
+            <RouterLink to="/" class="nav-link px-2 text-secondary">
               首頁
-            </router-link>
+            </RouterLink>
           </li>
           <li class="navhover col-md-2 p-1 col-lg-2">
-            <router-link
+            <RouterLink
               to="/about"
               class="nav-link px-2 text-secondary"
             >
               關於我們
-            </router-link>
+            </RouterLink>
           </li>
           <li class="navhover col-md-2 p-1 col-lg-2">
-            <router-link
+            <RouterLink
               to="/faq"
               class="nav-link px-2 text-secondary"
             >
               常見問答
-            </router-link>
+            </RouterLink>
           </li>
           <li class="navhover col-md-2 p-1 col-lg-2">
-            <router-link
+            <RouterLink
               to="/products"
               class="nav-link px-2 text-secondary"
             >
               線上商城
-            </router-link>
+            </RouterLink>
           </li>
           <li class="navhover col-md-2 p-1 col-lg-2">
-            <router-link
+            <RouterLink
               to="/cart"
               class="nav-link px-2 text-secondary"
             >
               購物車
-            </router-link>
+            </RouterLink>
           </li>
           <li class="navhover col-md-2 p-1 col-lg-2">
-            <router-link
+            <RouterLink
               to="/contact"
               class="nav-link px-2 text-secondary"
             >
               聯絡我們
-            </router-link>
+            </RouterLink>
           </li>
         </ul>
       </nav>
       <div class="pt-3 pt-md-0">
-        <router-link class="navbar-brand brandlogo link-light me-0" to="/"
+        <RouterLink class="navbar-brand brandlogo link-light me-0" to="/"
           ><span class="brandlogos">re.</span>HOUSE
-        </router-link>
+        </RouterLink>
       </div>
       <div class="mt-3">
         本網站僅供個人作品使用，不提供商業用途
         <span class="d-none d-md-inline-block"
-          ><router-link class="p-0 nav-link link-secondary" to="/login"
-            >｜登入後台</router-link
+          ><RouterLink class="p-0 nav-link link-secondary" to="/login"
+            >｜登入後台</RouterLink
           >
         </span>
       </div>
