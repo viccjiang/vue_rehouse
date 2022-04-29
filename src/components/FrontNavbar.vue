@@ -150,7 +150,7 @@
             v-for="item in cartData.carts"
             :key="item.id"
           >
-            <div class="d-flex">
+            <div class="d-flex p-0">
               <!-- offcanvas 刪除單一品項 -->
               <div
                 class="col-2 d-flex align-items-center justify-content-center"
@@ -176,7 +176,7 @@
                 "
               >
                 <div
-                  class="col-2 mb-2"
+                  class="col-2 mb-2 me-2"
                   style="
                     height: 50px;
                     width: 50px;
@@ -188,8 +188,6 @@
                   <!-- {{item.product.imageUrl}} -->
                 </div>
                 <div class="col fs-6 fw-bold">
-                  <!-- <router-link :to="`/product/${item.product_id}`">GO</router-link> -->
-                  <!-- <a href="#" @click.prevent="getProduct(item.product_id)">GO</a> -->
                   {{ item.product.title }}
                 </div>
               </a>
