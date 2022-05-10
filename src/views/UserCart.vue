@@ -129,7 +129,7 @@
                 class="input-group product-num-group bg-light mt-1 mb-0 my-md-0"
               >
                 <!-- 減 -->
-                <div class="">
+                <div >
                   <button
                     :disabled="item.qty <= 1 || loadingItem === item.id"
                     @click="updateCart(item, item.qty--)"
@@ -155,7 +155,7 @@
                   v-model.lazy="item.qty"
                 />
                 <!-- 加 -->
-                <div class="">
+                <div >
                   <button
                     :disabled="loadingItem === item.id"
                     @click="updateCart(item, item.qty++)"
@@ -180,7 +180,6 @@
               <p class="card-text mt-2 text-end">
                 <small class="text-danger">
                   <div
-                    class=""
                     :disabled="loadingItem === item.id"
                     @click="openDelProductModal(item)"
                   >

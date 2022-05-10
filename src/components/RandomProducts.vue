@@ -55,12 +55,11 @@ export default {
       this.isLoading = true;
       this.$http(
         `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/product/${id}`
-      )
-        .then((res) => {
-          this.isLoading = false;
-          this.product = res.data.product; // 賦值
-          this.getProducts(); // 先取得單一產品資訊，再取得所有產品資訊
-        });
+      ).then((res) => {
+        this.isLoading = false;
+        this.product = res.data.product; // 賦值
+        this.getProducts(); // 先取得單一產品資訊，再取得所有產品資訊
+      });
     },
     getProducts() {
       const url = `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/products/all`;
@@ -76,18 +75,17 @@ export default {
       this.isLoading = true;
       this.$http(
         `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/product/${id}`
-      )
-        .then((res) => {
-          this.isLoading = false;
-          this.product = res.data.product; // 賦值
-          this.randomProducts = []; // 轉到新頁面要先清空原本的
-          this.getLookLike();
-        });
+      ).then((res) => {
+        this.isLoading = false;
+        this.product = res.data.product; // 賦值
+        this.randomProducts = []; // 轉到新頁面要先清空原本的
+        this.getLookLike();
+      });
     },
     getLookLike() {
       const maxSize = this.products.length < 3 ? this.products.length : 3;
       // 先新增一個類陣列，所以陣列的方法基本上不太能用
-      const arrSet = new Set([]);  // arrSet.size 是類陣列長度
+      const arrSet = new Set([]); // arrSet.size 是類陣列長度
       getRandomInt();
       for (let index = 0; arrSet.size < maxSize; index + 1) {
         // arrSet.size 不能寫死數字
@@ -149,15 +147,15 @@ export default {
 </script>
 
 <style lang="scss">
-  .box {
-    /*   border:1px solid #000; */
-    font-size: 20px;
-    font-weight: 700;
-    width: 80px;
-    height: auto;
-    left: 30px;
-    justify-content: center;
-    text-align: center;
-    padding: 10px;
-  }
+.box {
+  /*   border:1px solid #000; */
+  font-size: 20px;
+  font-weight: 700;
+  width: 80px;
+  height: auto;
+  left: 30px;
+  justify-content: center;
+  text-align: center;
+  padding: 10px;
+}
 </style>

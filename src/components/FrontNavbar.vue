@@ -214,7 +214,7 @@
                     "
                   >
                     <!-- 減 -->
-                    <div class="">
+                    <div >
                       <button
                         :disabled="item.qty <= 1 || loadingItem === item.id"
                         @click="updateCart(item, item.qty--)"
@@ -240,7 +240,7 @@
                       v-model.lazy="item.qty"
                     />
                     <!-- 加 -->
-                    <div class="">
+                    <div >
                       <button
                         :disabled="loadingItem === item.id"
                         @click="updateCart(item, item.qty++)"
