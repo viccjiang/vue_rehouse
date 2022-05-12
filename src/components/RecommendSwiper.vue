@@ -1,6 +1,6 @@
 <template>
   <Loading :active="isLoading" />
-  <div class="container mb-5">
+  <div class="container mb-5 mt-5">
     <h3 class="text-center">WE RECOMMEND</h3>
     <h4 class="text-center mb-5 border-bottom pb-3">推薦商品</h4>
     <swiper
