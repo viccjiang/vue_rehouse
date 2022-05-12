@@ -124,7 +124,7 @@
               </div>
               <div class="d-grid d-md-flex justify-content-md-between">
                 <button
-                  class="btn btn-outline-secondary rounded-0 border w-100"
+                  class="btn btn-outline-secondary rounded-0 border w-100 mb-3 mb-md-0"
                   type="button"
                   @click="getProduct(item.id)"
                 >
